@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VAT</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#f5f6fa;
+    font-family:Arial,sans-serif;
+    padding:30px;
+}
+
+h1{
+    color:#ff6600;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.kpi-card{
+
+    background:#fff;
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    padding:25px;
+
+    text-align:center;
+
+    height:170px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.kpi-card h6{
+
+    color:#777;
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+.kpi-card h2{
+
+    color:#ff6600;
+
+    font-size:44px;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.table-card{
+
+    margin-top:35px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    padding:20px;
+
+}
+
+.badge-ok{
+
+    background:#198754;
+
+}
+
+.badge-pendente{
+
+    background:#dc3545;
+
+}
+
+.dataTables_wrapper .dataTables_filter input{
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    padding:6px 12px;
+
+}
+
+.dataTables_wrapper .dataTables_length select{
+
+    border-radius:8px;
+
+}
+
+table.dataTable thead th{
+
+    background:#ff6600;
+
+    color:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<h1>
+<i class="bi bi-geo-alt-fill"></i>
+VAT
+</h1>
+
+<div class="row g-4">
+
+<div class="col-lg-3">
+
+<div class="kpi-card">
+
+<h6>Pacotes Consultados</h6>
+
+<h2 id="totalBRs">0</h2>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="kpi-card">
+
+<h6>Pacotes Resolvidos</h6>
+
+<h2 id="resolvidos">0</h2>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="kpi-card">
+
+<h6>Pacotes Não Ajustados</h6>
+
+<h2 id="naoResolvidos">0</h2>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="kpi-card">
+
+<h6>Última Atualização</h6>
+
+<h2 style="font-size:26px;" id="ultimaAtualizacao">--</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="table-card">
+
+<table id="tabelaVAT" class="display nowrap" style="width:100%">
+
+<thead>
+
+<tr>
+
+<th>Pacote</th>
+<th>BR</th>
+<th>Cidade</th>
+<th>Bairro</th>
+<th>Rua</th>
+<th>KM</th>
+<th>Status</th>
+<th>Driver</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+<script>
+
+const API="https://script.google.com/macros/s/AKfycbx7EoTYZQ4Lq3ENVDdWPHk8Irq7mZN96MqrB-HpOBIc4NUxGmPGmIhqj3IN2SXVYT4/exec";
+
+let tabela=null;
+
+async function carregarVAT(){
+
+    try{
+
+        const response=await fetch(API);
+
+        if(!response.ok){
+
+            throw new Error("Erro HTTP "+response.status);
+
+        }
+
+        const dados=await response.json();
+
+        document.getElementById("totalBRs").textContent =
+            dados.totalBRs.toLocaleString("pt-BR");
+
+        document.getElementById("resolvidos").textContent =
+            dados.resolvidos.toLocaleString("pt-BR");
+
+        document.getElementById("naoResolvidos").textContent =
+            dados.naoResolvidos.toLocaleString("pt-BR");
+
+        document.getElementById("ultimaAtualizacao").innerHTML =
+            dados.ultimaAtualizacao.replace(" ","<br>");
+
+        if(tabela){
+
+            tabela.destroy();
+
+        }
+
+        const tbody=document.querySelector("#tabelaVAT tbody");
+
+        tbody.innerHTML="";
+
+        dados.dados.forEach(item=>{
+
+            const badge = item.status=="RESOLVIDO"
+
+                ? `<span class="badge badge-ok">RESOLVIDO</span>`
+
+                : `<span class="badge badge-pendente">${item.status}</span>`;
+
+            tbody.innerHTML += `
+
+            <tr>
+
+                <td>${item.pacote ?? ""}</td>
+
+                <td>${item.br ?? ""}</td>
+
+                <td>${item.cidade ?? ""}</td>
+
+                <td>${item.bairro ?? ""}</td>
+
+                <td>${item.rua ?? ""}</td>
+
+                <td>${item.km ?? ""}</td>
+
+                <td>${badge}</td>
+
+                <td>${item.driver ?? ""}</td>
+
+            </tr>
+
+            `;
+
+        });
+
+        tabela = new DataTable("#tabelaVAT",{
+
+            responsive:true,
+
+            pageLength:20,
+
+            autoWidth:false,
+
+            order:[[1,"asc"]],
+
+            language:{
+
+                search:"Buscar",
+
+                searchPlaceholder:"Pacote, BR, Cidade...",
+
+                lengthMenu:"Mostrar _MENU_ registros",
+
+                info:"Mostrando _START_ a _END_ de _TOTAL_",
+
+                zeroRecords:"Nenhum registro encontrado",
+
+                paginate:{
+
+                    first:"«",
+
+                    previous:"‹",
+
+                    next:"›",
+
+                    last:"»"
+
+                }
+
+            }
+
+        });
+
+    }
+
+    catch(e){
+
+        console.error(e);
+
+        alert(e);
+
+    }
+
+}
+
+carregarVAT();
+
+setInterval(carregarVAT,60000);
+
+</script>
+
+</body>
+
+</html>

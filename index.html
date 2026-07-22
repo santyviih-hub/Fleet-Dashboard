@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Fleet- LMA 02 </title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="logo">
+    <i class="bi bi-truck"></i>
+    <span>Dashboard Fleet- LMA 02</span>
+</div>
+
+      <ul>
+
+    <li class="active">
+        <a href="index.html">
+            <i class="bi bi-speedometer2"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <li
+    data-bs-toggle="modal"
+    data-bs-target="#modalVAT">
+
+    <i class="bi bi-geo-alt"></i>
+
+    <span>VAT</span>
+
+</li>
+
+    <li>
+        <a href="pages/First%20Tripz.html">
+            <i class="bi bi-people"></i>
+            <span>First Tripz</span>
+        </a>
+    </li>
+
+</ul>
+
+    </div>
+
+    <div class="main">
+
+        <div class="content-layout">
+
+    <div class="content-left">
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <h1>Painel de Controle Operacional</h1>
+
+        <div class="header-info">
+
+            <span>
+                <i class="bi bi-buildings"></i>
+                Hub LMA-02
+            </span>
+
+            <div class="divider"></div>
+
+            <span>
+                <i class="bi bi-geo-alt-fill"></i>
+                São Luís
+            </span>
+
+            <div class="divider"></div>
+
+            <span>
+                <i class="bi bi-calendar-event"></i>
+                <span id="dataOperacao">--/--/----</span>
+            </span>
+
+            <div class="divider"></div>
+
+            <span>
+                <i class="bi bi-clock-fill"></i>
+                <span id="horaAtualizacao">--:--</span>
+            </span>
+
+            <div class="divider"></div>
+
+            <span class="status-online">
+                <span class="status-dot"></span>
+                Operação Normal
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <button class="icon-btn" id="btnNotificacao">
+
+            <i class="bi bi-bell"></i>
+
+            <span id="badgeAlerta"></span>
+
+        </button>
+
+        <button class="icon-btn">
+
+            <i class="bi bi-moon"></i>
+
+        </button>
+
+        <div class="user">
+
+         <div class="user-avatar">
+    <i class="bi bi-person-circle"></i>
+</div>
+
+            <span>Santiago</span>
+
+            <i class="bi bi-chevron-down"></i>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- INDICADORES -->
+
+<section class="dashboard-section">
+
+    <div class="section-title">
+
+        <i class="bi bi-speedometer2"></i>
+
+        <h3>Indicadores Operacionais</h3>
+
+    </div>
+
+    <section class="kpi-grid">
+
+        <!-- Volume -->
+
+        <div class="kpi-card">
+            <i class="bi bi-box-seam"></i>
+
+            <div>
+                <span>Volume Total</span>
+                <h2 id="volumeTotal">0</h2>
+            </div>
+
+        </div>
+
+        <!-- ATS -->
+
+        <div class="kpi-card">
+
+    <i class="bi bi-card-checklist"></i>
+
+    <div>
+    <span>Total de ATS</span>
+    <h2 id="totalATS">358</h2>
+  </div>
+</div>
+
+        <!-- NoShow -->
+
+        <div class="kpi-card">
+            <i class="bi bi-person-x"></i>
+
+            <div>
+                <span>ATS No Show</span>
+                <h2 id="atsNoShow">0</h2>
+            </div>
+
+        </div>
+
+        <!-- Atribuída -->
+
+        <div class="kpi-card">
+            <i class="bi bi-person-check"></i>
+
+            <div>
+                <span>ATS Atribuídas</span>
+                <h2 id="atsAtribuida">0</h2>
+            </div>
+
+        </div>
+
+
+<div class="kpi-card">
+    <i class="bi bi-truck"></i>
+
+    <div>
+        <span>ATS Expedidas</span>
+        <h2 id="atExpedida">288</h2>
+    </div>
+</div>
+
+<div class="kpi-card">
+    <i class="bi bi-box2"></i>
+
+    <div>
+        <span>Pacotes Expedidos</span>
+        <h2 id="pctExpedido">29.159</h2>
+    </div>
+</div>
+
+<div class="kpi-card">
+    <i class="bi bi-clipboard-check"></i>
+
+    <div>
+        <span>ATS no Piso</span>
+        <h2 id="atPiso">69</h2>
+    </div>
+</div>
+
+<div class="kpi-card">
+    <i class="bi bi-box-arrow-in-down"></i>
+
+    <div>
+        <span>Pacotes no Piso</span>
+        <h2 id="pctPiso">8.347</h2>
+    </div>
+</div>
+
+<div class="kpi-card">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+
+    <div>
+        <span>Sem Aderência</span>
+        <h2 id="semAderencia">15</h2>
+    </div>
+</div>
+
+<div class="kpi-card">
+    <i class="bi bi-graph-up-arrow"></i>
+
+    <div>
+        <span>SPR</span>
+        <h2 id="spr">98,7%</h2>
+    </div>
+</div>
+
+</section> <!-- fecha kpi-grid -->
+
+<div class="ats-summary">
+
+    <div class="summary-title">
+        <i class="bi bi-bar-chart-fill"></i>
+        <span>Resumo ATS</span>
+    </div>
+
+    <div class="summary-item am">
+        <strong>AM:</strong>
+        <span id="resumoAM">185</span>
+    </div>
+
+    <div class="summary-item pm">
+        <strong>PM:</strong>
+        <span id="resumoPM">173</span>
+    </div>
+
+    <div class="summary-item ns">
+        <strong>NoShow:</strong>
+        <span id="resumoNS">113</span>
+    </div>
+
+    <div class="summary-item atr">
+        <strong>Atribuídas:</strong>
+        <span id="resumoATR">289</span>
+    </div>
+
+    <div class="summary-item exp">
+        <strong>Expedidas:</strong>
+        <span id="resumoEXP">288</span>
+    </div>
+
+</div>
+
+</section> <!-- fecha dashboard-section -->
+
+<!-- TEMPO REAL -->
+
+<section class="dashboard-section">
+
+    <div class="section-title">
+
+        <i class="bi bi-clock-history"></i>
+
+        <h3>CONTROLE FIFO</h3>
+
+    </div>
+
+    <section class="status-grid">
+
+        <div class="status-card">
+    <i class="bi bi-calendar2-week"></i>
+
+    <div class="status-info">
+        <span>0 Dia</span>
+        <h2>245</h2>
+    </div>
+</div>
+
+        <div class="status-card">
+
+    <i class="bi bi-calendar2-week"></i>
+
+    <div class="status-info">
+        <span>1 Dia</span>
+        <h2>40</h2>
+    </div>
+
+</div>
+
+        <div class="status-card">
+
+    <i class="bi bi-calendar2-week"></i>
+
+    <div class="status-info">
+        <span>2 Dias</span>
+        <h2>22</h2>
+    </div>
+
+</div>
+
+       <div class="status-card">
+
+    <i class="bi bi-calendar2-week"></i>
+
+    <div class="status-info">
+        <span>3+ Dias</span>
+        <h2>7</h2>
+    </div>
+
+</div>
+
+    
+       <div class="status-card">
+
+    <i class="bi bi-clock-history"></i>
+
+    <div class="status-info">
+        <span>Início Expedição</span>
+        <h2 id="inicioExpedicao">05:17</h2>
+    </div>
+
+</div>
+
+<div class="status-card">
+
+    <i class="bi bi-people"></i>
+
+    <div class="status-info">
+        <span>Drivers no Hub</span>
+        <h2 id="driversHub">9</h2>
+    </div>
+
+</div>
+
+<div class="status-card">
+
+    <i class="bi bi-grid-3x3-gap"></i>
+
+    <div class="status-info">
+        <span>Bancadas</span>
+        <h2 id="bancadas">13</h2>
+    </div>
+
+</div>
+
+        </div>
+
+    </section>
+
+</section>
+
+<!-- FILTROS -->
+
+<section class="dashboard-section">
+
+    <div class="section-title">
+        <i class="bi bi-funnel"></i>
+        <h3>Filtros Operacionais</h3>
+    </div>
+
+    <div class="filter-card">
+
+        <div class="filter-grid">
+
+            <div class="filter-item">
+                <label>Corredor</label>
+                <select id="filtroCorredor" multiple>
+                    <option value="">Todos</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label>Cidade</label>
+                <select id="filtroCidade" multiple>
+
+    <option value="">Todas</option>
+
+</select>
+            </div>
+
+            <div class="filter-item">
+                <label>Agência</label>
+                <select id="filtroAgencia" multiple>
+                    <option value="">Todas</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label>Status</label>
+                <select id="filtroStatus" multiple>
+                    <option value="">Todos</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label>Janela</label>
+                <select id="filtroJanela" multiple>
+                    <option value="">Todas</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label>Idade</label>
+                <select id="filtroIdade" multiple>
+                    <option value="">Todas</option>
+                </select>
+            </div>
+
+            <div class="filter-buttons">
+
+                <button class="btn-update" id="btnAtualizar">
+                    <i class="bi bi-arrow-repeat"></i>
+                    Atualizar
+                </button>
+
+                <button class="btn-clear" id="btnLimpar">
+                    <i class="bi bi-x-circle"></i>
+                    Limpar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TABELA -->
+
+<section class="dashboard-section">
+
+    <div class="section-title">
+        <i class="bi bi-table"></i>
+        <h3>Operação</h3>
+    </div>
+
+    <div class="table-card">
+
+        <table id="tabelaOperacao" class="display nowrap" style="width:100%">
+
+            <thead>
+
+                <tr>
+                    <th>AT</th>
+                    <th>Cidade</th>
+                    <th>Bairro</th>
+                    <th>Agência</th>
+                    <th>Corredor</th>
+                    <th>Driver</th>
+                    <th>Janela</th>
+                    <th>Status</th>
+                    <th>Pacotes</th>
+                    <th>SPR</th>
+                    <th>Idade</th>
+                </tr>
+
+            </thead>
+
+            <tbody></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+<script src="script.js"></script>
+
+<!-- =========================
+PAINEL DE ALERTAS
+========================= -->
+
+<div id="overlayAlerta" class="overlay-alerta"></div>
+
+<aside id="painelAlertas" class="painel-alertas">
+
+    <!-- Cabeçalho -->
+    <div class="painel-topo">
+
+        <h4>
+            <i class="bi bi-bell"></i>
+            Alertas Operacionais
+        </h4>
+
+        <button id="fecharAlertas">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+    </div>
+
+    <!-- Lista -->
+    <div id="listaAlertas" class="lista-alertas">
+
+<div class="alerta-item">
+
+    <h5>
+        <span class="dot red"></span>
+        Sem Aderência
+    </h5>
+
+    <strong id="alertaSemAderencia">27 ATS</strong>
+
+    <p>Aguardando atribuição.</p>
+
+    <small>
+        <i class="bi bi-clock"></i>
+        Agora mesmo
+    </small>
+
+</div>
+
+<div class="alerta-item">
+
+    <h5>
+        <span class="dot orange"></span>
+        No Show
+    </h5>
+
+    <strong id="alertaNoShow">69 ATS</strong>
+
+    <p>ATS em No Show.</p>
+
+    <small>
+        <i class="bi bi-clock"></i>
+        Agora mesmo
+    </small>
+
+</div>
+
+<div class="alerta-item">
+
+    <h5>
+        <span class="dot yellow"></span>
+        ATS no Piso
+    </h5>
+
+    <strong id="alertaPiso">132 ATS</strong>
+
+    <p>Aguardando expedição.</p>
+
+    <small>
+        <i class="bi bi-clock"></i>
+        Agora mesmo
+    </small>
+
+</div>
+
+<div class="painel-footer">
+
+    <span>Total de alertas</span>
+
+    <h2 id="totalAlertas">228</h2>
+
+    <small>
+        <i class="bi bi-clock"></i>
+        Última atualização:
+        <span id="horaAtualizacaoAlertas">11:58</span>
+    </small>
+
+</div>
+
+</aside>
+<!-- =========================
+MODAL VAT
+========================= -->
+
+<div class="modal fade" id="modalVAT" tabindex="-1">
+
+    <div class="modal-dialog modal-fullscreen">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3 class="modal-title">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    VAT
+                </h3>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body p-0">
+
+                <iframe
+                    src="pages/VAT.html"
+                    style="
+                        width:100%;
+                        height:100%;
+                        border:none;
+                    ">
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
