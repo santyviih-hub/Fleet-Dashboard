@@ -7,7 +7,9 @@
     padding:0;
     box-sizing:border-box;
 }
-
+html{
+    zoom: 67%;
+}
 body{
     font-family:'Poppins',sans-serif;
     background:#f4f6f9;
@@ -22,7 +24,7 @@ body{
     position:fixed;
     left:0;
     top:0;
-    width:220px;
+    width:200px;
     height:100vh;
     background:#111827;
     color:#fff;
@@ -95,7 +97,7 @@ body{
 =========================== */
 
 .main{
-    margin-left:220px;
+    margin-left:200px;
     padding:28px;
     min-height:100vh;
 }
@@ -139,7 +141,7 @@ HEADER NOVO
 
     margin:0;
 
-    font-size:46px;
+    font-size:38px;
 
     font-weight:800;
 
@@ -343,9 +345,9 @@ HEADER NOVO
 
     border-radius:18px;
 
-    height:66px;
+    height:60px;
 
-    padding:18px;
+    padding:14px;
 
     display:flex;
 
@@ -359,9 +361,9 @@ HEADER NOVO
 
 .kpi-card i{
 
-    width:40px;
+    width:36px;
 
-    height:40px;
+    height:36px;
 
     border-radius:14px;
 
@@ -375,7 +377,7 @@ HEADER NOVO
 
     align-items:center;
 
-    font-size:18px;
+    font-size:17px;
 
     flex-shrink:0;
 
@@ -388,7 +390,7 @@ HEADER NOVO
 
 .kpi-title{
     display:block;
-    font-size:15px;
+    font-size:13px;
     color:#666;
 }
 
@@ -396,7 +398,7 @@ HEADER NOVO
 
     margin:0;
 
-    font-size:23px;
+    font-size:20px;
 
     font-weight:700;
 
@@ -443,7 +445,7 @@ CONTROLE FIFO
     background:#111827;
     border-radius:16px;
 
-    height:70px;
+    height:64px;
     padding:14px 16px;
 
     display:flex;
@@ -739,7 +741,7 @@ RESUMO ATS
     background:#fff;
     border-radius:16px;
     padding:0 25px;
-    height:50px;
+    height:46px;
 
     display:flex;
     align-items:center;
