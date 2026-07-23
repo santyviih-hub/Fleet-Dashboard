@@ -22,7 +22,7 @@ body{
     position:fixed;
     left:0;
     top:0;
-    width:260px;
+    width:220px;
     height:100vh;
     background:#111827;
     color:#fff;
@@ -30,7 +30,7 @@ body{
 }
 
 .logo{
-    height:90px;
+    height:72px;
 
     display:flex;
     align-items:center;
@@ -95,8 +95,8 @@ body{
 =========================== */
 
 .main{
-    margin-left:260px;
-    padding:40px;
+    margin-left:220px;
+    padding:28px;
     min-height:100vh;
 }
 
@@ -139,7 +139,7 @@ HEADER NOVO
 
     margin:0;
 
-    font-size:56px;
+    font-size:46px;
 
     font-weight:800;
 
@@ -244,7 +244,7 @@ HEADER NOVO
 
     border-radius:14px;
 
-    padding:25px;
+    padding:18px;
 
     display:flex;
 
@@ -266,9 +266,9 @@ HEADER NOVO
 
 .card-icon{
 
-    width:70px;
+    width:58px;
 
-    height:70px;
+    height:58px;
 
     background:#ff6b00;
 
@@ -282,7 +282,7 @@ HEADER NOVO
 
     align-items:center;
 
-    font-size:30px;
+    font-size:24px;
 
 }
 
@@ -298,7 +298,7 @@ HEADER NOVO
 
 .card-item h2{
 
-    font-size:34px;
+    font-size:28px;
 
     color:#111827;
 
@@ -343,7 +343,7 @@ HEADER NOVO
 
     border-radius:18px;
 
-    height:78px;
+    height:66px;
 
     padding:18px;
 
@@ -359,9 +359,9 @@ HEADER NOVO
 
 .kpi-card i{
 
-    width:48px;
+    width:40px;
 
-    height:48px;
+    height:40px;
 
     border-radius:14px;
 
@@ -375,7 +375,7 @@ HEADER NOVO
 
     align-items:center;
 
-    font-size:22px;
+    font-size:18px;
 
     flex-shrink:0;
 
@@ -396,7 +396,7 @@ HEADER NOVO
 
     margin:0;
 
-    font-size:28px;
+    font-size:23px;
 
     font-weight:700;
 
@@ -443,7 +443,7 @@ CONTROLE FIFO
     background:#111827;
     border-radius:16px;
 
-    height:84px;
+    height:70px;
     padding:14px 16px;
 
     display:flex;
@@ -466,7 +466,7 @@ CONTROLE FIFO
 /* ÍCONE */
 
 .status-card i{
-    font-size:28px;
+    font-size:22px;
     color:#ff6b00;
 }
 
@@ -605,7 +605,7 @@ FILTROS
 .filter-card{
     background:#fff;
     border-radius:18px;
-    padding:20px;
+    padding:16px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
@@ -651,7 +651,7 @@ FILTROS
 }
 
 .btn-update{
-    height:42px;
+    height:38px;
     padding:0 22px;
 
     background:#111827;
@@ -676,7 +676,7 @@ FILTROS
 }
 
 .btn-clear{
-    height:42px;
+    height:38px;
     padding:0 22px;
 
     background:#f4f6fb;
@@ -739,7 +739,7 @@ RESUMO ATS
     background:#fff;
     border-radius:16px;
     padding:0 25px;
-    height:60px;
+    height:50px;
 
     display:flex;
     align-items:center;
