@@ -17,46 +17,70 @@ body{
 }
 
 /* ===========================
-   SIDEBAR
+   SIDEBAR PREMIUM
 =========================== */
 
 .sidebar{
-    position:fixed;
-    left:0;
-    top:0;
-    width:200px;
-    height:100vh;
-    background:#111827;
-    color:#fff;
-    box-shadow:4px 0 15px rgba(0,0,0,.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 220px;
+
+    background: linear-gradient(180deg,#111827 0%,#0f172a 100%);
+
+    overflow-y: auto;
+
+    z-index: 1000;
 }
+/* LOGO */
 
 .logo{
-    height:72px;
+
+    height:80px;
 
     display:flex;
-    align-items:center;
-    justify-content:center;
 
-    gap:10px;
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:12px;
+
+    padding:0 24px;
 
     color:#ff6b00;
 
-    font-size:14px;
+    font-size:17px;
 
     font-weight:700;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    line-height:22px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
 }
 
 .logo i{
-    font-size:30px;
+
+    font-size:34px;
+
+    min-width:34px;
+
 }
 
+/* MENU */
+
 .sidebar ul{
+
     list-style:none;
-    padding:20px 0;
+
+    padding:20px 12px;
+
 }
+
+/* ITEM */
 
 .sidebar li{
 
@@ -64,32 +88,84 @@ body{
 
     align-items:center;
 
-    gap:15px;
+    gap:16px;
 
-    margin:8px 15px;
+    padding:14px 18px;
 
-    padding:15px 20px;
+    margin-bottom:8px;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    cursor:pointer;
+    transition:.25s;
 
-    transition:.3s;
+    font-size:15px;
 
-    font-size:14px;
+    font-weight:500;
+
+    color:#e5e7eb;
 
 }
+
+/* ÍCONES */
 
 .sidebar li i{
+
     font-size:22px;
+
+    width:26px;
+
+    text-align:center;
+
+    color:#d1d5db;
+
+    transition:.25s;
+
 }
+
+/* HOVER */
 
 .sidebar li:hover{
 
+    background:rgba(255,107,0,.12);
+
+    border-left:4px solid #ff6b00;
+
+    transform:translateX(4px);
+
+}
+
+.sidebar li:hover i{
+
+    color:#ff6b00;
+
+}
+
+/* ITEM ATIVO */
+
+.sidebar li.active{
+
     background:#ff6b00;
 
-    transform:translateX(5px);
+    color:#fff;
 
+    font-weight:600;
+
+}
+
+.sidebar li.active i{
+
+    color:#fff;
+
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;      /* força até o final */
+    width: 220px;
+    background: #111827;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
 /* ===========================
@@ -1023,27 +1099,52 @@ PAINEL LATERAL DE ALERTAS
     padding:28px 20px;
 }
 
+.painel-footer{
+
+    text-align:center;
+
+    padding:20px;
+
+    border-top:1px solid #eee;
+
+    background:#fafafa;
+
+}
+
 .painel-footer span{
-    display:block;
-    font-size:17px;
+
+    font-size:15px;
+
+    color:#666;
+
     font-weight:600;
-    color:#333;
+
 }
 
 .painel-footer h2{
-    margin:12px 0;
-    font-size:54px;
-    font-weight:800;
-    color:#ef4444;
+
+    margin:8px 0;
+
+    font-size:42px;      /* antes era muito grande */
+
+    font-weight:700;
+
+    color:#ff6b00;
+
+    line-height:1;
+
 }
 
 .painel-footer small{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:6px;
-    color:#8a8a8a;
-    font-size:14px;
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    color:#888;
+
 }
 .alerta-item strong{
     font-size:18px;

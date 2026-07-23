@@ -88,8 +88,8 @@ h2{
 
 <div class="col-md-4">
 <div class="card p-3">
-<small>Pendentes</small>
-<div id="pendentes" class="valor text-warning">0</div>
+<small>Bairro Ofensor</small>
+<div id="bairroOfensor" class="valor text-warning">--</div>
 </div>
 </div>
 
@@ -167,8 +167,8 @@ async function carregarVAT(){
         document.getElementById("erro").textContent =
             Number(dados.erro || 0).toLocaleString("pt-BR");
 
-        document.getElementById("pendentes").textContent =
-            Number(dados.pendentes || 0).toLocaleString("pt-BR");
+        document.getElementById("bairroOfensor").textContent =
+    dados["bairro ofensor"] || "--";
 
         if(dados.ultima){
 

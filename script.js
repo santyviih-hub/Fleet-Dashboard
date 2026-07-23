@@ -24,13 +24,10 @@ async function iniciarDashboard() {
 
     configurarEventos();
 
-    // Busca os dados
     await buscarDados();
 
-    // Preenche os filtros apenas uma vez
     preencherFiltros();
 
-    // Atualiza o dashboard
     dadosFiltrados = [...dadosOriginais];
 
     atualizarTabela(dadosFiltrados);
@@ -42,10 +39,10 @@ async function iniciarDashboard() {
 
     configurarNotificacoes();
 
-    // Atualiza automaticamente
     setInterval(atualizarDashboard, 60000);
 
 }
+
 
 //------------------------------
 // DASHBOARD
@@ -57,18 +54,10 @@ async function atualizarDashboard() {
 
         await buscarDados();
 
-        dadosFiltrados = [...dadosOriginais];
+        // NÃO recria os filtros
+        aplicarFiltros();
 
-        atualizarTabela(dadosFiltrados);
-
-        atualizarKPIs(dadosFiltrados);
-
-        atualizarResumoATS(dadosFiltrados);
-
-        atualizarFIFO(dadosFiltrados);
-
-        // NOVO
-        atualizarPainelOperacional(dadosFiltrados);
+        atualizarPainelOperacional(dadosOriginais);
 
         atualizarHorario();
 
@@ -205,14 +194,19 @@ function atualizarHorario() {
 // PREENCHER FILTROS
 //------------------------------
 
-function preencherFiltros() {
+function preencherFiltros(){
 
-    preencherSelect("filtroCorredor", "corredor");
-    preencherSelect("filtroCidade", "cidade");
-    preencherSelect("filtroAgencia", "agencia");
-    preencherSelect("filtroStatus", "status");
-    preencherSelect("filtroJanela", "janela");
-    preencherSelect("filtroIdade", "idade");
+    // Se já existe TomSelect, não recria
+    if(document.getElementById("filtroCorredor").tomselect){
+        return;
+    }
+
+    preencherSelect("filtroCorredor","corredor");
+    preencherSelect("filtroCidade","cidade");
+    preencherSelect("filtroAgencia","agencia");
+    preencherSelect("filtroStatus","status");
+    preencherSelect("filtroJanela","janela");
+    preencherSelect("filtroIdade","idade");
 
     criarMultiSelect();
 
@@ -664,30 +658,40 @@ function atualizarKPIs(dados) {
 
 function atualizarResumoATS(dados){
 
-    atualizarElemento(
-        "resumoAM",
-        contarJanela(dados,"AM")
-    );
+    const am = dados.filter(r => r.janela === "AM").length;
 
-    atualizarElemento(
-        "resumoPM",
-        contarJanela(dados,"PM")
-    );
+    const pm = dados.filter(r => r.janela === "PM").length;
 
-    atualizarElemento(
-        "resumoNS",
-        contarStatus(dados,"NOSHOW")
-    );
+    const noShow = dados.filter(r => r.janela === "NO SHOW").length;
 
-    atualizarElemento(
-        "resumoATR",
-        contarStatus(dados,"ATRIB")
-    );
+    const atribuidas = dados.filter(r => {
 
-    atualizarElemento(
-        "resumoEXP",
-        contarStatus(dados,"EXPED")
-    );
+        const agencia = (r.agencia || "").toUpperCase();
+
+        return [
+            "SPXOWNFLEET",
+            "LC TRANSPORTES",
+            "ELOLOGISTICA",
+            "OPTIMIZE",
+            "REVERSÃO",
+            "SUCESSO"
+        ].includes(agencia);
+
+    }).length;
+
+    const expedidas = dados.filter(r => {
+
+        const status = (r.status || "").toUpperCase();
+
+        return status === "ASSIGNED" || status === "COMPLETE";
+
+    }).length;
+
+    atualizarElemento("resumoAM", am);
+    atualizarElemento("resumoPM", pm);
+    atualizarElemento("resumoNS", noShow);
+    atualizarElemento("resumoATR", atribuidas);
+    atualizarElemento("resumoEXP", expedidas);
 
 }
 
