@@ -2,124 +2,52 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VAT</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
 
 body{
-    background:#f5f6fa;
-    font-family:Arial,sans-serif;
-    padding:30px;
-}
-
-h1{
-    color:#ff6600;
-    font-weight:bold;
-    margin-bottom:30px;
-}
-
-.kpi-card{
-
-    background:#fff;
-
-    border:none;
-
-    border-radius:18px;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-
+    background:#f4f7fc;
+    font-family:'Poppins',sans-serif;
     padding:25px;
-
-    text-align:center;
-
-    height:170px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
 }
 
-.kpi-card h6{
-
-    color:#777;
-
-    font-size:18px;
-
-    margin-bottom:15px;
-
-}
-
-.kpi-card h2{
-
-    color:#ff6600;
-
-    font-size:44px;
-
+h2{
     font-weight:700;
-
-    margin:0;
-
 }
 
-.table-card{
-
-    margin-top:35px;
-
-    background:#fff;
-
+.card{
+    border:none;
     border-radius:18px;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-
-    padding:20px;
-
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.badge-ok{
-
-    background:#198754;
-
+.valor{
+    font-size:34px;
+    font-weight:700;
 }
 
-.badge-pendente{
-
-    background:#dc3545;
-
+.progress{
+    height:28px;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.dataTables_wrapper .dataTables_filter input{
-
-    border-radius:10px;
-
-    border:1px solid #ddd;
-
-    padding:6px 12px;
-
+.progress-bar{
+    font-weight:600;
+    font-size:15px;
 }
 
-.dataTables_wrapper .dataTables_length select{
-
-    border-radius:8px;
-
-}
-
-table.dataTable thead th{
-
-    background:#ff6600;
-
-    color:white;
-
+.btn-warning{
+    font-size:18px;
+    padding:12px 25px;
+    border-radius:12px;
 }
 
 </style>
@@ -128,220 +56,160 @@ table.dataTable thead th{
 
 <body>
 
-<div class="container-fluid">
-
-<h1>
-<i class="bi bi-geo-alt-fill"></i>
+<h2 class="mb-4">
+<i class="bi bi-geo-alt-fill text-warning"></i>
 VAT
-</h1>
+</h2>
 
-<div class="row g-4">
+<div class="row g-3">
 
-<div class="col-lg-3">
+<div class="col-md-4">
+<div class="card p-3">
+<small>Total BRs</small>
+<div id="total" class="valor">0</div>
+</div>
+</div>
 
-<div class="kpi-card">
+<div class="col-md-4">
+<div class="card p-3">
+<small>Relocados</small>
+<div id="relocados" class="valor text-success">0</div>
+</div>
+</div>
 
-<h6>Pacotes Consultados</h6>
+<div class="col-md-4">
+<div class="card p-3">
+<small>Consultados</small>
+<div id="consultados" class="valor text-primary">0</div>
+</div>
+</div>
 
-<h2 id="totalBRs">0</h2>
+<div class="col-md-4">
+<div class="card p-3">
+<small>Com Erro</small>
+<div id="erro" class="valor text-danger">0</div>
+</div>
+</div>
 
+<div class="col-md-4">
+<div class="card p-3">
+<small>Pendentes</small>
+<div id="pendentes" class="valor text-warning">0</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card p-3">
+<small>Última atualização</small>
+<div id="ultima" class="valor fs-5">--</div>
+</div>
 </div>
 
 </div>
 
-<div class="col-lg-3">
+<div class="card mt-4 p-4">
 
-<div class="kpi-card">
+<h5 class="mb-3">% Relocados</h5>
 
-<h6>Pacotes Resolvidos</h6>
-
-<h2 id="resolvidos">0</h2>
-
+<div class="progress">
+<div
+id="barra"
+class="progress-bar bg-success"
+style="width:0%">
+0%
+</div>
 </div>
 
 </div>
 
-<div class="col-lg-3">
+<div class="text-center mt-4">
 
-<div class="kpi-card">
+<a
+id="abrirPlanilha"
+class="btn btn-warning"
+target="_blank">
 
-<h6>Pacotes Não Ajustados</h6>
+<i class="bi bi-file-earmark-spreadsheet"></i>
+Abrir Planilha Completa
 
-<h2 id="naoResolvidos">0</h2>
-
-</div>
-
-</div>
-
-<div class="col-lg-3">
-
-<div class="kpi-card">
-
-<h6>Última Atualização</h6>
-
-<h2 style="font-size:26px;" id="ultimaAtualizacao">--</h2>
+</a>
 
 </div>
 
-</div>
-
-</div>
-
-<div class="table-card">
-
-<table id="tabelaVAT" class="display nowrap" style="width:100%">
-
-<thead>
-
-<tr>
-
-<th>Pacote</th>
-<th>BR</th>
-<th>Cidade</th>
-<th>Bairro</th>
-<th>Rua</th>
-<th>KM</th>
-<th>Status</th>
-<th>Driver</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbx7EoTYZQ4Lq3ENVDdWPHk8Irq7mZN96MqrB-HpOBIc4NUxGmPGmIhqj3IN2SXVYT4/exec";
+const API =
+"https://script.google.com/macros/s/AKfycbx7EoTYZQ4Lq3ENVDdWPHk8Irq7mZN96MqrB-HpOBIc4NUxGmPGmIhqj3IN2SXVYT4/exec?tipo=vat";
 
-let tabela=null;
+const LINK_PLANILHA =
+"https://docs.google.com/spreadsheets/d/1stHrx-Dct4gdQXjBqCYLthCe_pbk8SuAboZGx75Le8A/edit?gid=1456285798#gid=1456285798";
+
+document.getElementById("abrirPlanilha").href = LINK_PLANILHA;
 
 async function carregarVAT(){
 
     try{
 
-        const response=await fetch(API);
+        const resposta = await fetch(API);
 
-        if(!response.ok){
-
-            throw new Error("Erro HTTP "+response.status);
-
+        if(!resposta.ok){
+            throw new Error("Erro ao acessar API");
         }
 
-        const dados=await response.json();
+        const dados = await resposta.json();
 
-        document.getElementById("totalBRs").textContent =
-            dados.totalBRs.toLocaleString("pt-BR");
+        console.log("VAT:",dados);
 
-        document.getElementById("resolvidos").textContent =
-            dados.resolvidos.toLocaleString("pt-BR");
+        document.getElementById("total").textContent =
+            Number(dados.total || 0).toLocaleString("pt-BR");
 
-        document.getElementById("naoResolvidos").textContent =
-            dados.naoResolvidos.toLocaleString("pt-BR");
+        document.getElementById("relocados").textContent =
+            Number(dados.relocados || 0).toLocaleString("pt-BR");
 
-        document.getElementById("ultimaAtualizacao").innerHTML =
-            dados.ultimaAtualizacao.replace(" ","<br>");
+        document.getElementById("consultados").textContent =
+            Number(dados.consultados || 0).toLocaleString("pt-BR");
 
-        if(tabela){
+        document.getElementById("erro").textContent =
+            Number(dados.erro || 0).toLocaleString("pt-BR");
 
-            tabela.destroy();
+        document.getElementById("pendentes").textContent =
+            Number(dados.pendentes || 0).toLocaleString("pt-BR");
 
-        }
+        if(dados.ultima){
 
-        const tbody=document.querySelector("#tabelaVAT tbody");
+            const data = new Date(dados.ultima);
 
-        tbody.innerHTML="";
+            if(!isNaN(data.getTime())){
 
-        dados.dados.forEach(item=>{
+                document.getElementById("ultima").textContent =
+                    data.toLocaleString("pt-BR");
 
-            const badge = item.status=="RESOLVIDO"
+            }else{
 
-                ? `<span class="badge badge-ok">RESOLVIDO</span>`
-
-                : `<span class="badge badge-pendente">${item.status}</span>`;
-
-            tbody.innerHTML += `
-
-            <tr>
-
-                <td>${item.pacote ?? ""}</td>
-
-                <td>${item.br ?? ""}</td>
-
-                <td>${item.cidade ?? ""}</td>
-
-                <td>${item.bairro ?? ""}</td>
-
-                <td>${item.rua ?? ""}</td>
-
-                <td>${item.km ?? ""}</td>
-
-                <td>${badge}</td>
-
-                <td>${item.driver ?? ""}</td>
-
-            </tr>
-
-            `;
-
-        });
-
-        tabela = new DataTable("#tabelaVAT",{
-
-            responsive:true,
-
-            pageLength:20,
-
-            autoWidth:false,
-
-            order:[[1,"asc"]],
-
-            language:{
-
-                search:"Buscar",
-
-                searchPlaceholder:"Pacote, BR, Cidade...",
-
-                lengthMenu:"Mostrar _MENU_ registros",
-
-                info:"Mostrando _START_ a _END_ de _TOTAL_",
-
-                zeroRecords:"Nenhum registro encontrado",
-
-                paginate:{
-
-                    first:"«",
-
-                    previous:"‹",
-
-                    next:"›",
-
-                    last:"»"
-
-                }
+                document.getElementById("ultima").textContent =
+                    dados.ultima;
 
             }
 
-        });
+        }else{
 
-    }
+            document.getElementById("ultima").textContent = "--";
 
-    catch(e){
+        }
+
+        const percentual = Number(dados.percentual || 0);
+
+        const barra = document.getElementById("barra");
+
+        barra.style.width = percentual + "%";
+        barra.innerHTML = percentual + "%";
+
+    }catch(e){
 
         console.error(e);
 
-        alert(e);
+        document.getElementById("ultima").textContent =
+            "Erro na API";
 
     }
 
@@ -354,5 +222,4 @@ setInterval(carregarVAT,60000);
 </script>
 
 </body>
-
 </html>

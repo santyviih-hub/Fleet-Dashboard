@@ -63,9 +63,6 @@ async function atualizarDashboard() {
 
         atualizarKPIs(dadosFiltrados);
 
-        console.log(dadosFiltrados[0]);
-console.table(dadosFiltrados.slice(0, 10));
-
         atualizarResumoATS(dadosFiltrados);
 
         atualizarFIFO(dadosFiltrados);
@@ -74,8 +71,6 @@ console.table(dadosFiltrados.slice(0, 10));
         atualizarPainelOperacional(dadosFiltrados);
 
         atualizarHorario();
-
-        console.log(`Dashboard atualizado (${dadosOriginais.length} registros)`);
 
     } catch (erro) {
 
@@ -352,9 +347,11 @@ function atualizarTabela(dados) {
 
     tbody.innerHTML = "";
 
-    dados.forEach(item => {
+    let html = "";
 
-        tbody.innerHTML += `
+dados.forEach(item => {
+
+    html += `
 
         <tr>
 
@@ -382,9 +379,11 @@ function atualizarTabela(dados) {
 
         </tr>
 
-        `;
+    `;
 
-    });
+});
+
+tbody.innerHTML = html;
 
    tabela = new DataTable("#tabelaOperacao",{
 
@@ -889,18 +888,6 @@ function contarDiasMaiorIgual(dados,dias){
     }).length;
 
 }
-function formatarData(data) {
-
-    if (!data) return "";
-
-    const d = new Date(data);
-
-    if (isNaN(d.getTime())) {
-        return data;
-    }
-
-    return d.toLocaleDateString("pt-BR");
-}
 
 // =====================================
 // MULTI SELECT
@@ -967,46 +954,7 @@ function atualizarPainelOperacional(dados) {
         dados[0].bancadas || 0;
 
 }
-function atualizarResumoATS(dados) {
 
-    const am = dados.filter(r =>
-        String(r.janela).trim().toUpperCase() === "AM"
-    ).length;
-
-    const pm = dados.filter(r =>
-        String(r.janela).trim().toUpperCase() === "PM"
-    ).length;
-
-    const noshow = dados.filter(r =>
-        String(r.janela).trim().toUpperCase() === "NO SHOW"
-    ).length;
-
-    const agenciasAtribuidas = new Set([
-        "SPXOWNFLEET",
-        "LC TRANSPORTES",
-        "ELOLOGISTICA",
-        "OPTIMIZE",
-        "REVERSÃO",
-        "SUCESSO"
-    ]);
-
-    const atribuidas = dados.filter(r =>
-        agenciasAtribuidas.has(
-            String(r.agencia).trim().toUpperCase()
-        )
-    ).length;
-
-    const expedidas = dados.filter(r => {
-        const status = String(r.status).trim().toUpperCase();
-        return status === "ASSIGNED" || status === "COMPLETE";
-    }).length;
-
-    document.getElementById("resumoAM").textContent = am;
-    document.getElementById("resumoPM").textContent = pm;
-    document.getElementById("resumoNS").textContent = noshow;
-    document.getElementById("resumoATR").textContent = atribuidas;
-    document.getElementById("resumoEXP").textContent = expedidas;
-}
 function configurarNotificacoes(){
 
     const btn = document.getElementById("btnNotificacao");
