@@ -174,12 +174,12 @@ body{
 
 .main{
     margin-left:200px;
-    padding:28px;
+    padding:12px 28px 28px;
     min-height:100vh;
 }
 
 .main h1{
-    margin-top:30px;
+    margin-top:8px;
     font-size:54px;
     color:#111827;
     font-weight:700;
@@ -421,44 +421,37 @@ HEADER NOVO
 
     border-radius:18px;
 
-    height:60px;
+    height:108px;          /* +50% */
 
-    padding:14px;
+    padding:20px 18px;
 
     display:flex;
 
     align-items:center;
 
-    gap:16px;
+    gap:18px;
 
     box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.25s;
 
 }
 
 .kpi-card i{
 
-    width:36px;
-
-    height:36px;
-
-    border-radius:14px;
+     width:48px;
+    height:48px;
+    border-radius:16px;
 
     background:#ff6b00;
-
     color:#fff;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
-    font-size:17px;
-
+    font-size:22px;
     flex-shrink:0;
-
-    margin:0;
-
 }
 .kpi-content{
     width:100%;
@@ -466,7 +459,7 @@ HEADER NOVO
 
 .kpi-title{
     display:block;
-    font-size:13px;
+     font-size:16px;
     color:#666;
 }
 
@@ -474,9 +467,9 @@ HEADER NOVO
 
     margin:0;
 
-    font-size:20px;
+       font-size:34px;
 
-    font-weight:700;
+      font-weight:800;
 
     line-height:1;
 
@@ -1494,4 +1487,3405 @@ USUÁRIO
 
 .sidebar ul li a:hover{
     color:inherit;
+}
+/*==================================================
+=             BLOCO 1 - BASE PREMIUM
+==================================================*/
+
+:root{
+
+    --shopee:#ff6a00;
+    --shopee-light:#ff8f32;
+    --dark:#111827;
+    --bg:#f5f7fb;
+
+    --card:#ffffff;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:#1f2937;
+
+}
+
+/* Fundo principal */
+
+.main{
+
+    background:
+
+    radial-gradient(circle at top right,
+    rgba(255,106,0,.05),
+    transparent 35%),
+
+    radial-gradient(circle at bottom left,
+    rgba(255,106,0,.04),
+    transparent 30%),
+
+    var(--bg);
+
+}
+
+/* Espaçamento geral */
+
+.content-layout{
+
+    padding:28px;
+
+}
+/*==================================================
+=             BLOCO 2 - CARDS
+==================================================*/
+
+.card,
+.kpi-card,
+.info-card{
+
+    border:none;
+
+    border-radius:22px;
+
+    background:#fff;
+
+    box-shadow:
+
+    0 10px 35px rgba(15,23,42,.08);
+
+    transition:.25s;
+
+}
+
+.card:hover,
+.kpi-card:hover,
+.info-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 18px 40px rgba(15,23,42,.12);
+
+}
+/*==================================================
+=             BLOCO 3 - BOTÕES
+==================================================*/
+
+button,
+.btn{
+
+    border-radius:14px;
+
+    transition:.25s;
+
+}
+
+.btn-primary{
+
+    background:linear-gradient(
+    135deg,
+    #ff7b00,
+    #ff5a00);
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-2px);
+
+}
+/*==================================================
+=             BLOCO 4 - TÍTULOS
+==================================================*/
+
+h1{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+}
+
+.section-title{
+
+    font-weight:700;
+
+    color:#1f2937;
+
+}
+/*==================================================
+=          SIDEBAR PREMIUM V2
+==================================================*/
+
+.sidebar{
+
+    background:
+    linear-gradient(
+        180deg,
+        #141c2d 0%,
+        #111827 100%
+    );
+
+    box-shadow:
+    8px 0 35px rgba(15,23,42,.18);
+
+}
+
+.sidebar::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+    circle at top,
+    rgba(255,106,0,.12),
+    transparent 40%);
+
+    pointer-events:none;
+
+}
+
+.logo{
+
+    padding:28px 22px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.logo i{
+
+    color:#ff6a00;
+
+    font-size:34px;
+
+}
+
+.logo span{
+
+    font-weight:800;
+
+    font-size:16px;
+
+    line-height:22px;
+
+    color:#fff;
+
+}
+
+.sidebar ul{
+
+    margin-top:18px;
+
+}
+
+.sidebar li{
+
+    border-radius:18px;
+
+    margin:10px 12px;
+
+    transition:.30s;
+
+}
+
+.sidebar li.active{
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ff7b00,
+        #ff6200);
+
+    box-shadow:
+
+    0 10px 25px rgba(255,98,0,.35);
+
+}
+
+.sidebar li.active a{
+
+    color:#fff;
+
+}
+
+.sidebar li:hover{
+
+    transform:translateX(6px);
+
+    background:rgba(255,255,255,.05);
+
+}
+
+.sidebar li i{
+
+    transition:.30s;
+
+}
+
+.sidebar li:hover i{
+
+    color:#ff7a00;
+
+}
+/*==================================================
+=          HEADER PREMIUM V2
+==================================================*/
+
+.top-header{
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.92),
+        rgba(255,255,255,.85));
+
+    backdrop-filter:blur(16px);
+
+    border-radius:28px;
+
+    padding:26px 34px;
+
+    box-shadow:
+
+    0 12px 35px rgba(15,23,42,.06);
+
+    border:1px solid rgba(255,255,255,.7);
+
+    margin-bottom:28px;
+
+}
+
+.top-header h1{
+
+    font-size:58px;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    color:#162033;
+
+}
+
+.header-info{
+
+    margin-top:12px;
+
+    gap:20px;
+
+}
+
+.header-info span{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#667085;
+
+}
+
+.header-info i{
+
+    color:#ff6a00;
+
+}
+
+.header-right{
+
+    gap:14px;
+
+}
+/*==================================================
+=          BOTÕES SUPERIORES
+==================================================*/
+
+.icon-btn{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:none;
+
+    box-shadow:
+
+    0 10px 25px rgba(15,23,42,.08);
+
+    transition:.25s;
+
+}
+
+.icon-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 15px 35px rgba(255,106,0,.20);
+
+}
+
+.user{
+
+    background:#fff;
+
+    border-radius:30px;
+
+    padding:8px 16px;
+
+    box-shadow:
+
+    0 10px 25px rgba(15,23,42,.08);
+
+}
+/*==================================================
+KPIs PREMIUM THEME
+==================================================*/
+
+.kpi-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.98),
+            rgba(248,250,252,.96)
+        );
+
+    border:1px solid rgba(226,232,240,.85);
+
+    border-radius:24px;
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.08),
+        inset 0 1px 0 rgba(255,255,255,.90);
+
+    backdrop-filter:blur(12px);
+
+    transition:.35s ease;
+
+    isolation:isolate;
+}
+
+.kpi-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+    right:-120px;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,106,0,.10),
+            transparent 70%
+        );
+
+    transition:.4s;
+
+}
+
+.kpi-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8c2f,
+            #ff6a00
+        );
+
+    transition:.35s;
+
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 22px 45px rgba(15,23,42,.12);
+
+}
+
+.kpi-card:hover::before{
+
+    transform:scale(1.35);
+
+}
+
+.kpi-card:hover::after{
+
+    height:5px;
+
+    box-shadow:0 0 18px rgba(255,106,0,.40);
+
+}
+
+.kpi-card i{
+
+    width:52px;
+    height:52px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8c2f,
+            #ff6a00
+        );
+
+    box-shadow:
+        0 15px 35px rgba(255,106,0,.28);
+
+    transition:.35s;
+}
+
+.kpi-card:hover i{
+
+    transform:
+        rotate(-8deg)
+        scale(1.08);
+
+}
+/*==================================================
+FIFO PREMIUM
+==================================================*/
+
+.status-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #1a2335 0%,
+            #111827 100%
+        );
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+        0 12px 28px rgba(15,23,42,.22),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    transition:.35s ease;
+
+    isolation:isolate;
+}
+
+.status-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+    right:-80px;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,106,0,.18),
+            transparent 70%
+        );
+
+    opacity:.6;
+
+    transition:.35s;
+}
+
+.status-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8c2f,
+            #ff6a00
+        );
+
+    opacity:.1;
+
+    transition:.35s;
+}
+
+.status-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 20px 40px rgba(15,23,42,.35);
+
+}
+
+.status-card:hover::before{
+
+    transform:scale(1.3);
+
+}
+
+.status-card:hover::after{
+
+    height:4px;
+
+    box-shadow:0 0 16px rgba(255,106,0,.45);
+
+}
+
+.status-card i{
+
+    width:46px;
+    height:46px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,106,0,.10);
+
+    color:#ff7b22;
+
+    transition:.35s;
+}
+
+.status-card:hover i{
+
+    background:linear-gradient(
+        135deg,
+        #ff8c2f,
+        #ff6a00
+    );
+
+    color:#fff;
+
+    transform:rotate(-8deg) scale(1.08);
+
+    box-shadow:0 12px 28px rgba(255,106,0,.30);
+
+}
+
+.status-card span{
+
+    color:#d7dde8;
+
+    font-weight:500;
+}
+
+.status-card h2{
+
+    color:#ffffff;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    line-height:1;
+}
+/*==================================================
+RESUMO ATS PREMIUM (MESMA ALTURA)
+==================================================*/
+
+.ats-summary{
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:20px;
+
+    height:84px !important;
+    min-height:84px !important;
+
+    padding:0 24px !important;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.98),
+        rgba(248,250,252,.96)
+    );
+
+    border:1px solid rgba(226,232,240,.85);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 10px 28px rgba(15,23,42,.08),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+    transition:.35s ease;
+
+    isolation:isolate;
+
+}
+
+.ats-summary::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+    right:-80px;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,106,0,.08),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+}
+
+.ats-summary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 36px rgba(15,23,42,.10);
+
+}
+
+.summary-title{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    font-size:18px;
+    font-weight:700;
+
+    color:#1f2937;
+
+    white-space:nowrap;
+
+}
+
+.summary-title i{
+
+    width:46px;
+    height:46px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #ff8c2f,
+        #ff6a00
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+    box-shadow:
+        0 10px 25px rgba(255,106,0,.28);
+
+}
+
+.summary-item{
+
+    flex:1;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:0 12px;
+
+}
+
+.summary-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+
+    height:40px;
+
+    background:#e5e7eb;
+
+}
+
+.summary-item:first-of-type::before{
+
+    display:none;
+
+}
+
+.summary-item strong{
+
+    display:block;
+
+    margin-bottom:2px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:#111827;
+
+}
+
+.summary-item span{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    color:#1f2937;
+
+}
+
+.summary-item.am span{
+    color:#2E7D32;
+}
+
+.summary-item.pm span{
+    color:#1565C0;
+}
+
+.summary-item.ns span{
+    color:#D32F2F;
+}
+
+.summary-item.atr span{
+    color:#F57C00;
+}
+
+.summary-item.exp span{
+    color:#6A1B9A;
+}
+/*==================================================
+FILTROS PREMIUM
+==================================================*/
+
+.filter-card{
+
+    background:linear-gradient(
+        180deg,
+        #ffffff,
+        #fbfcfe
+    );
+
+    border:1px solid rgba(226,232,240,.85);
+
+    border-radius:24px;
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.08),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+    padding:18px 20px;
+
+    transition:.35s;
+}
+
+.filter-card:hover{
+
+    box-shadow:
+        0 20px 42px rgba(15,23,42,.10);
+
+}
+
+.filter-card label{
+
+    font-weight:700;
+
+    color:#374151;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+.filter-card select,
+.filter-card .form-select{
+
+    height:44px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#f3f6fb;
+
+    box-shadow:
+        inset 0 1px 2px rgba(15,23,42,.05);
+
+    transition:.25s;
+
+    font-weight:500;
+
+}
+
+.filter-card select:hover,
+.filter-card .form-select:hover{
+
+    background:#eef3fb;
+
+}
+
+.filter-card select:focus,
+.filter-card .form-select:focus{
+
+    background:#fff;
+
+    border:1px solid #ff6a00;
+
+    box-shadow:
+        0 0 0 4px rgba(255,106,0,.12);
+
+}
+
+.filter-card .btn-primary{
+
+    height:44px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #1f2937,
+        #111827
+    );
+
+    font-weight:700;
+
+    box-shadow:
+        0 10px 24px rgba(17,24,39,.18);
+
+    transition:.3s;
+
+}
+
+.filter-card .btn-primary:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 16px 30px rgba(17,24,39,.28);
+
+}
+
+.filter-card .btn-light{
+
+    height:44px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#f4f6fa;
+
+    color:#374151;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.filter-card .btn-light:hover{
+
+    background:#eceff4;
+
+    transform:translateY(-2px);
+
+}
+/* Atualizar */
+.btn-primary:hover,
+.btn-dark:hover{
+
+    background:#ff6a00 !important;
+    border-color:#ff6a00 !important;
+    color:#fff !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(255,106,0,.35);
+
+}
+
+/* Limpar */
+.btn-light:hover{
+
+    background:#ff6a00 !important;
+    border-color:#ff6a00 !important;
+    color:#fff !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(255,106,0,.35);
+
+}
+
+.btn-light:hover i{
+    color:#fff !important;
+}
+/*==================================================
+COMPACTAR DASHBOARD
+==================================================*/
+
+/* Distância entre as seções */
+.dashboard-section{
+    margin-bottom:22px !important;
+}
+
+/* Título das seções */
+.section-title{
+    margin-bottom:14px !important;
+}
+
+/* KPIs */
+.kpi-grid{
+
+    margin-top:0 !important;
+
+    gap:14px !important;
+
+}
+
+/* Resumo ATS */
+.ats-summary{
+
+    margin-top:14px !important;
+
+}
+
+/* FIFO */
+.status-grid{
+
+    margin-top:0 !important;
+
+    gap:14px !important;
+
+}
+
+/* Filtros */
+.filter-card{
+
+    margin-top:0 !important;
+
+}
+
+/* Tabela */
+.table-card{
+
+    margin-top:0 !important;
+
+}
+/*=====================================
+ DASHBOARD MAIS COMPACTO
+=====================================*/
+
+/* Espaço entre as seções */
+.dashboard-section{
+    margin:14px 0 !important;
+    padding:0 !important;
+}
+
+/* Espaço abaixo do título */
+.section-title{
+    margin-bottom:10px !important;
+}
+
+/* Indicadores */
+.kpi-grid{
+    gap:10px !important;
+    margin-top:0 !important;
+    margin-bottom:10px !important;
+}
+
+/* Resumo ATS */
+.ats-summary{
+    margin:10px 0 !important;
+}
+
+/* FIFO */
+.status-grid{
+    gap:10px !important;
+    margin-top:0 !important;
+    margin-bottom:10px !important;
+}
+
+/* Filtros */
+.filter-card{
+    margin-top:0 !important;
+}
+
+/* Tabela */
+.table-card{
+    margin-top:10px !important;
+}
+/*====================================
+HEADER AMAZON STYLE
+====================================*/
+
+.top-header{
+
+    padding:18px 32px !important;
+
+    min-height:108px !important;
+
+    border-radius:24px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.top-header h1{
+
+    font-size:52px !important;
+
+    line-height:1;
+
+    margin:0 0 8px;
+
+}
+
+.header-info{
+
+    gap:14px;
+
+    margin-top:0 !important;
+
+}
+
+.header-info span{
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+.header-right{
+
+    gap:10px;
+
+}
+
+.icon-btn{
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+}
+
+.user{
+
+    height:46px;
+
+    padding:0 16px;
+
+}
+
+.user-avatar{
+
+    width:40px;
+    height:40px;
+
+}
+/*==================================================
+ SIDEBAR PREMIUM V2
+==================================================*/
+
+.sidebar{
+
+    background:linear-gradient(
+        180deg,
+        #23212a 0%,
+        #1b1d2b 45%,
+        #171b28 100%
+    );
+
+    border-right:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+        12px 0 35px rgba(15,23,42,.18);
+
+}
+
+/*=========================
+LOGO
+=========================*/
+
+.logo{
+
+    padding:26px 18px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    transition:.35s;
+
+}
+
+.logo i{
+
+    font-size:34px;
+
+    color:#ff7a1a;
+
+    filter:
+        drop-shadow(0 0 12px rgba(255,122,26,.35));
+
+}
+
+.logo span{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:#fff;
+
+}
+
+/*=========================
+MENU
+=========================*/
+
+.sidebar ul{
+
+    padding:18px 14px;
+
+}
+
+.sidebar li{
+
+    border-radius:18px;
+
+    margin-bottom:12px;
+
+    transition:.30s;
+
+}
+
+.sidebar li a,
+.sidebar li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 18px;
+
+    color:#d7dce7;
+
+    font-weight:600;
+
+}
+
+/*=========================
+HOVER
+=========================*/
+
+.sidebar li:hover{
+
+    background:rgba(255,255,255,.05);
+
+    transform:translateX(4px);
+
+}
+
+.sidebar li:hover i{
+
+    color:#ff7a1a;
+
+    transform:scale(1.15);
+
+}
+
+/*=========================
+ATIVO
+=========================*/
+
+.sidebar li.active{
+
+    background:linear-gradient(
+        135deg,
+        #ff8d2f,
+        #ff6a00
+    );
+
+    box-shadow:
+        0 16px 35px rgba(255,106,0,.35);
+
+}
+
+.sidebar li.active i,
+.sidebar li.active span{
+
+    color:#fff;
+
+}
+
+/* brilho */
+
+.sidebar li.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:10px;
+
+    bottom:10px;
+
+    width:4px;
+
+    border-radius:10px;
+
+    background:#fff;
+
+}
+
+/*=========================
+ÍCONES
+=========================*/
+
+.sidebar li i{
+
+    width:24px;
+
+    text-align:center;
+
+    font-size:21px;
+
+    transition:.30s;
+
+}
+
+/*=========================
+ANIMAÇÕES
+=========================*/
+
+.sidebar li{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.sidebar li::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    transition:.55s;
+
+}
+
+.sidebar li:hover::after{
+
+    left:150%;
+
+}
+/*==================================================
+SIDEBAR FLOATING V3
+==================================================*/
+
+.sidebar{
+
+    width:185px !important;
+
+    top:14px;
+
+    left:14px;
+
+    bottom:14px;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        180deg,
+        #23222d 0%,
+        #1c1f2d 45%,
+        #171b28 100%
+    );
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+        0 25px 60px rgba(15,23,42,.25),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+}
+
+/* aproxima o conteúdo */
+
+.main{
+
+    margin-left:205px !important;
+
+}
+/*==================================================
+LOGO
+==================================================*/
+
+.logo{
+
+    padding:24px 16px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.logo i{
+
+    font-size:34px;
+
+    color:#ff7a1a;
+
+    filter:drop-shadow(0 0 14px rgba(255,122,26,.45));
+
+}
+
+.logo span{
+
+    font-size:21px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+}
+/*==================================================
+MENU
+==================================================*/
+
+.sidebar ul{
+
+    padding:18px 12px;
+
+}
+
+.sidebar li{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    margin-bottom:10px;
+
+    transition:.30s;
+
+}
+
+.sidebar li a,
+.sidebar li{
+
+    padding:16px;
+
+    gap:14px;
+
+}
+/*==================================================
+HOVER
+==================================================*/
+
+.sidebar li:hover{
+
+    transform:translateX(5px);
+
+    background:rgba(255,255,255,.05);
+
+}
+
+.sidebar li:hover i{
+
+    transform:scale(1.12);
+
+    color:#ff7a1a;
+
+}
+/*==================================================
+ATIVO
+==================================================*/
+
+.sidebar li.active{
+
+    background:linear-gradient(
+        135deg,
+        #ff8d2f,
+        #ff6a00
+    );
+
+    box-shadow:
+        0 18px 35px rgba(255,106,0,.32);
+
+}
+
+.sidebar li.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:10px;
+
+    bottom:10px;
+
+    width:4px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+}
+/*==================================================
+SHINE
+==================================================*/
+
+.sidebar li::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-140%;
+
+    width:70%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transition:.55s;
+
+}
+
+.sidebar li:hover::after{
+
+    left:160%;
+
+}
+/*==================================================
+SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:9px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf1f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        180deg,
+        #ff8d2f,
+        #ff6a00
+    );
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff6a00;
+
+}
+/*==================================================
+PREMIUM BACKGROUND
+==================================================*/
+
+body{
+
+    background:
+
+    radial-gradient(
+        circle at top left,
+        rgba(255,106,0,.04),
+        transparent 25%
+    ),
+
+    radial-gradient(
+        circle at top right,
+        rgba(59,130,246,.03),
+        transparent 25%
+    ),
+
+    linear-gradient(
+        180deg,
+        #f7f9fc,
+        #eef2f7
+    );
+
+}
+/*==================================================
+SIDEBAR AJUSTE AUTOMÁTICO
+==================================================*/
+
+.sidebar{
+
+    width:180px !important;
+
+}
+
+.main{
+
+    margin-left:200px !important;
+
+}
+
+/*=========================
+LOGO
+=========================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 16px 20px;
+
+    min-height:88px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.logo i{
+
+    flex-shrink:0;
+
+    font-size:34px;
+
+    color:#ff7a1a;
+
+    filter:drop-shadow(0 0 12px rgba(255,122,26,.35));
+
+}
+
+.logo span{
+
+    flex:1;
+
+    font-size:15px;
+
+    line-height:1.25;
+
+    font-weight:700;
+
+    color:#fff;
+
+    word-break:break-word;
+
+    overflow-wrap:anywhere;
+
+}
+
+/*=========================
+MENU
+=========================*/
+
+.sidebar ul{
+
+    padding:14px 10px;
+
+}
+
+.sidebar li{
+
+    margin-bottom:8px;
+
+}
+
+.sidebar li a,
+.sidebar li{
+
+    min-height:54px;
+
+    padding:14px;
+
+    gap:12px;
+
+    border-radius:16px;
+
+}
+
+.sidebar li i{
+
+    width:22px;
+
+    font-size:20px;
+
+    text-align:center;
+
+}
+
+.sidebar li span{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    line-height:1.2;
+
+}
+/*==================================================
+SIDEBAR THEME V2
+==================================================*/
+
+.sidebar{
+
+    width:180px !important;
+
+    padding:0;
+
+}
+
+.main{
+
+    margin-left:200px !important;
+
+}
+
+/*=========================
+LOGO
+=========================*/
+
+.logo{
+
+    height:86px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:12px;
+
+    padding:0 18px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.logo i{
+
+    font-size:34px;
+
+    color:#ff7a1a;
+
+}
+
+.logo span{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+
+}
+
+/*=========================
+MENU
+=========================*/
+
+.sidebar ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding:18px 14px;
+
+    margin:0;
+
+}
+
+.sidebar li{
+
+    list-style:none;
+
+}
+
+.sidebar li a,
+.sidebar li{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:14px;
+
+    width:100%;
+
+    height:56px;
+
+    padding:0 18px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    transition:.28s ease;
+
+    color:#d9dce5;
+
+    font-weight:600;
+
+    font-size:15px;
+
+}
+
+/*=========================
+ICONES
+=========================*/
+
+.sidebar li i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:19px;
+
+    flex-shrink:0;
+
+}
+
+/*=========================
+TEXTOS
+=========================*/
+
+.sidebar li span{
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+/*=========================
+HOVER
+=========================*/
+
+.sidebar li:hover{
+
+    transform:translateX(4px);
+
+}
+
+.sidebar li:hover a{
+
+    background:rgba(255,255,255,.05);
+
+}
+
+.sidebar li:hover i{
+
+    color:#ff7a1a;
+
+}
+
+/*=========================
+ATIVO
+=========================*/
+
+.sidebar li.active a{
+
+    background:linear-gradient(
+        135deg,
+        #ff8d2f,
+        #ff6a00
+    );
+
+    color:#fff;
+
+    box-shadow:
+        0 12px 28px rgba(255,106,0,.30);
+
+    position:relative;
+
+}
+
+.sidebar li.active a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:12px;
+
+    bottom:12px;
+
+    width:4px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+}
+
+.sidebar li.active i{
+
+    color:#fff;
+
+}
+
+/*=========================
+EFEITO BRILHO
+=========================*/
+
+.sidebar li.active a::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    animation:shineSidebar 3s infinite;
+
+}
+
+@keyframes shineSidebar{
+
+    0%{
+
+        transform:translateX(-180px);
+
+    }
+
+    100%{
+
+        transform:translateX(180px);
+
+    }
+
+}
+/*==================================================
+CORREÇÃO DO MENU SIDEBAR
+==================================================*/
+
+.sidebar ul{
+
+    margin:0;
+    padding:18px 12px;
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    width:100%;
+    margin-bottom:10px;
+
+}
+
+.sidebar li a{
+
+    width:100%;
+    height:56px;
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    padding:0 16px;
+
+    box-sizing:border-box;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    overflow:hidden;
+
+}
+
+.sidebar li i{
+
+    flex:0 0 22px;
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+.sidebar li span{
+
+    flex:1;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+/* item ativo */
+
+.sidebar li.active a{
+
+    background:linear-gradient(135deg,#ff8d2f,#ff6a00);
+
+    color:#fff;
+
+    position:relative;
+
+    box-shadow:0 14px 30px rgba(255,106,0,.35);
+
+}
+
+.sidebar li.active a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:6px;
+
+    top:10px;
+
+    bottom:10px;
+
+    width:4px;
+
+    border-radius:10px;
+
+    background:#fff;
+
+}
+/*==================================================
+ SIDEBAR V3 PREMIUM
+ PARTE 1 - ESTRUTURA
+==================================================*/
+
+/* ------------------------------
+   SIDEBAR
+------------------------------*/
+
+.sidebar{
+
+    position:fixed;
+
+    top:12px;
+    left:12px;
+    bottom:12px;
+
+    width:240px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2a2224 0%,
+            #1e2030 45%,
+            #191d2b 100%
+        );
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+        0 18px 45px rgba(15,23,42,.28),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    overflow:hidden;
+
+    z-index:999;
+
+    transition:.35s ease;
+
+}
+
+/* iluminação superior */
+
+.sidebar::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:180px;
+
+    background:
+
+        radial-gradient(
+
+            circle at top,
+
+            rgba(255,120,25,.08),
+
+            transparent 70%
+
+        );
+
+    pointer-events:none;
+
+}
+
+/* ------------------------------
+   CONTEÚDO
+------------------------------*/
+
+.main{
+
+    margin-left:265px;
+
+    transition:.35s;
+
+}
+
+/* ------------------------------
+   LOGO
+------------------------------*/
+
+.logo{
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 18px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.logo i{
+
+    font-size:34px;
+
+    color:#ff7a1a;
+
+    flex-shrink:0;
+
+    filter:
+
+        drop-shadow(
+
+            0 0 12px rgba(255,122,26,.35)
+
+        );
+
+}
+
+.logo span{
+
+    flex:1;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    line-height:1.25;
+
+    letter-spacing:.2px;
+
+}
+
+/* ------------------------------
+   MENU
+------------------------------*/
+
+.sidebar ul{
+
+    margin:0;
+
+    padding:18px 12px;
+
+    list-style:none;
+
+}
+
+/* ------------------------------
+   ITENS
+------------------------------*/
+
+.sidebar li{
+
+    position:relative;
+
+    margin-bottom:10px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+/* remove qualquer estilo antigo */
+
+.sidebar li::before,
+.sidebar li::after{
+
+    content:none !important;
+
+}
+/*==================================================
+ SIDEBAR V3 PREMIUM
+ PARTE 2 - MENU
+==================================================*/
+
+/*------------------------------------
+LINKS
+------------------------------------*/
+
+.sidebar li a{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    height:56px;
+
+    padding:0 22px;
+
+    gap:14px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#d9dde8;
+
+    box-sizing:border-box;
+
+    transition:
+        background .28s ease,
+        color .28s ease,
+        transform .28s ease,
+        box-shadow .28s ease;
+
+}
+
+/*------------------------------------
+ÍCONES
+------------------------------------*/
+
+.sidebar li a i{
+
+    flex:0 0 22px;
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    color:#cfd4df;
+
+    transition:.28s ease;
+
+}
+
+/*------------------------------------
+TEXTOS
+------------------------------------*/
+
+.sidebar li a span{
+
+    flex:1;
+
+    display:block;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    line-height:1;
+
+    color:inherit;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+/*------------------------------------
+HOVER
+------------------------------------*/
+
+.sidebar li:hover a{
+
+    background:rgba(255,255,255,.05);
+
+    transform:translateX(4px);
+
+}
+
+.sidebar li:hover a i{
+
+    color:#ff7a1a;
+
+    transform:scale(1.08);
+
+}
+
+.sidebar li:hover a span{
+
+    color:#fff;
+
+}
+
+/*------------------------------------
+REMOVE ESTILOS ANTIGOS
+------------------------------------*/
+
+.sidebar li,
+.sidebar li a{
+
+    border:none;
+
+    outline:none;
+
+}
+
+/*------------------------------------
+ESPAÇAMENTO
+------------------------------------*/
+
+.sidebar ul li:last-child{
+
+    margin-bottom:0;
+
+}
+
+/*------------------------------------
+FOCUS
+------------------------------------*/
+
+.sidebar li a:focus{
+
+    outline:none;
+
+}
+
+/*------------------------------------
+TRANSIÇÕES
+------------------------------------*/
+
+.sidebar li,
+.sidebar li a,
+.sidebar li i,
+.sidebar li span{
+
+    transition:.28s ease;
+
+}
+/*==================================================
+ SIDEBAR V3 PREMIUM
+ PARTE 3 - ITEM ATIVO
+==================================================*/
+
+/*------------------------------------
+ITEM ATIVO
+------------------------------------*/
+
+.sidebar li.active{
+
+    background:none !important;
+
+}
+
+.sidebar li.active a{
+
+    position:relative;
+
+    background:linear-gradient(
+        135deg,
+        #ff8d2f 0%,
+        #ff6a00 100%
+    );
+
+    color:#fff;
+
+    box-shadow:
+        0 12px 28px rgba(255,106,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+}
+
+/*------------------------------------
+BARRA LATERAL
+------------------------------------*/
+
+.sidebar li.active a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:10px;
+
+    bottom:10px;
+
+    width:4px;
+
+    border-radius:0 8px 8px 0;
+
+    background:#fff;
+
+    opacity:.95;
+
+}
+
+/*------------------------------------
+ÍCONE
+------------------------------------*/
+
+.sidebar li.active a i{
+
+    color:#fff;
+
+    transform:scale(1.08);
+
+}
+
+/*------------------------------------
+TEXTO
+------------------------------------*/
+
+.sidebar li.active a span{
+
+    color:#fff;
+
+    font-weight:700;
+
+}
+
+/*------------------------------------
+BRILHO PASSANDO
+------------------------------------*/
+
+.sidebar li.active a::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-140%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:sidebarShine 4s infinite;
+
+}
+
+@keyframes sidebarShine{
+
+    0%{
+
+        left:-140%;
+
+    }
+
+    45%{
+
+        left:160%;
+
+    }
+
+    100%{
+
+        left:160%;
+
+    }
+
+}
+
+/*------------------------------------
+HOVER DO ITEM ATIVO
+------------------------------------*/
+
+.sidebar li.active:hover a{
+
+    transform:translateX(2px);
+
+    box-shadow:
+        0 18px 36px rgba(255,106,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.20);
+
+}
+
+/*------------------------------------
+GLOW
+------------------------------------*/
+
+.sidebar li.active{
+
+    filter:
+
+        drop-shadow(
+            0 10px 22px rgba(255,106,0,.18)
+        );
+
+}
+/*==================================================
+ SIDEBAR V3 PREMIUM
+ PARTE 4 - ACABAMENTO
+==================================================*/
+
+/*=====================================
+SCROLLBAR
+=====================================*/
+
+.sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:20px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover{
+
+    background:#ff7a1a;
+
+}
+
+/*=====================================
+DIVISOR
+=====================================*/
+
+.logo{
+
+    position:relative;
+
+}
+
+.logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    right:18px;
+
+    bottom:0;
+
+    height:1px;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+/*=====================================
+ANIMAÇÃO GERAL
+=====================================*/
+
+.sidebar *{
+
+    transition:
+        background .28s ease,
+        color .28s ease,
+        transform .28s ease,
+        box-shadow .28s ease,
+        opacity .28s ease;
+
+}
+
+/*=====================================
+ÍCONE
+=====================================*/
+
+.sidebar li a i{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+/*=====================================
+CORREÇÃO DE ALINHAMENTO
+=====================================*/
+
+.sidebar ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.sidebar li{
+
+    width:100%;
+
+}
+
+.sidebar li a{
+
+    justify-content:flex-start;
+
+}
+
+/*=====================================
+RESPONSIVO
+=====================================*/
+
+@media (max-width:1200px){
+
+    .sidebar{
+
+        width:82px;
+
+    }
+
+    .main{
+
+        margin-left:102px;
+
+    }
+
+    .logo{
+
+        justify-content:center;
+
+        padding:0;
+
+    }
+
+    .logo span{
+
+        display:none;
+
+    }
+
+    .sidebar li a{
+
+        justify-content:center;
+
+        padding:0;
+
+    }
+
+    .sidebar li a span{
+
+        display:none;
+
+    }
+
+    .sidebar li a i{
+
+        margin:0;
+
+        font-size:22px;
+
+    }
+
+}
+
+/*=====================================
+MICRODETALHES
+=====================================*/
+
+.sidebar{
+
+    backdrop-filter:blur(18px);
+
+}
+
+.sidebar li{
+
+    cursor:pointer;
+
+}
+
+.sidebar li:active{
+
+    transform:scale(.98);
+
+}
+
+.sidebar li.active:active{
+
+    transform:scale(.98);
+
+}
+
+.sidebar li:hover{
+
+    z-index:2;
+
+}
+
+.logo i{
+
+    transition:.35s;
+
+}
+
+.logo:hover i{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+/*=====================================
+FINAL
+=====================================*/
+
+.sidebar{
+
+    user-select:none;
+
+}
+
+.sidebar a{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+/* =====================================================
+   SIDEBAR - CORREÇÃO FINAL
+   Cole no FINAL do style.css
+===================================================== */
+
+/* Sidebar */
+.sidebar{
+    width:240px !important;
+}
+
+/* Conteúdo */
+.main{
+    margin-left:265px !important;
+}
+
+/* Lista */
+.sidebar ul{
+    padding:18px 14px !important;
+}
+
+/* Item */
+.sidebar li{
+    width:100% !important;
+    margin-bottom:12px !important;
+}
+
+/* Link */
+.sidebar li a{
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    width:100% !important;
+    height:58px !important;
+
+    padding:0 20px !important;
+
+    gap:14px !important;
+
+    border-radius:18px !important;
+
+    box-sizing:border-box !important;
+
+    text-decoration:none !important;
+
+    overflow:hidden !important;
+
+}
+
+/* Ícone */
+
+.sidebar li a i{
+
+    width:24px !important;
+    min-width:24px !important;
+
+    font-size:20px !important;
+
+    text-align:center !important;
+
+    margin:0 !important;
+
+}
+
+/* Texto */
+
+.sidebar li a span{
+
+    flex:1 !important;
+
+    display:block !important;
+
+    font-size:15px !important;
+
+    font-weight:600 !important;
+
+    white-space:nowrap !important;
+
+    overflow:visible !important;
+
+    text-overflow:clip !important;
+
+}
+
+/* Item ativo */
+
+.sidebar li.active a{
+
+    width:100% !important;
+
+    margin:0 !important;
+
+    padding-left:20px !important;
+
+    justify-content:flex-start !important;
+
+}
+
+/* Hover */
+
+.sidebar li:hover a{
+
+    width:100% !important;
+
+}
+
+/* Remove qualquer deslocamento antigo */
+
+.sidebar li,
+.sidebar li a,
+.sidebar li.active,
+.sidebar li.active a{
+
+    transform:none !important;
+
+    left:auto !important;
+
+    right:auto !important;
+
+}
+
+/* Logo */
+
+.logo{
+
+    padding:0 20px !important;
+
+}
+
+.logo span{
+
+    white-space:nowrap !important;
+
+}
+/* ==========================================
+   ALINHAMENTO FINAL DOS ITENS
+========================================== */
+
+.sidebar li a{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    padding: 0 20px !important;
+}
+
+.sidebar li a i{
+    width: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    font-size: 21px !important;
+
+    margin: 0 !important;
+}
+
+.sidebar li a span{
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    font-size: 15px !important;
+    font-weight: 600 !important;
+
+    line-height: 1 !important;
+
+    flex: 1 !important;
+
+    text-align: left !important;
+}
+/*==================================================
+CORREÇÃO FINAL DA SIDEBAR
+==================================================*/
+
+/* Todos os itens usam o mesmo layout */
+.sidebar ul li,
+.sidebar ul li a{
+
+    display:flex !important;
+    align-items:center !important;
+
+    width:100% !important;
+    height:58px !important;
+
+    padding:0 18px !important;
+
+    gap:16px !important;
+
+    border-radius:18px !important;
+
+    text-decoration:none !important;
+
+    box-sizing:border-box !important;
+
+    color:#d9dde8 !important;
+
+    font-size:15px !important;
+    font-weight:600 !important;
+
+    transition:.25s;
+
+}
+
+/* Ícones alinhados */
+.sidebar ul li i,
+.sidebar ul li a i{
+
+    width:24px !important;
+    min-width:24px !important;
+    max-width:24px !important;
+
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+
+    font-size:20px !important;
+
+    margin:0 !important;
+
+}
+
+/* Texto alinhado */
+.sidebar ul li span,
+.sidebar ul li a span{
+
+    display:block !important;
+
+    flex:1 !important;
+
+    margin:0 !important;
+
+    padding:0 !important;
+
+    text-align:left !important;
+
+    white-space:nowrap !important;
+
+    overflow:visible !important;
+
+    text-overflow:clip !important;
+
+}
+
+/* Hover */
+.sidebar ul li:hover{
+
+    background:rgba(255,255,255,.05) !important;
+
+}
+
+/* Item ativo */
+.sidebar ul li.active{
+
+    background:linear-gradient(135deg,#ff8d2f,#ff6a00) !important;
+
+    box-shadow:0 14px 28px rgba(255,106,0,.35) !important;
+
+    position:relative;
+
+}
+
+.sidebar ul li.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:10px;
+
+    bottom:10px;
+
+    width:4px;
+
+    background:#fff;
+
+    border-radius:6px;
+
+}
+
+.sidebar ul li.active i,
+.sidebar ul li.active span{
+
+    color:#fff !important;
+
+}
+
+/* Remove qualquer deslocamento antigo */
+.sidebar ul li,
+.sidebar ul li a{
+
+    transform:none !important;
+
+    margin-left:0 !important;
+
+    left:auto !important;
+
+}
+/*=====================================
+FILTROS PREMIUM V2
+=====================================*/
+
+.filter-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8fafc 100%
+    );
+
+    border:1px solid rgba(255,122,26,.18);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    box-shadow:
+        0 15px 40px rgba(15,23,42,.10),
+        0 0 0 1px rgba(255,122,26,.05);
+
+}
+
+/* brilho superior */
+
+.filter-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:5px;
+
+    background:linear-gradient(
+        90deg,
+        #ff8a2b,
+        #ff6a00,
+        #ff8a2b
+    );
+
+}
+
+/* título */
+
+.section-title{
+
+    margin-bottom:16px !important;
+
+}
+
+.section-title h3{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    color:#1f2937;
+
+}
+
+.section-title i{
+
+    color:#ff6a00;
+
+    font-size:24px;
+
+}
+
+/* labels */
+
+.filter-item label{
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#374151;
+
+    margin-bottom:10px;
+
+}
+
+/* selects */
+
+.filter-item select,
+.ts-control{
+
+    height:48px !important;
+
+    border-radius:14px !important;
+
+    background:#f3f5fb !important;
+
+    border:2px solid transparent !important;
+
+    transition:.25s;
+
+    box-shadow:none !important;
+
+}
+
+.filter-item select:hover,
+.ts-control:hover{
+
+    background:#fff !important;
+
+    border-color:#ffd3b3 !important;
+
+}
+
+.filter-item select:focus,
+.ts-wrapper.focus .ts-control{
+
+    background:#fff !important;
+
+    border-color:#ff6a00 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(255,106,0,.15) !important;
+
+}
+
+/* botões */
+
+.btn-update{
+
+    height:48px !important;
+
+    padding:0 28px !important;
+
+    border-radius:14px !important;
+
+    background:linear-gradient(
+        135deg,
+        #1f2937,
+        #111827
+    ) !important;
+
+    font-weight:700;
+
+    box-shadow:
+        0 10px 24px rgba(17,24,39,.22);
+
+}
+
+.btn-update:hover{
+
+    transform:translateY(-3px);
+
+    background:linear-gradient(
+        135deg,
+        #ff7a1a,
+        #ff5f00
+    ) !important;
+
+}
+
+.btn-clear{
+
+    height:48px !important;
+
+    padding:0 26px !important;
+
+    border-radius:14px !important;
+
+    background:#eef2f7 !important;
+
+    font-weight:700;
+
+}
+
+.btn-clear:hover{
+
+    background:#ff6a00 !important;
+
+    color:#fff !important;
+
+    transform:translateY(-3px);
+
+}
+/*=====================================
+HEADER ALINHADO COM A SIDEBAR
+=====================================*/
+
+.main{
+
+    margin-left:205px !important;
+
+    padding-top:14px !important;
+
+}
+
+.top-header{
+
+    margin-top:0 !important;
+
+    min-height:92px;
+
+    display:flex;
+
+    align-items:center;
+
+    border-radius:26px;
+
+}
+
+/* Remove qualquer margem do primeiro elemento */
+
+.content-layout{
+
+    padding-top:0 !important;
+
+}
+
+.content-left{
+
+    padding-top:0 !important;
+
+}
+
+/* Primeiro bloco do dashboard */
+
+.dashboard-section:first-of-type{
+
+    margin-top:18px !important;
+
 }
