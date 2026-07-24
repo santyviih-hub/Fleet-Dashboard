@@ -1072,3 +1072,27 @@ function atualizarAlertas(info) {
 
     badge.style.display = total > 0 ? "block" : "none";
 }
+/* ==========================
+   PAINEL DESLIZANTE
+========================== */
+
+const painelPagina = document.getElementById("painelPagina");
+const fecharPainel = document.getElementById("fecharPainel");
+
+// Abrir painel
+function abrirPainel() {
+    painelPagina.classList.add("ativo");
+}
+
+// Fechar painel
+function fecharPainelPagina() {
+    painelPagina.classList.remove("ativo");
+}
+
+fecharPainel.addEventListener("click", fecharPainelPagina);
+const btnVAT = document.getElementById("btnVAT");
+
+btnVAT.addEventListener("click", function (e) {
+    e.preventDefault();
+    abrirPainel();
+});
