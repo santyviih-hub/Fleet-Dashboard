@@ -1136,48 +1136,68 @@ document.getElementById("btnVAT").addEventListener("click", async function (e) {
     await carregarVAT();
 
 });
-async function carregarVAT(){
+async function carregarVAT() {
 
-    try{
+    try {
 
         const resposta = await fetch(API_VAT);
 
-        if(!resposta.ok){
-
+        if (!resposta.ok) {
             throw new Error("Erro ao carregar VAT");
-
         }
 
         const dados = await resposta.json();
 
-       document.getElementById("vatRelocados").textContent =
-    Number(dados.relocados || 0).toLocaleString("pt-BR");
+        // ATS Totais
+        document.getElementById("vatTotal").textContent =
+            Number(dados.total || 0).toLocaleString("pt-BR");
 
-document.getElementById("vatConsultados").textContent =
-    Number(dados.consultados || 0).toLocaleString("pt-BR");
+        // Relocados
+        document.getElementById("vatRelocados").textContent =
+            Number(dados.relocados || 0).toLocaleString("pt-BR");
 
-document.getElementById("vatErro").textContent =
-    Number(dados.erro || 0).toLocaleString("pt-BR");
+        // Consultados
+        document.getElementById("vatConsultados").textContent =
+            Number(dados.consultados || 0).toLocaleString("pt-BR");
 
-document.getElementById("vatBairro").textContent =
-    dados["bairro ofensor"] || "--";
+        // Com Erro
+        document.getElementById("vatErro").textContent =
+            Number(dados.erro || 0).toLocaleString("pt-BR");
 
-if (dados.ultima) {
+        // Bairro Ofensor
+        document.getElementById("vatBairro").textContent =
+            dados["bairro ofensor"] || "--";
 
-    const data = new Date(dados.ultima);
+        // % Relocados
+            const percentual = Number(dados.percentual || 0);
 
-    document.getElementById("vatUltima").textContent =
-        data.toLocaleString("pt-BR");
+document.getElementById("vatPercentual").textContent =
+    percentual.toFixed(1) + "%";
 
-} else {
+document.getElementById("vatBarra").style.width =
+    percentual + "%";
 
-    document.getElementById("vatUltima").textContent = "--";
+        // Última atualização
+        if (dados.ultima) {
 
-}
+            const data = new Date(dados.ultima);
 
-    }catch(e){
+            document.getElementById("vatUltima").textContent =
+                data.toLocaleDateString("pt-BR") + " " +
+                data.toLocaleTimeString("pt-BR");
 
-        console.error(e);
+        } else {
+
+            document.getElementById("vatUltima").textContent = "--";
+
+        }
+        
+        document.getElementById("btnPlanilhaVAT").href =
+    "https://docs.google.com/spreadsheets/d/1stHrx-Dct4gdQXjBqCYLthCe_pbk8SuAboZGx75Le8A/edit?gid=1456285798#gid=1456285798";
+
+    } catch (e) {
+
+        console.error("Erro ao carregar VAT:", e);
 
     }
 
