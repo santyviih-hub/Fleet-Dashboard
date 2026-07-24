@@ -8,7 +8,10 @@
 //------------------------------
 
 const API =
-  "https://script.google.com/macros/s/AKfycbycP2THhaT_yAQFQHWPY4XubwtPjaWQOW7l5dYu_XK4ieZi3LXkihJsBZ8_jYRnGijW/exec";
+"https://script.google.com/macros/s/AKfycbycP2THhaT_yAQFQHWPY4XubwtPjaWQOW7l5dYu_XK4ieZi3LXkihJsBZ8_jYRnGijW/exec";
+
+const API_VAT =
+"https://script.google.com/macros/s/AKfycbx7EoTYZQ4Lq3ENVDdWPHk8Irq7mZN96MqrB-HpOBIc4NUxGmPGmIhqj3IN2SXVYT4/exec?tipo=vat";
 
 let tabela = null;
 let dadosOriginais = [];
@@ -1072,27 +1075,110 @@ function atualizarAlertas(info) {
 
     badge.style.display = total > 0 ? "block" : "none";
 }
-/* ==========================
-   PAINEL DESLIZANTE
-========================== */
+const btnDashboard = document.getElementById("btnDashboard");
 
-const painelPagina = document.getElementById("painelPagina");
-const fecharPainel = document.getElementById("fecharPainel");
+btnDashboard.addEventListener("click", function (e) {
 
-// Abrir painel
-function abrirPainel() {
-    painelPagina.classList.add("ativo");
-}
-
-// Fechar painel
-function fecharPainelPagina() {
-    painelPagina.classList.remove("ativo");
-}
-
-fecharPainel.addEventListener("click", fecharPainelPagina);
-const btnVAT = document.getElementById("btnVAT");
-
-btnVAT.addEventListener("click", function (e) {
     e.preventDefault();
-    abrirPainel();
+
+    document.getElementById("vatPage").style.display = "none";
+
+    document.getElementById("dashboardPage").style.display = "block";
+
 });
+// ===============================
+// NAVEGAÇÃO ENTRE PÁGINAS
+// ===============================
+
+function mostrarPagina(idPagina) {
+
+    // Esconde todas as páginas
+    document.querySelectorAll(".page").forEach(pagina => {
+        pagina.style.display = "none";
+    });
+
+    // Mostra a página escolhida
+    document.getElementById(idPagina).style.display = "block";
+
+    // Remove o destaque de todos os menus
+    document.querySelectorAll(".sidebar li").forEach(li => {
+        li.classList.remove("active");
+    });
+
+    // Destaca Dashboard
+    if (idPagina === "dashboardPage") {
+        document.getElementById("btnDashboard").parentElement.classList.add("active");
+    }
+
+    // Destaca VAT
+    if (idPagina === "vatPage") {
+        document.getElementById("btnVAT").parentElement.classList.add("active");
+    }
+
+}
+
+// Dashboard
+document.getElementById("btnDashboard").addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    mostrarPagina("dashboardPage");
+
+});
+
+// VAT
+document.getElementById("btnVAT").addEventListener("click", async function (e) {
+
+    e.preventDefault();
+
+    mostrarPagina("vatPage");
+
+    await carregarVAT();
+
+});
+async function carregarVAT(){
+
+    try{
+
+        const resposta = await fetch(API_VAT);
+
+        if(!resposta.ok){
+
+            throw new Error("Erro ao carregar VAT");
+
+        }
+
+        const dados = await resposta.json();
+
+       document.getElementById("vatRelocados").textContent =
+    Number(dados.relocados || 0).toLocaleString("pt-BR");
+
+document.getElementById("vatConsultados").textContent =
+    Number(dados.consultados || 0).toLocaleString("pt-BR");
+
+document.getElementById("vatErro").textContent =
+    Number(dados.erro || 0).toLocaleString("pt-BR");
+
+document.getElementById("vatBairro").textContent =
+    dados["bairro ofensor"] || "--";
+
+if (dados.ultima) {
+
+    const data = new Date(dados.ultima);
+
+    document.getElementById("vatUltima").textContent =
+        data.toLocaleString("pt-BR");
+
+} else {
+
+    document.getElementById("vatUltima").textContent = "--";
+
+}
+
+    }catch(e){
+
+        console.error(e);
+
+    }
+
+}

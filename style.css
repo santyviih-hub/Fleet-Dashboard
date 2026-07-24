@@ -5258,3 +5258,44 @@ FILTRO - CORREÇÃO DEFINITIVA
     overflow:auto;
 
 }
+/*==============================
+VAT
+==============================*/
+
+.vat-info-card{
+
+    border-radius:22px;
+
+    padding:24px 28px;
+
+}
+
+.vat-info-card small{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#6b7280;
+
+}
+
+.vat-info-card h3{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.vat-update-icon{
+
+    font-size:42px;
+
+    color:#ff6b00;
+
+    opacity:.25;
+
+}
