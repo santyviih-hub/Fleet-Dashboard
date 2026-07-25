@@ -954,17 +954,27 @@ PAINEL LATERAL DE ALERTAS
 }
 
 .painel-alertas{
-    position:fixed;
-    top:0;
-    right:-360px;
-    width:340px;
-    height:100vh;
-    background:#fff;
-    display:flex;
-    flex-direction:column;
-    transition:.35s;
-    z-index:9999;
-    box-shadow:-12px 0 35px rgba(0,0,0,.15);
+    position: fixed;
+    top: 10px;
+    right: -360px;
+    width: 340px;
+    height: calc(100vh - 20px);
+
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: .35s;
+
+    z-index: 9999;
+
+    box-shadow: -12px 0 35px rgba(0,0,0,.15);
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    overflow: hidden;
 }
 
 .painel-alertas.ativo{
@@ -1087,54 +1097,52 @@ PAINEL LATERAL DE ALERTAS
 /* Rodapé */
 
 .painel-footer{
-    border-top:1px solid #ececec;
+    border-top:1px solid #eee;
     text-align:center;
-    padding:28px 20px;
+    padding: 2px 2px;
 }
 
+
 .painel-footer{
-
-    text-align:center;
-
-    padding:20px;
-
-    border-top:1px solid #eee;
-
-    background:#fafafa;
-
+    flex-shrink: 0;
+    padding: 2px 2px;
+    min-height: 100px; /* diminua se quiser mais compacto */
+    border-top: 1px solid #ececec;
+    background: #fff;
+    text-align: center;
 }
 
 .painel-footer span{
 
-    font-size:15px;
+    font-size: 14px;
 
     color:#666;
 
-    font-weight:600;
+     font-weight: 600;
 
 }
 
 .painel-footer h2{
 
-    margin:8px 0;
+       margin: 2px 0;
 
-    font-size:42px;      /* antes era muito grande */
+    font-size: 42px;      /* antes era muito grande */
 
     font-weight:700;
 
     color:#ff6b00;
 
-    line-height:1;
+     line-height: 1;
 
 }
 
 .painel-footer small{
 
-    display:block;
+      display: block;
 
-    margin-top:8px;
+    margin-top: 4px;
 
-    font-size:12px;
+     font-size: 12px;
 
     color:#888;
 

@@ -1055,20 +1055,11 @@ function atualizarAlertas(info) {
 
         </div>
 
-        <div class="painel-footer">
+        `;
 
-            <span>Total de alertas</span>
+        document.getElementById("totalAlertas").textContent = total;
 
-            <h2>${total}</h2>
-
-            <small>
-                <i class="bi bi-clock"></i>
-                Última atualização: ${agora}
-            </small>
-
-        </div>
-
-    `;
+document.getElementById("horaAtualizacaoAlertas").textContent = agora;
 
     // Apenas mostra ou esconde a bolinha do sino
     const badge = document.getElementById("badgeAlerta");
