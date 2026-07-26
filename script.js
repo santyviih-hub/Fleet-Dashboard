@@ -13,6 +13,9 @@ const API =
 const API_VAT =
 "https://script.google.com/macros/s/AKfycbx7EoTYZQ4Lq3ENVDdWPHk8Irq7mZN96MqrB-HpOBIc4NUxGmPGmIhqj3IN2SXVYT4/exec?tipo=vat";
 
+const API_FAROL =
+"https://script.google.com/macros/s/AKfycbycP2THhaT_yAQFQHWPY4XubwtPjaWQOW7l5dYu_XK4ieZi3LXkihJsBZ8_jYRnGijW/exec?tipo=farol";
+
 let tabela = null;
 let dadosOriginais = [];
 let dadosFiltrados = [];
@@ -1106,6 +1109,11 @@ function mostrarPagina(idPagina) {
         document.getElementById("btnVAT").parentElement.classList.add("active");
     }
 
+    // Destaca Farol
+if (idPagina === "farolPage") {
+    document.getElementById("btnFarol").parentElement.classList.add("active");
+}
+
 }
 
 // Dashboard
@@ -1127,6 +1135,17 @@ document.getElementById("btnVAT").addEventListener("click", async function (e) {
     await carregarVAT();
 
 });
+
+// FAROL
+document.getElementById("btnFarol").addEventListener("click", async function (e) {
+
+    e.preventDefault();
+
+    mostrarPagina("farolPage");
+
+    await carregarFarol();
+
+});
 async function carregarVAT() {
 
     try {
@@ -1138,8 +1157,8 @@ async function carregarVAT() {
         }
 
         const dados = await resposta.json();
-
-        // ATS Totais
+         
+        // Total
         document.getElementById("vatTotal").textContent =
             Number(dados.total || 0).toLocaleString("pt-BR");
 
@@ -1159,32 +1178,52 @@ async function carregarVAT() {
         document.getElementById("vatBairro").textContent =
             dados["bairro ofensor"] || "--";
 
-        // % Relocados
-            const percentual = Number(dados.percentual || 0);
+        // ==========================
+        // Percentual
+        // ==========================
 
-document.getElementById("vatPercentual").textContent =
-    percentual.toFixed(1) + "%";
+        const percentual = Number(dados.percentual || 0);
 
-document.getElementById("vatBarra").style.width =
-    percentual + "%";
+        document.getElementById("vatPercentual").textContent =
+            percentual.toFixed(1) + "%";
 
+        document.getElementById("vatProgressBar").style.width =
+            percentual + "%";
+
+        // ==========================
         // Última atualização
+        // ==========================
+
         if (dados.ultima) {
 
             const data = new Date(dados.ultima);
 
-            document.getElementById("vatUltima").textContent =
+            document.getElementById("vatUltimaAtualizacao").textContent =
                 data.toLocaleDateString("pt-BR") + " " +
                 data.toLocaleTimeString("pt-BR");
 
         } else {
 
-            document.getElementById("vatUltima").textContent = "--";
+            document.getElementById("vatUltimaAtualizacao").textContent = "--";
 
         }
-        
-        document.getElementById("btnPlanilhaVAT").href =
-    "https://docs.google.com/spreadsheets/d/1stHrx-Dct4gdQXjBqCYLthCe_pbk8SuAboZGx75Le8A/edit?gid=1456285798#gid=1456285798";
+
+        // ==========================
+        // Botão Planilha
+        // ==========================
+
+        const botao = document.getElementById("btnAbrirPlanilha");
+
+        if (botao) {
+
+            botao.onclick = () => {
+                window.open(
+                    "https://docs.google.com/spreadsheets/d/1stHrx-Dct4gdQXjBqCYLthCe_pbk8SuAboZGx75Le8A/edit?gid=1456285798#gid=1456285798",
+                    "_blank"
+                );
+            };
+
+        }
 
     } catch (e) {
 
@@ -1192,4 +1231,149 @@ document.getElementById("vatBarra").style.width =
 
     }
 
+}
+let dadosFarol = [];
+
+async function carregarFarol() {
+
+    try {
+
+        const resposta = await fetch(API_FAROL);
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao carregar Farol");
+        }
+
+        dadosFarol = await resposta.json();
+        console.log(Object.keys(dadosFarol[0]));
+console.log(dadosFarol[1]["AT NO PISO"]);
+       // ==========================
+// FILTRA O DIA ANTERIOR
+// ==========================
+
+const ontem = new Date();
+ontem.setDate(ontem.getDate() - 1);
+
+const dataOntem = ontem.toISOString().substring(0, 10);
+
+dadosFarol = dadosFarol.filter(item =>
+    String(item.DATA).startsWith(dataOntem)
+);
+
+        if (!dadosFarol.length) return;
+
+        const totalVolume = dadosFarol.reduce((soma, item) =>
+            soma + Number(item.VOLUME || 0), 0);
+
+        const totalRotas = dadosFarol.reduce((soma, item) =>
+            soma + Number(item.ROTAS || 0), 0);
+
+        const totalSPR = totalRotas > 0
+    ? (totalVolume / totalRotas)
+    : 0;
+
+        const totalMoto = dadosFarol.reduce((soma, item) =>
+            soma + Number(item["R MOTO"] || 0), 0);
+
+        const totalUtilitario = dadosFarol.reduce((soma, item) =>
+            soma + Number(item["UTILITÁRIOS"] || item["UTILITARIOS"] || 0), 0);
+
+        const totalATPiso = dadosFarol.reduce((soma, item) => {
+
+    const valor =
+        item["AT NO PISO"] ??
+        item["AT no Piso"] ??
+        item["AT No Piso"] ??
+        item["AT NO Piso"] ??
+        0;
+
+    return soma + Number(valor);
+
+}, 0);
+
+console.log(totalATPiso);
+
+        document.getElementById("farolVolume").textContent =
+            totalVolume.toLocaleString("pt-BR");
+
+        document.getElementById("farolRotas").textContent =
+            totalRotas.toLocaleString("pt-BR");
+
+        document.getElementById("farolSPR").textContent =
+            totalSPR.toLocaleString("pt-BR");
+
+        document.getElementById("farolMoto").textContent =
+            totalMoto.toLocaleString("pt-BR");
+
+        document.getElementById("farolCarro").textContent =
+            totalUtilitario.toLocaleString("pt-BR");
+
+        document.getElementById("farolATPiso").textContent =
+            totalATPiso.toLocaleString("pt-BR");
+
+        atualizarObservacoesFarol();
+
+    } catch (erro) {
+
+        console.error("Erro no Farol:", erro);
+
+    }
+
+}
+function atualizarObservacoesFarol() {
+
+    const am = dadosFarol.find(item =>
+        String(item.EXP || "").toUpperCase() === "AM"
+    );
+
+    const pm = dadosFarol.find(item =>
+        String(item.EXP || "").toUpperCase() === "PM"
+    );
+
+    // AM
+   document.getElementById("amInicio").textContent =
+    formatarHoraFarol(am?.["INÍCIO"] || am?.INICIO);
+
+document.getElementById("amFim").textContent =
+    formatarHoraFarol(am?.FIM);
+
+    document.getElementById("amSOP").textContent =
+        am?.SOP || "--";
+
+    document.getElementById("amObs").textContent =
+        am?.OBS || am?.OBSERVAÇÃO || am?.OBSERVACAO || "--";
+
+    // PM
+   document.getElementById("pmInicio").textContent =
+    formatarHoraFarol(pm?.["INÍCIO"] || pm?.INICIO);
+
+document.getElementById("pmFim").textContent =
+    formatarHoraFarol(pm?.FIM);
+
+    document.getElementById("pmSOP").textContent =
+        pm?.SOP || "--";
+
+    document.getElementById("pmObs").textContent =
+        pm?.OBS || pm?.OBSERVAÇÃO || pm?.OBSERVACAO || "--";
+
+}
+function formatarHoraFarol(valor) {
+
+    if (!valor) return "--:--";
+
+    // Já está no formato HH:mm
+    if (typeof valor === "string" && /^\d{2}:\d{2}/.test(valor)) {
+        return valor.substring(0, 5);
+    }
+
+    const data = new Date(valor);
+
+    if (!isNaN(data)) {
+        return data.toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+    }
+
+    return "--:--";
 }

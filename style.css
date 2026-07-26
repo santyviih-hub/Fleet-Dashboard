@@ -406,13 +406,10 @@ HEADER NOVO
 }
 
 .kpi-grid{
-
     display:grid;
-
-    grid-template-columns:repeat(5,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:14px;
-
+    align-items:stretch;
 }
 
 .kpi-card{
@@ -421,7 +418,10 @@ HEADER NOVO
 
     border-radius:18px;
 
-    height:108px;          /* +50% */
+      min-width:0;
+       width:100%;
+
+    height:108px;        
 
     padding:20px 18px;
 
@@ -5305,5 +5305,258 @@ VAT
     color:#ff6b00;
 
     opacity:.25;
+}
+.farol-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.filtros-farol{
+    display:flex;
+    gap:8px;
+}
+/*==================================================
+VAT INFO CARD
+==================================================*/
+
+.vat-info-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:18px 22px;
+
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+
+}
+
+/*=========================
+ÚLTIMA ATUALIZAÇÃO
+=========================*/
+
+.vat-update{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:18px;
+
+}
+
+.vat-update span{
+
+    display:block;
+
+    color:#6b7280;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.vat-update h2{
+
+    margin-top:8px;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#111827;
+
+}
+
+/*=========================
+BOTÃO ATUALIZAR
+=========================*/
+
+.btn-refresh{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff5ec;
+
+    color:#ff6a00;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-refresh:hover{
+
+    background:#ff6a00;
+
+    color:#fff;
+
+}
+
+/*=========================
+PROGRESSO
+=========================*/
+
+.vat-progress{
+
+    margin-top:6px;
+
+}
+
+.progress-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    border-radius:999px;
+
+    background:#edf1f6;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#ffc107,#ff6a00);
+
+    border-radius:999px;
+
+    transition:.4s;
+
+}
+
+/*=========================
+RODAPÉ
+=========================*/
+
+.vat-footer{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:24px;
+
+}
+
+.btn-planilha{
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ffc107;
+
+    color:#111827;
+
+    padding:14px 28px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-planilha:hover{
+
+    background:#ffb300;
+
+    transform:translateY(-2px);
+
+}
+
+/*==================================================
+ALINHAMENTO DO VAT
+==================================================*/
+
+#vatPage .dashboard-section{
+
+    margin-top:16px;
+
+}
+
+#vatPage .kpi-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:14px;
+
+}
+
+#vatPage .kpi-card{
+
+    height:96px;
+
+    min-width:0;
+
+}
+
+#vatPage .kpi-card h2{
+
+    font-size:28px;
+
+    line-height:1;
+
+}
+
+#vatPage .kpi-card span{
+
+    font-size:15px;
 
 }

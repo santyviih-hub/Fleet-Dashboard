@@ -52,11 +52,11 @@
         </li>
 
         <li>
-            <a href="#">
-                <i class="bi bi-lightbulb"></i>
-                <span>Farol</span>
-            </a>
-        </li>
+    <a href="#" id="btnFarol">
+        <i class="bi bi-lightbulb"></i>
+        <span>Farol</span>
+    </a>
+</li>
 
         <li>
             <a href="#">
@@ -527,76 +527,187 @@ VAT
         </div>
 
     </section>
-
-</div>
 <section class="dashboard-section">
 
-    <div class="table-card vat-info-card">
+    <div class="vat-info-card">
 
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="vat-update">
 
             <div>
-
-                <small class="text-muted">
-                    <i class="bi bi-clock-history"></i>
-                    Última atualização
-                </small>
-
-                <h3 id="vatUltima" class="mt-2 mb-0">
-                    --
-                </h3>
-
+                <span>🕒 Última atualização</span>
+                <h2 id="vatUltimaAtualizacao">--</h2>
             </div>
 
-            <i class="bi bi-arrow-repeat vat-update-icon"></i>
+            <button id="btnAtualizarVAT" class="btn-refresh">
+                <i class="bi bi-arrow-repeat"></i>
+            </button>
 
         </div>
 
-    </div>
+        <div class="vat-progress">
 
-</section>
-<section class="dashboard-section">
+            <div class="progress-top">
+                <span>% Relocados</span>
+                <span id="vatPercentual">0%</span>
+            </div>
 
-    <div class="table-card">
-
-        <div class="d-flex justify-content-between mb-2">
-
-            <strong>% Relocados</strong>
-
-            <span id="vatPercentual">0%</span>
-
-        </div>
-
-        <div class="progress" style="height:12px">
-
-            <div id="vatBarra"
-                 class="progress-bar bg-warning"
-                 style="width:0%">
+            <div class="progress">
+                <div
+                    id="vatProgressBar"
+                    class="progress-bar"
+                    style="width:0%">
+                </div>
             </div>
 
         </div>
 
-    </div>
+        <div class="vat-footer">
 
-</section>
+            <button id="btnAbrirPlanilha" class="btn-planilha">
+                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                Abrir Planilha Completa
+            </button>
 
-<section class="dashboard-section">
-
-    <div class="text-center">
-
-        <a id="btnPlanilhaVAT"
-           target="_blank"
-           class="btn btn-warning btn-lg">
-
-            <i class="bi bi-file-earmark-spreadsheet"></i>
-
-            Abrir Planilha Completa
-
-        </a>
+        </div>
 
     </div>
 
 </section>
+</div>
+
+<div id="farolPage" class="page" style="display:none;">
+
+    <section class="dashboard-section">
+
+      <div class="farol-header">
+
+    <div class="section-title">
+        <i class="bi bi-geo-alt-fill"></i>
+        <h3>🚦 FAROL - Visão Geral</h3>
+    </div>
+
+    <div class="filtros-farol">
+        <button id="btnTodos" class="ativo">TODOS</button>
+        <button id="btnAM">AM</button>
+        <button id="btnPM">PM</button>
+    </div>
+
+</div>
+     <div class="kpi-grid">
+
+    <div class="kpi-card">
+        <i class="bi bi-box-seam"></i>
+        <div>
+            <span>📦 Volume</span>
+            <h2 id="farolVolume">0</h2>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <i class="bi bi-arrow-repeat"></i>
+        <div>
+            <span>🚚 Rotas</span>
+            <h2 id="farolRotas">0</h2>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <i class="bi bi-graph-up"></i>
+        <div>
+            <span>📈 SPR</span>
+            <h2 id="farolSPR">0</h2>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <i class="bi bi-bicycle"></i>
+        <div>
+            <span>🏍 Moto</span>
+            <h2 id="farolMoto">0</h2>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <i class="bi bi-truck"></i>
+        <div>
+            <span>🚐 Utilitário</span>
+            <h2 id="farolCarro">0</h2>
+        </div>
+    </div>
+
+    <div class="kpi-card">
+        <i class="bi bi-clipboard-check"></i>
+        <div>
+            <span>📋 AT no Piso</span>
+            <h2 id="farolATPiso">0</h2>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- =========================
+OBSERVAÇÕES FAROL
+========================= -->
+
+<div class="observacoes-card">
+
+    <h3>📝 Observações</h3>
+
+    <div class="observacao-bloco">
+
+        <h4>🟢 AM</h4>
+
+        <div class="observacao-item">
+            <strong>INÍCIO:</strong>
+            <span id="amInicio">Carregando...</span>
+        </div>
+
+        <div class="observacao-item">
+            <strong>FIM:</strong>
+            <span id="amFim">Carregando...</span>
+        </div>
+
+        <div class="observacao-item">
+            <strong>SOP:</strong>
+            <span id="amSOP">Carregando...</span>
+        </div>
+
+        <div class="observacao-item">
+            <strong>OBSERVAÇÃO:</strong>
+            <span id="amObs">Carregando...</span>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="observacao-bloco">
+
+        <h4>🟠 PM</h4>
+
+        <div class="observacao-item">
+            <strong>INÍCIO:</strong>
+            <span id="pmInicio">Carregando...</span>
+        </div>
+
+        <div class="observacao-item">
+            <strong>FIM:</strong>
+            <span id="pmFim">Carregando...</span>
+        </div>
+
+        <div class="observacao-item">
+            <strong>SOP:</strong>
+            <span id="pmSOP">Carregando...</span>
+        </div>
+
+        <div class="observacao-item">
+            <strong>OBSERVAÇÃO:</strong>
+            <span id="pmObs">Carregando...</span>
+        </div>
+
+    </div>
+
 <!-- =========================
 PAINEL DE ALERTAS
 ========================= -->
