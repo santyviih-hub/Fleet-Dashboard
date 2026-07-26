@@ -5581,6 +5581,37 @@ ALINHAMENTO DO VAT
 }
 .farol-grid{
     display:grid;
-    grid-template-columns:repeat(6,minmax(0,1fr));
+    grid-template-columns:repeat(6,1fr);
     gap:16px;
+}
+.fst-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:20px;
+}
+.table-card{
+    width:100%;
+    overflow-x:auto;
+}
+
+#tabelaOperacao{
+    width:100% !important;
+}
+
+div.dt-container{
+    width:100%;
+    overflow-x:auto;
+}
+.table-card{
+    overflow-x:auto;
+}
+
+.table-card .dataTables_wrapper{
+    width:100% !important;
+    overflow-x:auto;
+}
+
+.table-card table{
+    width:100% !important;
+    min-width:1600px;
 }

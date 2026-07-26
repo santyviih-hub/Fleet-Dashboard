@@ -16,6 +16,9 @@ const API_VAT =
 const API_FAROL =
 "https://script.google.com/macros/s/AKfycbycP2THhaT_yAQFQHWPY4XubwtPjaWQOW7l5dYu_XK4ieZi3LXkihJsBZ8_jYRnGijW/exec?tipo=farol";
 
+const API_FST =
+"https://script.google.com/macros/s/AKfycbycP2THhaT_yAQFQHWPY4XubwtPjaWQOW7l5dYu_XK4ieZi3LXkihJsBZ8_jYRnGijW/exec?tipo=fst";
+
 let tabela = null;
 let dadosOriginais = [];
 let dadosFiltrados = [];
@@ -389,7 +392,8 @@ tbody.innerHTML = html;
 
     destroy:true,
 
-    responsive:true,
+    responsive:false,
+scrollX:true,
 
     autoWidth:false,
 
@@ -446,7 +450,7 @@ if(select){
 }
 
 setTimeout(() => {
-    tabela.draw();
+    tabela.columns.adjust().draw(false);
 }, 50);
 
 }
@@ -1109,6 +1113,11 @@ function mostrarPagina(idPagina) {
         document.getElementById("btnVAT").parentElement.classList.add("active");
     }
 
+// Destaca First Tripz
+if (idPagina === "fstPage") {
+    document.getElementById("btnFST").parentElement.classList.add("active");
+}
+
     // Destaca Farol
 if (idPagina === "farolPage") {
     document.getElementById("btnFarol").parentElement.classList.add("active");
@@ -1146,6 +1155,18 @@ document.getElementById("btnFarol").addEventListener("click", async function (e)
     await carregarFarol();
 
 });
+
+// FIRST TRIPZ
+document.getElementById("btnFST").addEventListener("click", async function (e) {
+
+    e.preventDefault();
+
+    mostrarPagina("fstPage");
+
+    await carregarFST();
+
+});
+
 async function carregarVAT() {
 
     try {
@@ -1272,6 +1293,65 @@ dadosFarol = dadosFarol.filter(item =>
     }
 
 }
+
+async function carregarFST() {
+
+    try {
+
+        const resposta = await fetch(API_FST);
+
+        const dados = await resposta.json();
+
+       const totalDrivers = new Set(
+    dados
+        .map(item => String(item["ID"] || "").trim())
+        .filter(id => id !== "")
+).size;
+
+const totalATS = dados.reduce((soma, item) => {
+    return soma + Number(item["QNT DE ATS"] || 0);
+}, 0);
+
+const mediaATS = totalDrivers
+    ? (totalATS / totalDrivers).toFixed(1)
+    : 0;
+
+const maiorATS = Math.max(
+    ...dados.map(item => Number(item["QNT DE ATS"] || 0))
+);
+
+document.getElementById("fstTotalDrivers").textContent = totalDrivers;
+document.getElementById("fstTotalATS").textContent = totalATS;
+document.getElementById("fstMediaATS").textContent = mediaATS;
+document.getElementById("fstMaiorATS").textContent = maiorATS;
+const active = dados.filter(item =>
+    String(item["STATUS DO DRIVERS"] || "")
+        .trim()
+        .toUpperCase() === "ACTIVE"
+).length;
+
+const preSuspensos = dados.filter(item =>
+    Number(item["QNT DE ATS"] || 0) >= 15 &&
+    Number(item["QNT DE ATS"] || 0) < 20
+).length;
+
+const suspensos = dados.filter(item =>
+    Number(item["QNT DE ATS"] || 0) >= 20
+).length;
+
+document.getElementById("fstActive").textContent = active;
+document.getElementById("fstPreSuspensos").textContent = preSuspensos;
+document.getElementById("fstSuspensos").textContent = suspensos;
+
+
+    } catch (erro) {
+
+        console.error("Erro ao carregar First Tripz:", erro);
+
+    }
+
+}
+
 function atualizarObservacoesFarol() {
 
     const am = dadosFarol.find(item =>

@@ -45,11 +45,11 @@
         </li>
 
         <li>
-            <a href="#">
-                <i class="bi bi-people"></i>
-                <span>Firt Tripz</span>
-            </a>
-        </li>
+    <a href="#" id="btnFST">
+        <i class="bi bi-people"></i>
+        <span>First Tripz</span>
+    </a>
+</li>
 
         <li>
     <a href="#" id="btnFarol">
@@ -575,6 +575,83 @@ VAT
 </section>
 </div>
 
+<!-- =========================
+FIRST TRIPZ
+========================= -->
+
+<div id="fstPage" class="page" style="display:none;">
+
+    <section class="dashboard-section">
+
+        <div class="section-title">
+            <i class="bi bi-people-fill"></i>
+            <h3>FIRST TRIPZ - Visão Geral</h3>
+        </div>
+
+        <div class="kpi-grid fst-grid">
+
+            <div class="kpi-card">
+                <i class="bi bi-people-fill"></i>
+                <div>
+                    <span>Total Drivers</span>
+                    <h2 id="fstTotalDrivers">0</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <i class="bi bi-box-seam"></i>
+                <div>
+                    <span>Total ATS</span>
+                    <h2 id="fstTotalATS">0</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <i class="bi bi-graph-up"></i>
+                <div>
+                    <span>Média ATS</span>
+                    <h2 id="fstMediaATS">0</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <i class="bi bi-fire"></i>
+                <div>
+                    <span>Maior ATS</span>
+                    <h2 id="fstMaiorATS">0</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                    <span>Active</span>
+                    <h2 id="fstActive">0</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <i class="bi bi-exclamation-circle-fill"></i>
+                <div>
+                    <span>Pré-Suspensos</span>
+                    <h2 id="fstPreSuspensos">0</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <i class="bi bi-slash-circle-fill"></i>
+                <div>
+                    <span>Suspensos</span>
+                    <h2 id="fstSuspensos">0</h2>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
 <div id="farolPage" class="page" style="display:none;">
 
     <section class="dashboard-section">
@@ -708,15 +785,13 @@ OBSERVAÇÕES FAROL
 
 </div> <!-- observacao-bloco -->
 
+<hr>
+
 </div> <!-- observacoes-card -->
 
 </section>
 
 </div> <!-- farolPage -->
-
-<!-- =========================
-PAINEL DE ALERTAS
-========================= -->
 
 <div id="overlayAlerta" class="overlay-alerta"></div>
 
@@ -823,8 +898,6 @@ PAINEL DE ALERTAS
         </small>
 
     </div>
-
-</section>
 
 </aside>
 
