@@ -1232,7 +1232,6 @@ async function carregarVAT() {
     }
 
 }
-let dadosFarol = [];
 
 async function carregarFarol() {
 
@@ -1262,55 +1261,8 @@ dadosFarol = dadosFarol.filter(item =>
 
         if (!dadosFarol.length) return;
 
-        const totalVolume = dadosFarol.reduce((soma, item) =>
-            soma + Number(item.VOLUME || 0), 0);
 
-        const totalRotas = dadosFarol.reduce((soma, item) =>
-            soma + Number(item.ROTAS || 0), 0);
-
-        const totalSPR = totalRotas > 0
-    ? (totalVolume / totalRotas)
-    : 0;
-
-        const totalMoto = dadosFarol.reduce((soma, item) =>
-            soma + Number(item["R MOTO"] || 0), 0);
-
-        const totalUtilitario = dadosFarol.reduce((soma, item) =>
-            soma + Number(item["UTILITÁRIOS"] || item["UTILITARIOS"] || 0), 0);
-
-        const totalATPiso = dadosFarol.reduce((soma, item) => {
-
-    const valor =
-        item["AT NO PISO"] ??
-        item["AT no Piso"] ??
-        item["AT No Piso"] ??
-        item["AT NO Piso"] ??
-        0;
-
-    return soma + Number(valor);
-
-}, 0);
-
-console.log(totalATPiso);
-
-        document.getElementById("farolVolume").textContent =
-            totalVolume.toLocaleString("pt-BR");
-
-        document.getElementById("farolRotas").textContent =
-            totalRotas.toLocaleString("pt-BR");
-
-        document.getElementById("farolSPR").textContent =
-            totalSPR.toLocaleString("pt-BR");
-
-        document.getElementById("farolMoto").textContent =
-            totalMoto.toLocaleString("pt-BR");
-
-        document.getElementById("farolCarro").textContent =
-            totalUtilitario.toLocaleString("pt-BR");
-
-        document.getElementById("farolATPiso").textContent =
-            totalATPiso.toLocaleString("pt-BR");
-
+    atualizarCardsFarol(dadosFarol);
         atualizarObservacoesFarol();
 
     } catch (erro) {
@@ -1357,6 +1309,55 @@ document.getElementById("pmFim").textContent =
         pm?.OBS || pm?.OBSERVAÇÃO || pm?.OBSERVACAO || "--";
 
 }
+function atualizarCardsFarol(dados) {
+
+    const totalVolume = dados.reduce((soma, item) =>
+        soma + Number(item.VOLUME || 0), 0);
+
+    const totalRotas = dados.reduce((soma, item) =>
+        soma + Number(item.ROTAS || 0), 0);
+
+    const totalSPR = totalRotas > 0
+        ? (totalVolume / totalRotas)
+        : 0;
+
+    const totalMoto = dados.reduce((soma, item) =>
+        soma + Number(item["R MOTO"] || 0), 0);
+
+    const totalUtilitario = dados.reduce((soma, item) =>
+        soma + Number(item["UTILITÁRIOS"] || item["UTILITARIOS"] || 0), 0);
+
+    const totalATPiso = dados.reduce((soma, item) => {
+
+        const valor =
+            item["AT NO PISO"] ??
+            item["AT no Piso"] ??
+            item["AT No Piso"] ??
+            item["AT NO Piso"] ??
+            0;
+
+        return soma + Number(valor);
+
+    }, 0);
+
+    document.getElementById("farolVolume").textContent =
+        totalVolume.toLocaleString("pt-BR");
+
+    document.getElementById("farolRotas").textContent =
+        totalRotas.toLocaleString("pt-BR");
+
+    document.getElementById("farolSPR").textContent =
+        totalSPR.toFixed(2).replace(".", ",");
+
+    document.getElementById("farolMoto").textContent =
+        totalMoto;
+
+    document.getElementById("farolCarro").textContent =
+    totalUtilitario.toLocaleString("pt-BR");
+
+    document.getElementById("farolATPiso").textContent =
+        totalATPiso;
+}
 function formatarHoraFarol(valor) {
 
     if (!valor) return "--:--";
@@ -1377,3 +1378,48 @@ function formatarHoraFarol(valor) {
 
     return "--:--";
 }
+// ===============================
+// FILTRO DOS CARDS DO FAROL
+// ===============================
+
+const btnTodos = document.getElementById("btnTodos");
+const btnAM = document.getElementById("btnAM");
+const btnPM = document.getElementById("btnPM");
+
+btnTodos.addEventListener("click", () => {
+
+    atualizarCardsFarol(dadosFarol);
+
+    btnTodos.classList.add("ativo");
+    btnAM.classList.remove("ativo");
+    btnPM.classList.remove("ativo");
+
+});
+
+btnAM.addEventListener("click", () => {
+
+    const dadosAM = dadosFarol.filter(item =>
+        String(item.EXP || "").toUpperCase() === "AM"
+    );
+
+    atualizarCardsFarol(dadosAM);
+
+    btnTodos.classList.remove("ativo");
+    btnAM.classList.add("ativo");
+    btnPM.classList.remove("ativo");
+
+});
+
+btnPM.addEventListener("click", () => {
+
+    const dadosPM = dadosFarol.filter(item =>
+        String(item.EXP || "").toUpperCase() === "PM"
+    );
+
+    atualizarCardsFarol(dadosPM);
+
+    btnTodos.classList.remove("ativo");
+    btnAM.classList.remove("ativo");
+    btnPM.classList.add("ativo");
+
+});

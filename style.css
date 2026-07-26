@@ -5313,10 +5313,29 @@ VAT
     margin-bottom:18px;
 }
 
-.filtros-farol{
-    display:flex;
-    gap:8px;
+.filtros-farol button{
+    border:none;
+    background:transparent;
+    color:#6b7280;
+    padding:8px 18px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .25s ease;
 }
+
+.filtros-farol button:hover{
+    background:#ffffff;
+    color:#ff7a00;
+}
+
+.filtros-farol button.ativo{
+    background:linear-gradient(135deg,#ff8a00,#ff6a00);
+    color:#fff;
+    box-shadow:0 4px 12px rgba(255,122,0,.35);
+}
+
 /*==================================================
 VAT INFO CARD
 ==================================================*/
