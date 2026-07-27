@@ -564,7 +564,9 @@ function atualizarKPIs(dados) {
         "ELOLOGISTICA",
         "OPTIMIZE",
         "REVERSÃO",
-        "SUCESSO"
+        "SUCESSO",
+        "DELUNA"
+        
     ]);
 
     // ==========================
@@ -684,7 +686,8 @@ function atualizarResumoATS(dados){
             "ELOLOGISTICA",
             "OPTIMIZE",
             "REVERSÃO",
-            "SUCESSO"
+            "SUCESSO",
+             "DELUNA"
         ].includes(agencia);
 
     }).length;
