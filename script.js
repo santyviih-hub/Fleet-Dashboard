@@ -548,15 +548,39 @@ function atualizarKPIs(dados) {
     let am = 0;
     let pm = 0;
     let atsNoShow = 0;
+let pacotesNoShow = 0;
 
     let atsPiso = 0;
+let atsPisoAM = 0;
+let atsPisoPM = 0;
     let atsExpedidas = 0;
     let semAderencia = 0;
+    let semAderenciaAM = 0;
+let semAderenciaPM = 0;
     let atribuidas = 0;
 
+let atribuidasAM = 0;
+let atribuidasPM = 0;
+
+let expedicao = 0;
+let expedicaoAM = 0;
+let expedicaoPM = 0;
+
     let volumeTotal = 0;
+    let volumeAM = 0;
+let volumePM = 0;
     let pacotesPiso = 0;
+    let pacotesPisoAM = 0;
+let pacotesPisoPM = 0;
+    
     let pacotesExpedidos = 0;
+let pacotesExpedidosAM = 0;
+let pacotesExpedidosPM = 0;
+let totalPacotesAM = 0;
+let totalPacotesPM = 0;
+
+let totalRotasAM = 0;
+let totalRotasPM = 0;
 
     const agenciasAtribuidas = new Set([
         "SPXOWNFLEET",
@@ -579,82 +603,203 @@ function atualizarKPIs(dados) {
         const status = String(r.status).trim().toUpperCase();
         const agencia = String(r.agencia).trim().toUpperCase();
         const pacotes = Number(r.pacotes || 0);
+        // Acumula SPR por turno
+if (janela === "AM" || janela === "NO SHOW") {
+    totalPacotesAM += pacotes;
+    totalRotasAM++;
+} else if (janela === "PM") {
+    totalPacotesPM += pacotes;
+    totalRotasPM++;
+}
 
         // Volume Total
-        volumeTotal += pacotes;
+volumeTotal += pacotes;
+
+if (janela === "AM" || janela === "NO SHOW") {
+    volumeAM += pacotes;
+}
+
+if (janela === "PM") {
+    volumePM += pacotes;
+}
 
         // Janelas
-        if (janela === "AM") am++;
-        else if (janela === "PM") pm++;
-        else if (janela === "NO SHOW") atsNoShow++;
+       if (janela === "AM") am++;
+else if (janela === "PM") pm++;
+else if (janela === "NO SHOW") {
+    atsNoShow++;
+    pacotesNoShow += pacotes;
+    am++;
+}
 
         // ATS Expedidas
-        if (status === "ASSIGNED" || status === "COMPLETE") {
-            atsExpedidas++;
-            pacotesExpedidos += pacotes;
-        }
+if (status === "ASSIGNED" || status === "COMPLETE") {
 
-        // ATS no Piso
-        if (status === "PROCESSING" || status === "PROCESSED") {
-            atsPiso++;
-            pacotesPiso += pacotes;
-        }
+    atsExpedidas++;
+    pacotesExpedidos += pacotes;
+
+    if (janela === "AM" || janela === "NO SHOW") {
+        expedicaoAM++;
+        pacotesExpedidosAM += pacotes;
+    }
+
+    if (janela === "PM") {
+        expedicaoPM++;
+        pacotesExpedidosPM += pacotes;
+    }
+
+}
+
+   // ATS no Piso
+if (status === "PROCESSING" || status === "PROCESSED") {
+
+    atsPiso++;
+    pacotesPiso += pacotes;
+
+    if (janela === "AM" || janela === "NO SHOW") {
+        atsPisoAM++;
+        pacotesPisoAM += pacotes;
+    }
+
+    if (janela === "PM") {
+        atsPisoPM++;
+        pacotesPisoPM += pacotes;
+    }
+
+}
 
         // Sem Aderência
-        if (agencia === "SEM ADERENCIA") {
-            semAderencia++;
-        }
+if (agencia === "SEM ADERENCIA") {
+
+    semAderencia++;
+
+    if (janela === "AM") {
+        semAderenciaAM++;
+    }
+
+    if (janela === "PM") {
+        semAderenciaPM++;
+    }
+
+}
 
         // ATS Atribuídas
-        if (agenciasAtribuidas.has(agencia)) {
-            atribuidas++;
-        }
+if (agenciasAtribuidas.has(agencia)) {
 
+    atribuidas++;
+
+    if (janela === "AM" || janela === "NO SHOW") {
+        atribuidasAM++;
+    }
+
+    if (janela === "PM") {
+        atribuidasPM++;
+    }
+
+}
     });
 
     // ==========================
     // INDICADORES
     // ==========================
 
-    const totalATS = am + pm + atsNoShow;
+    const totalATS = am + pm;
 
     const spr = atsExpedidas > 0
         ? (pacotesExpedidos / atsExpedidas).toFixed(2)
         : "0.00";
+const sprAM = totalRotasAM > 0
+    ? (totalPacotesAM / totalRotasAM).toFixed(2)
+    : "0.00";
 
+const sprPM = totalRotasPM > 0
+    ? (totalPacotesPM / totalRotasPM).toFixed(2)
+    : "0.00";
     // ==========================
     // ATUALIZA OS CARDS
     // ==========================
 
     document.getElementById("volumeTotal").textContent =
-        volumeTotal.toLocaleString("pt-BR");
+    volumeTotal.toLocaleString("pt-BR");
+
+document.getElementById("kpiVolumeAM").textContent =
+    volumeAM.toLocaleString("pt-BR");
+
+document.getElementById("kpiVolumePM").textContent =
+    volumePM.toLocaleString("pt-BR");
 
     document.getElementById("totalATS").textContent =
-        totalATS;
+    totalATS;
+
+document.getElementById("kpiATSAM").textContent = am;
+document.getElementById("kpiATSPM").textContent = pm;
 
     document.getElementById("atsNoShow").textContent =
-        atsNoShow;
+    atsNoShow;
+
+document.getElementById("kpiNoShowATS").textContent =
+    atsNoShow;
+
+document.getElementById("kpiNoShowPacotes").textContent =
+    pacotesNoShow.toLocaleString("pt-BR");
 
     document.getElementById("atsAtribuida").textContent =
-        atribuidas;
+    atribuidas;
 
-    document.getElementById("atExpedida").textContent =
-        atsExpedidas;
+document.getElementById("kpiAtribuidasAM").textContent =
+    atribuidasAM;
+
+document.getElementById("kpiAtribuidasPM").textContent =
+    atribuidasPM;
+
+   document.getElementById("atsExpedicao").textContent =
+    atsExpedidas;
+    document.getElementById("kpiExpedicaoAM").textContent =
+    expedicaoAM;
+
+document.getElementById("kpiExpedicaoPM").textContent =
+    expedicaoPM;
 
     document.getElementById("pctExpedido").textContent =
-        pacotesExpedidos.toLocaleString("pt-BR");
+    pacotesExpedidos.toLocaleString("pt-BR");
+
+document.getElementById("kpiPacotesExpAM").textContent =
+    pacotesExpedidosAM.toLocaleString("pt-BR");
+
+document.getElementById("kpiPacotesExpPM").textContent =
+    pacotesExpedidosPM.toLocaleString("pt-BR");
 
     document.getElementById("atPiso").textContent =
-        atsPiso;
+    atsPiso;
 
-    document.getElementById("pctPiso").textContent =
-        pacotesPiso.toLocaleString("pt-BR");
+document.getElementById("kpiPisoAM").textContent =
+    atsPisoAM;
+
+document.getElementById("kpiPisoPM").textContent =
+    atsPisoPM;
+
+   document.getElementById("pctPiso").textContent =
+    pacotesPiso.toLocaleString("pt-BR");
+
+document.getElementById("kpiPacotesPisoAM").textContent =
+    pacotesPisoAM.toLocaleString("pt-BR");
+
+document.getElementById("kpiPacotesPisoPM").textContent =
+    pacotesPisoPM.toLocaleString("pt-BR");
 
     document.getElementById("semAderencia").textContent =
-        semAderencia;
+    semAderencia;
+
+document.getElementById("kpiSemAderenciaAM").textContent =
+    semAderenciaAM;
+
+document.getElementById("kpiSemAderenciaPM").textContent =
+    semAderenciaPM;
 
     document.getElementById("spr").textContent =
         spr;
+        document.getElementById("kpiSprAM").textContent = sprAM;
+document.getElementById("kpiSprPM").textContent = sprPM;
 
         atualizarAlertas({
     semAderencia,

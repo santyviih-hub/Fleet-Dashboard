@@ -455,6 +455,9 @@ HEADER NOVO
 }
 .kpi-content{
     width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
 }
 
 .kpi-title{
@@ -483,14 +486,10 @@ HEADER NOVO
     font-weight:600;
 }
 
-.kpi-card div{
-
+.kpi-card > .kpi-content{
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
 }
 
 .kpi-details .am{ color:#2E7D32; }
@@ -5614,4 +5613,25 @@ div.dt-container{
 .table-card table{
     width:100% !important;
     min-width:1600px;
+}
+.card-turnos{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:16px;
+    margin-top:6px;
+    margin-left:2px;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.card-turnos span{
+    display:inline-flex;
+    align-items:center;
+    gap:3px;
+}
+
+.card-turnos strong{
+    font-size:12px;
+    font-weight:700;
 }
