@@ -7705,3 +7705,2042 @@ select,
     border-top:1px solid rgba(255,255,255,.08);
     margin:22px 0;
 }
+/*=========================================
+ ETAPA 1 - HEADER PREMIUM V4
+=========================================*/
+
+body{
+    background:#0f1117;
+}
+
+/* Conteúdo */
+.main{
+    padding:16px 24px 24px;
+}
+
+/* Header */
+
+.top-header{
+
+    background:linear-gradient(
+        180deg,
+        #1b1e28 0%,
+        #181b24 100%
+    ) !important;
+
+    border:1px solid rgba(255,122,26,.18);
+
+    border-radius:24px;
+
+    min-height:110px;
+
+    padding:18px 26px !important;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.03);
+
+    backdrop-filter:blur(18px);
+
+    margin-bottom:22px;
+}
+
+/* Título */
+
+.top-header h1{
+
+    color:#fff !important;
+
+    font-size:58px !important;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    line-height:1;
+}
+
+/* Informações abaixo */
+
+.header-info{
+
+    margin-top:12px;
+
+    gap:18px;
+
+    color:#98a2b3;
+}
+
+.header-info span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    color:#9ca3af;
+}
+
+.header-info i{
+
+    color:#ff7a1a;
+
+    font-size:15px;
+}
+
+/* Divisores */
+
+.divider{
+
+    background:rgba(255,255,255,.12);
+
+}
+
+/* Status */
+
+.status-online{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(0,180,90,.12);
+
+    border:1px solid rgba(0,255,128,.15);
+
+    color:#39d98a;
+
+    font-weight:600;
+}
+
+.status-dot{
+
+    width:9px;
+
+    height:9px;
+
+    background:#22ff88;
+
+    box-shadow:0 0 12px #22ff88;
+}
+
+/* Botões da direita */
+
+.icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    background:#232733 !important;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    color:#fff;
+
+    box-shadow:none;
+}
+
+.icon-btn i{
+
+    color:#fff;
+}
+
+.icon-btn:hover{
+
+    background:#ff6a00 !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(255,106,0,.35);
+}
+
+/* Usuário */
+
+.user{
+
+    height:48px;
+
+    padding:0 18px;
+
+    border-radius:30px;
+
+    background:#232733;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+    box-shadow:none;
+}
+
+.user span{
+
+    color:#fff;
+}
+
+.user-avatar{
+
+    background:#181b24;
+
+    border:none;
+}
+
+.user-avatar i{
+
+    color:#fff;
+}
+/*==================================================
+ ETAPA 2 - KPI PREMIUM V5
+==================================================*/
+
+.kpi-grid{
+    gap:18px !important;
+    margin-bottom:20px !important;
+}
+
+/* Card */
+
+.kpi-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        180deg,
+        #1d212d 0%,
+        #171a23 100%
+    ) !important;
+
+    border:1px solid rgba(255,122,26,.18);
+
+    border-radius:22px;
+
+    height:118px;
+
+    padding:18px 20px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.03);
+
+    transition:.35s ease;
+}
+
+/* brilho superior */
+
+.kpi-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        #ff9d3d,
+        #ff6a00,
+        #ff9d3d
+    );
+}
+
+/* efeito glow */
+
+.kpi-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-70px;
+    right:-70px;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,122,26,.12),
+        transparent 70%
+    );
+
+    transition:.35s;
+}
+
+/* Hover */
+
+.kpi-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#ff7a1a;
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.38),
+        0 0 30px rgba(255,122,26,.12);
+
+}
+
+.kpi-card:hover::after{
+
+    transform:scale(1.3);
+
+}
+
+/* Ícone */
+
+.kpi-card i{
+
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #ff9835,
+        #ff6400
+    );
+
+    color:#fff;
+
+    font-size:24px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+        0 12px 28px rgba(255,106,0,.35);
+
+    transition:.35s;
+}
+
+.kpi-card:hover i{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+/* Título */
+
+.kpi-title{
+
+    color:#a7b0bf !important;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+}
+
+/* Valor */
+
+.kpi-card h2{
+
+    color:#ffffff;
+
+    font-size:54px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    margin-bottom:10px;
+}
+
+/* Rodapé */
+
+.kpi-details{
+
+    gap:18px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+/* Cores */
+
+.kpi-details .am{
+
+    color:#FFD166;
+
+}
+
+.kpi-details .pm{
+
+    color:#9CCBFF;
+
+}
+
+.kpi-details .ns{
+
+    color:#FF6B6B;
+
+}
+
+/* Destaque por tipo */
+
+/* Azul */
+
+.kpi-card.azul h2{
+    color:#3da5ff;
+}
+
+/* Verde */
+
+.kpi-card.verde h2{
+    color:#3ED36D;
+}
+
+/* Roxo */
+
+.kpi-card.roxo h2{
+    color:#A855F7;
+}
+
+/* Vermelho */
+
+.kpi-card.vermelho h2{
+    color:#FF5D5D;
+}
+
+/* Laranja */
+
+.kpi-card.laranja h2{
+    color:#FF9A2F;
+}
+/*==================================================
+ ETAPA 3 - RESUMO ATS ULTRA PREMIUM
+==================================================*/
+
+.ats-summary{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:0 24px !important;
+
+    height:72px !important;
+
+    background:linear-gradient(
+        180deg,
+        #1c202b 0%,
+        #171a23 100%
+    ) !important;
+
+    border:1px solid rgba(255,122,26,.18);
+
+    border-radius:20px;
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+}
+
+/* Barra superior */
+
+.ats-summary::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        #ff8a2b,
+        #ff6a00,
+        #ff8a2b
+    );
+
+}
+
+/* Glow */
+
+.ats-summary::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-90px;
+    right:-90px;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,106,0,.10),
+        transparent 70%
+    );
+
+}
+
+/* Ícone */
+
+.summary-title{
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    min-width:190px;
+}
+
+.summary-title i{
+
+    width:42px;
+    height:42px;
+
+    border-radius:14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #ff9835,
+        #ff6400
+    );
+
+    color:#fff;
+
+    font-size:18px;
+
+    box-shadow:0 10px 22px rgba(255,106,0,.30);
+
+}
+
+/* Cada indicador */
+
+.summary-item{
+
+    flex:1;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+.summary-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:1px;
+
+    height:36px;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.summary-item:first-of-type::before{
+
+    display:none;
+
+}
+
+/* Texto */
+
+.summary-item strong{
+
+    display:block;
+
+    color:#9fa8b8;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:4px;
+
+    letter-spacing:.4px;
+
+    text-transform:uppercase;
+
+}
+
+/* Valor */
+
+.summary-item span{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    color:#fff;
+
+}
+
+/* Cores */
+
+.summary-item.am span{
+    color:#FFD166;
+}
+
+.summary-item.pm span{
+    color:#6EC6FF;
+}
+
+.summary-item.ns span{
+    color:#FF6B6B;
+}
+
+.summary-item.atr span{
+    color:#A855F7;
+}
+
+.summary-item.exp span{
+    color:#3ED36D;
+}
+
+/* Hover */
+
+.ats-summary:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.35),
+        0 0 22px rgba(255,106,0,.10);
+
+}
+/*==================================================
+ ETAPA 4 - CONTROLE FIFO PREMIUM V6
+==================================================*/
+
+.status-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(7,1fr);
+
+    gap:18px !important;
+
+}
+
+/* CARD */
+
+.status-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    height:92px;
+
+    padding:18px;
+
+    display:flex;
+    align-items:center;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        180deg,
+        #1d212d 0%,
+        #171a23 100%
+    ) !important;
+
+    border:1px solid rgba(255,122,26,.15);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    transition:.35s;
+}
+
+/* Linha superior */
+
+.status-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        #ff9835,
+        #ff6a00,
+        #ff9835
+    );
+
+}
+
+/* Glow */
+
+.status-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-70px;
+    top:-70px;
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,106,0,.10),
+        transparent 70%
+    );
+
+}
+
+/* Hover */
+
+.status-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#ff7a1a;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.38),
+        0 0 26px rgba(255,106,0,.12);
+
+}
+
+/* Ícone */
+
+.status-card i{
+
+    width:52px;
+    height:52px;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+        135deg,
+        #ff9835,
+        #ff6400
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:22px;
+
+    box-shadow:
+        0 10px 22px rgba(255,106,0,.30);
+
+    transition:.35s;
+}
+
+.status-card:hover i{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+/* Texto */
+
+.status-card .info{
+
+    margin-left:16px;
+
+    text-align:left;
+
+}
+
+.status-card span{
+
+    display:block;
+
+    color:#98A2B3;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.status-card h2{
+
+    margin-top:4px;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#fff;
+
+}
+
+/* Cores especiais */
+
+.status-card.verde h2{
+    color:#36D97D;
+}
+
+.status-card.azul h2{
+    color:#59B8FF;
+}
+
+.status-card.amarelo h2{
+    color:#FFD166;
+}
+
+.status-card.roxo h2{
+    color:#A855F7;
+}
+
+.status-card.vermelho h2{
+    color:#FF6B6B;
+}
+
+.status-card.laranja h2{
+    color:#FF9835;
+}
+
+/* Efeito de clique */
+
+.status-card:active{
+
+    transform:scale(.98);
+
+}
+/*==================================================
+ ETAPA 5 - FILTROS ULTRA PREMIUM V7
+==================================================*/
+
+.filter-card{
+
+    position:relative;
+
+    overflow:visible !important;
+
+    padding:26px !important;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+        180deg,
+        #1d212d 0%,
+        #171a23 100%
+    ) !important;
+
+    border:1px solid rgba(255,122,26,.18);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.03);
+
+}
+
+/* Barra superior */
+
+.filter-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        #ff9835,
+        #ff6a00,
+        #ff9835
+    );
+
+}
+
+/* GRID */
+
+.filter-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr) auto auto;
+
+    gap:18px;
+
+    align-items:end;
+
+}
+
+/* LABEL */
+
+.filter-item label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#cfd5df;
+
+    letter-spacing:.3px;
+
+    text-transform:uppercase;
+
+}
+
+/* SELECT */
+
+.filter-item select,
+.ts-control{
+
+    height:48px !important;
+
+    border-radius:14px !important;
+
+    background:#252a37 !important;
+
+    border:1px solid rgba(255,255,255,.05) !important;
+
+    color:#fff !important;
+
+    transition:.30s;
+
+    box-shadow:none !important;
+
+}
+
+/* Placeholder */
+
+.ts-control input{
+
+    color:#fff !important;
+
+}
+
+/* Hover */
+
+.filter-item select:hover,
+.ts-control:hover{
+
+    border-color:#ff7a1a !important;
+
+    background:#2b3140 !important;
+
+}
+
+/* Focus */
+
+.filter-item select:focus,
+.ts-wrapper.focus .ts-control{
+
+    border-color:#ff6a00 !important;
+
+    background:#2b3140 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(255,106,0,.18) !important;
+
+}
+
+/* Dropdown */
+
+.ts-dropdown{
+
+    background:#232733 !important;
+
+    border:1px solid rgba(255,255,255,.06) !important;
+
+    border-radius:14px !important;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45);
+
+}
+
+/* Opções */
+
+.ts-dropdown .option{
+
+    color:#fff;
+
+    padding:12px 14px;
+
+    transition:.2s;
+
+}
+
+.ts-dropdown .option:hover{
+
+    background:#ff6a00 !important;
+
+    color:#fff;
+
+}
+
+/* BOTÃO ATUALIZAR */
+
+.btn-update{
+
+    height:48px !important;
+
+    padding:0 28px !important;
+
+    border-radius:14px !important;
+
+    border:none;
+
+    background:linear-gradient(
+        135deg,
+        #ff8a2b,
+        #ff6400
+    ) !important;
+
+    color:#fff;
+
+    font-weight:700;
+
+    box-shadow:
+        0 12px 28px rgba(255,106,0,.30);
+
+    transition:.30s;
+
+}
+
+.btn-update:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(255,106,0,.40);
+
+}
+
+/* BOTÃO LIMPAR */
+
+.btn-clear{
+
+    height:48px !important;
+
+    padding:0 28px !important;
+
+    border-radius:14px !important;
+
+    border:none;
+
+    background:#2a3040 !important;
+
+    color:#fff !important;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.btn-clear:hover{
+
+    background:#3a4358 !important;
+
+    transform:translateY(-3px);
+
+}
+
+/* ÍCONES */
+
+.btn-update i,
+.btn-clear i{
+
+    margin-right:8px;
+
+}
+
+/* Responsivo */
+
+@media(max-width:1400px){
+
+    .filter-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+/*==================================================
+ ETAPA 6 - DATATABLE PREMIUM V8
+==================================================*/
+
+.table-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+        180deg,
+        #1d212d 0%,
+        #171a23 100%
+    ) !important;
+
+    border:1px solid rgba(255,122,26,.15);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.30);
+
+    padding:22px;
+
+}
+
+/* Barra superior */
+
+.table-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        #ff9835,
+        #ff6a00,
+        #ff9835
+    );
+
+}
+
+/*====================================
+CABEÇALHO
+====================================*/
+
+table.dataTable thead{
+
+    background:#242937;
+
+}
+
+table.dataTable thead th{
+
+    background:transparent !important;
+
+    color:#ffffff !important;
+
+    border:none !important;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+
+    padding:18px 16px;
+
+}
+
+/*====================================
+LINHAS
+====================================*/
+
+table.dataTable tbody tr{
+
+    background:#1b1f2a;
+
+    transition:.25s;
+
+}
+
+table.dataTable tbody tr:nth-child(even){
+
+    background:#202532;
+
+}
+
+table.dataTable tbody td{
+
+    color:#d8dde7;
+
+    border-color:rgba(255,255,255,.05);
+
+    padding:15px 16px;
+
+    vertical-align:middle;
+
+    font-size:14px;
+
+}
+
+table.dataTable tbody tr:hover{
+
+    background:#2a3040 !important;
+
+    transform:scale(1.003);
+
+}
+
+/*====================================
+PESQUISA
+====================================*/
+
+.dt-search input{
+
+    width:340px !important;
+
+    height:46px !important;
+
+    background:#242937 !important;
+
+    color:#fff !important;
+
+    border:none !important;
+
+    border-radius:14px !important;
+
+    padding:0 18px !important;
+
+}
+
+.dt-search input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+/*====================================
+SELECT
+====================================*/
+
+.dt-length select{
+
+    background:#242937 !important;
+
+    color:#fff !important;
+
+    border:none !important;
+
+    border-radius:14px !important;
+
+    height:46px;
+
+}
+
+/*====================================
+INFORMAÇÕES
+====================================*/
+
+.dt-info{
+
+    color:#98A2B3 !important;
+
+    font-size:14px;
+
+}
+
+/*====================================
+PAGINAÇÃO
+====================================*/
+
+.dt-paging{
+
+    margin-top:15px;
+
+}
+
+.dt-paging-button{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px !important;
+
+    border:none !important;
+
+    background:#242937 !important;
+
+    color:#fff !important;
+
+    transition:.25s;
+
+}
+
+.dt-paging-button:hover{
+
+    background:#ff6a00 !important;
+
+}
+
+.dt-paging-button.current{
+
+    background:linear-gradient(
+        135deg,
+        #ff8a2b,
+        #ff6400
+    ) !important;
+
+    color:#fff !important;
+
+    box-shadow:
+        0 8px 20px rgba(255,106,0,.35);
+
+}
+
+/*====================================
+SCROLL
+====================================*/
+
+.dataTables_scrollBody::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb{
+
+    background:#ff6a00;
+
+    border-radius:20px;
+
+}
+
+/*====================================
+ORDENAÇÃO
+====================================*/
+
+table.dataTable thead .dt-orderable-asc:hover,
+table.dataTable thead .dt-orderable-desc:hover{
+
+    color:#ff8a2b;
+
+}
+
+/*====================================
+ANIMAÇÃO
+====================================*/
+
+.table-card{
+
+    animation:fadeTable .35s ease;
+
+}
+
+@keyframes fadeTable{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+/*==================================================
+ ETAPA 7 - ENTERPRISE UI
+==================================================*/
+
+/*=========================
+ANIMAÇÃO GERAL
+=========================*/
+
+.kpi-card,
+.status-card,
+.table-card,
+.filter-card,
+.ats-summary{
+
+    animation:fadeUp .45s ease both;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:none;
+
+    }
+
+}
+
+/*=========================
+GLOW AO PASSAR O MOUSE
+=========================*/
+
+.kpi-card:hover,
+.status-card:hover,
+.table-card:hover,
+.filter-card:hover{
+
+    border-color:#ff7a1a;
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.35),
+        0 0 35px rgba(255,122,26,.10);
+
+}
+
+/*=========================
+BOLA DE FUNDO
+=========================*/
+
+.kpi-card::after,
+.status-card::after{
+
+    animation:pulseGlow 6s infinite linear;
+
+}
+
+@keyframes pulseGlow{
+
+    0%{
+
+        transform:scale(.9);
+
+        opacity:.35;
+
+    }
+
+    50%{
+
+        transform:scale(1.2);
+
+        opacity:.60;
+
+    }
+
+    100%{
+
+        transform:scale(.9);
+
+        opacity:.35;
+
+    }
+
+}
+
+/*=========================
+SCROLL PREMIUM
+=========================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#151922;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        180deg,
+        #ff9734,
+        #ff6a00
+    );
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff7a1a;
+
+}
+
+/*=========================
+SELEÇÃO
+=========================*/
+
+::selection{
+
+    background:#ff6a00;
+
+    color:#fff;
+
+}
+
+/*=========================
+FOCUS
+=========================*/
+
+button:focus,
+select:focus,
+input:focus{
+
+    outline:none;
+
+}
+
+/*=========================
+ÍCONES
+=========================*/
+
+.kpi-card i,
+.status-card i,
+.summary-title i{
+
+    transition:.35s;
+
+}
+
+.kpi-card:hover i,
+.status-card:hover i{
+
+    filter:drop-shadow(
+        0 0 16px rgba(255,122,26,.55)
+    );
+
+}
+
+/*=========================
+VALORES
+=========================*/
+
+.kpi-card h2,
+.status-card h2,
+.summary-item span{
+
+    text-shadow:
+        0 0 18px rgba(255,255,255,.04);
+
+}
+
+/*=========================
+HEADER
+=========================*/
+
+.top-header{
+
+    position:sticky;
+
+    top:14px;
+
+    z-index:20;
+
+}
+
+/*=========================
+CARDS
+=========================*/
+
+.kpi-card{
+
+    cursor:pointer;
+
+}
+
+.status-card{
+
+    cursor:pointer;
+
+}
+
+/*=========================
+LINHAS DA TABELA
+=========================*/
+
+table.dataTable tbody tr{
+
+    border-left:3px solid transparent;
+
+}
+
+table.dataTable tbody tr:hover{
+
+    border-left:3px solid #ff6a00;
+
+}
+
+/*=========================
+BOTÕES
+=========================*/
+
+button{
+
+    transition:.28s;
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/*=========================
+BADGES
+=========================*/
+
+.badge{
+
+    border-radius:30px;
+
+    padding:7px 12px;
+
+    font-weight:700;
+
+}
+
+/*=========================
+SOMBRA SUAVE
+=========================*/
+
+.card-item,
+.kpi-card,
+.status-card{
+
+    backdrop-filter:blur(12px);
+
+}
+
+/*=========================
+BACKGROUND
+=========================*/
+
+body{
+
+    background:
+
+        radial-gradient(circle at top left,
+        rgba(255,106,0,.05),
+        transparent 25%),
+
+        radial-gradient(circle at bottom right,
+        rgba(59,130,246,.04),
+        transparent 28%),
+
+        #11141d;
+
+}
+
+/*=========================
+TRANSIÇÕES
+=========================*/
+
+*{
+
+    transition:
+        background .25s,
+        color .25s,
+        border-color .25s,
+        box-shadow .25s;
+
+}
+/*==================================================
+ ETAPA 8 - ELITE DASHBOARD V9
+==================================================*/
+
+/*=========================
+BRILHO SUAVE NOS KPIs
+=========================*/
+
+.kpi-card{
+    isolation:isolate;
+}
+
+.kpi-card::before{
+
+    animation:shine 7s linear infinite;
+
+}
+
+@keyframes shine{
+
+    0%{
+
+        transform:translateX(-220%) skewX(-30deg);
+
+    }
+
+    100%{
+
+        transform:translateX(220%) skewX(-30deg);
+
+    }
+
+}
+
+/*=========================
+EFEITO GLASS
+=========================*/
+
+.kpi-card,
+.status-card,
+.filter-card,
+.table-card,
+.ats-summary{
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+/*=========================
+BORDA ILUMINADA
+=========================*/
+
+.kpi-card:hover,
+.status-card:hover{
+
+    border-color:#ff8a2b;
+
+    box-shadow:
+
+        0 0 0 1px rgba(255,138,43,.15),
+
+        0 25px 55px rgba(0,0,0,.40),
+
+        0 0 30px rgba(255,106,0,.15);
+
+}
+
+/*=========================
+BADGES
+=========================*/
+
+.badge{
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.4px;
+
+    border-radius:30px;
+
+    padding:6px 14px;
+
+}
+
+.badge-success{
+
+    background:#123d28;
+    color:#5CE59C;
+
+}
+
+.badge-warning{
+
+    background:#483612;
+    color:#FFD166;
+
+}
+
+.badge-danger{
+
+    background:#4a1e22;
+    color:#FF6B6B;
+
+}
+
+.badge-info{
+
+    background:#163c56;
+    color:#6EC6FF;
+
+}
+
+/*=========================
+INDICADORES
+=========================*/
+
+.status-card::after,
+.kpi-card::after{
+
+    opacity:.35;
+
+}
+
+.status-card:hover::after,
+.kpi-card:hover::after{
+
+    opacity:.7;
+
+}
+
+/*=========================
+TOOLTIP
+=========================*/
+
+[title]{
+
+    cursor:help;
+
+}
+
+/*=========================
+BOTÕES
+=========================*/
+
+.btn-update,
+.btn-clear{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.btn-update::before,
+.btn-clear::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.18),
+
+            transparent
+
+        );
+
+    transition:.7s;
+
+}
+
+.btn-update:hover::before,
+.btn-clear:hover::before{
+
+    left:170%;
+
+}
+
+/*=========================
+TABELA
+=========================*/
+
+table.dataTable tbody tr{
+
+    transition:
+
+        transform .2s,
+
+        background .2s,
+
+        border-color .2s;
+
+}
+
+table.dataTable tbody tr:hover{
+
+    transform:translateX(4px);
+
+}
+
+/*=========================
+TÍTULOS
+=========================*/
+
+.section-title,
+.card-title{
+
+    color:#fff;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+}
+
+.section-title::after,
+.card-title::after{
+
+    content:"";
+
+    display:block;
+
+    margin-top:8px;
+
+    width:46px;
+
+    height:3px;
+
+    border-radius:20px;
+
+    background:#ff6a00;
+
+}
+
+/*=========================
+ANIMAÇÃO DOS ÍCONES
+=========================*/
+
+.kpi-card:hover i,
+.status-card:hover i{
+
+    animation:iconFloat .8s ease;
+
+}
+
+@keyframes iconFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    40%{
+
+        transform:translateY(-5px);
+
+    }
+
+    70%{
+
+        transform:translateY(2px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================
+RESPONSIVO
+=========================*/
+
+@media(max-width:992px){
+
+    .kpi-grid,
+    .status-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:640px){
+
+    .kpi-grid,
+    .status-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
