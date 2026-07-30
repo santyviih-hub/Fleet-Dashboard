@@ -7616,3 +7616,92 @@ select,
     background:#16d992;
     box-shadow:0 0 10px rgba(22,217,146,.7);
 }
+/* ============================
+   STATUS BADGES
+============================ */
+
+/* Assigned = Verde */
+.badge.bg-secondary{
+    background:#16a34a !important;
+    color:#fff !important;
+}
+
+/* Processing = Azul */
+.badge.bg-primary{
+    background:#2563eb !important;
+    color:#fff !important;
+}
+
+/* Processing (caso esteja usando warning) */
+.badge.bg-warning{
+    background:#2563eb !important;
+    color:#fff !important;
+}
+
+/* Processed = Amarelo */
+.badge.bg-info{
+    background:#facc15 !important;
+    color:#111827 !important;
+}
+
+/* Complete (opcional - manter cinza) */
+.badge.bg-success{
+    background:#6b7280 !important;
+    color:#fff !important;
+}
+/* ==========================================
+   OBSERVAÇÕES - TEMA DARK
+========================================== */
+
+.observacoes-card{
+    background:#13151d;
+    border:1px solid rgba(255,120,25,.35);
+    border-radius:18px;
+    padding:22px 24px;
+}
+
+.observacoes-card h3{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.observacao-bloco{
+    padding:8px 0;
+}
+
+.observacao-bloco h4{
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.observacao-bloco:first-of-type h4{
+    color:#33d17a;
+}
+
+.observacao-bloco:last-of-type h4{
+    color:#ff7a1a;
+}
+
+.observacao-item{
+    margin-bottom:10px;
+    color:#f4f4f4;
+    line-height:1.7;
+}
+
+.observacao-item strong{
+    color:#c8ced8;
+    font-weight:700;
+}
+
+.observacao-item span{
+    color:#ffffff;
+}
+
+.observacoes-card hr{
+    border:0;
+    border-top:1px solid rgba(255,255,255,.08);
+    margin:22px 0;
+}
