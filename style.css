@@ -5635,3 +5635,1984 @@ div.dt-container{
     font-size:12px;
     font-weight:700;
 }
+/*==================================================
+PAINEL PREMIUM - PASSO 01
+INDICADORES OPERACIONAIS
+==================================================*/
+
+.kpi-grid{
+
+    gap:12px !important;
+
+}
+
+.kpi-card{
+
+    height:132px !important;
+
+    padding:22px 20px !important;
+
+    border-radius:22px !important;
+
+}
+
+.kpi-card i{
+
+    width:60px !important;
+    height:60px !important;
+
+    font-size:26px !important;
+
+    border-radius:18px !important;
+
+}
+
+.kpi-title{
+
+    font-size:17px !important;
+
+    font-weight:600 !important;
+
+    margin-bottom:8px;
+
+}
+
+.kpi-card h2{
+
+    font-size:42px !important;
+
+    font-weight:800 !important;
+
+    line-height:1;
+
+}
+
+.kpi-details{
+
+    margin-top:10px !important;
+
+    gap:14px !important;
+
+}
+
+.kpi-details span{
+
+    font-size:14px !important;
+
+    font-weight:700 !important;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 02
+RESUMO ATS
+==================================================*/
+
+.ats-summary{
+
+    height:58px !important;
+
+    min-height:58px !important;
+
+    padding:0 18px !important;
+
+    border-radius:18px !important;
+
+    margin-top:10px !important;
+
+    gap:12px !important;
+
+}
+
+.summary-title{
+
+    font-size:16px !important;
+
+    font-weight:700;
+
+    min-width:auto !important;
+
+    gap:10px !important;
+
+}
+
+.summary-title i{
+
+    width:36px !important;
+    height:36px !important;
+
+    font-size:16px !important;
+
+    border-radius:12px !important;
+
+}
+
+.summary-item{
+
+    padding:0 8px !important;
+
+}
+
+.summary-item::before{
+
+    height:24px !important;
+
+}
+
+.summary-item strong{
+
+    display:inline !important;
+
+    font-size:13px !important;
+
+    margin:0 4px 0 0 !important;
+
+}
+
+.summary-item span{
+
+    font-size:22px !important;
+
+    font-weight:800 !important;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 03
+CONTROLE FIFO
+==================================================*/
+
+.fifo-card{
+
+    border-radius:22px !important;
+
+    padding:22px !important;
+
+}
+
+.fifo-header{
+
+    margin-bottom:18px !important;
+
+}
+
+.fifo-header h3{
+
+    font-size:22px !important;
+
+    font-weight:700 !important;
+
+}
+
+.fifo-header p{
+
+    font-size:14px !important;
+
+    opacity:.75;
+
+}
+
+.fifo-grid{
+
+    gap:14px !important;
+
+}
+
+.fifo-item{
+
+    border-radius:18px !important;
+
+    padding:18px !important;
+
+    transition:.25s;
+
+}
+
+.fifo-item:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.fifo-label{
+
+    font-size:14px !important;
+
+    font-weight:600 !important;
+
+}
+
+.fifo-value{
+
+    font-size:34px !important;
+
+    font-weight:800 !important;
+
+    line-height:1;
+
+    margin-top:8px;
+
+}
+
+.fifo-progress{
+
+    height:8px !important;
+
+    border-radius:20px !important;
+
+    overflow:hidden;
+
+}
+
+.fifo-progress div{
+
+    border-radius:20px;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 04
+FILTROS
+==================================================*/
+
+.filters-card{
+
+    border-radius:22px !important;
+
+    padding:22px !important;
+
+}
+
+.filters-card h3{
+
+    font-size:22px !important;
+
+    font-weight:700 !important;
+
+    margin-bottom:18px;
+
+}
+
+.filter-group{
+
+    margin-bottom:16px !important;
+
+}
+
+.filter-group label{
+
+    font-size:13px !important;
+
+    font-weight:700 !important;
+
+    margin-bottom:6px !important;
+
+    color:#9ca3af;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.filter-group select,
+.filter-group input{
+
+    height:48px !important;
+
+    border-radius:14px !important;
+
+    padding:0 16px !important;
+
+    font-size:15px !important;
+
+    transition:.25s;
+
+}
+
+.filter-group select:hover,
+.filter-group input:hover{
+
+    transform:translateY(-1px);
+
+}
+
+.filter-group select:focus,
+.filter-group input:focus{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 0 4px rgba(255,136,0,.18) !important;
+
+}
+
+.filters-actions{
+
+    margin-top:20px !important;
+
+    gap:12px !important;
+
+}
+
+.filters-actions .btn{
+
+    height:48px !important;
+
+    border-radius:14px !important;
+
+    font-weight:700 !important;
+
+    font-size:15px !important;
+
+    transition:.25s;
+
+}
+
+.filters-actions .btn:hover{
+
+    transform:translateY(-2px);
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 05
+DATATABLE
+==================================================*/
+
+.table-card{
+
+    border-radius:22px !important;
+
+    overflow:hidden;
+
+}
+
+.table-card .card-header{
+
+    padding:18px 22px !important;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.table-card .card-header h3{
+
+    font-size:22px !important;
+
+    font-weight:700 !important;
+
+}
+
+table.dataTable{
+
+    border-collapse:separate !important;
+
+    border-spacing:0 8px !important;
+
+}
+
+table.dataTable thead th{
+
+    font-size:13px !important;
+
+    font-weight:700 !important;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+    padding:16px 18px !important;
+
+    border:none !important;
+
+}
+
+table.dataTable tbody td{
+
+    padding:16px 18px !important;
+
+    font-size:14px !important;
+
+    vertical-align:middle;
+
+    border-top:none !important;
+
+    border-bottom:none !important;
+
+}
+
+table.dataTable tbody tr{
+
+    transition:.25s;
+
+}
+
+table.dataTable tbody tr:hover{
+
+    transform:scale(1.003);
+
+}
+
+table.dataTable tbody tr td:first-child{
+
+    border-radius:14px 0 0 14px;
+
+}
+
+table.dataTable tbody tr td:last-child{
+
+    border-radius:0 14px 14px 0;
+
+}
+
+.dataTables_filter input{
+
+    height:42px !important;
+
+    border-radius:12px !important;
+
+    padding:0 14px !important;
+
+}
+
+.dataTables_length select{
+
+    height:42px !important;
+
+    border-radius:12px !important;
+
+}
+
+.dataTables_paginate .paginate_button{
+
+    border-radius:10px !important;
+
+    margin:0 3px !important;
+
+    transition:.2s;
+
+}
+
+.dataTables_paginate .paginate_button:hover{
+
+    transform:translateY(-2px);
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 06
+HEADER
+==================================================*/
+
+.top-header{
+
+    min-height:78px !important;
+
+    padding:18px 26px !important;
+
+    border-radius:22px !important;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+.header-title h1{
+
+    font-size:28px !important;
+
+    font-weight:800 !important;
+
+    letter-spacing:-.5px;
+
+    margin:0;
+
+}
+
+.header-title p{
+
+    font-size:14px !important;
+
+    margin-top:4px;
+
+    opacity:.75;
+
+}
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.header-status{
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.header-actions .btn{
+
+    height:46px !important;
+
+    padding:0 20px !important;
+
+    border-radius:14px !important;
+
+    font-size:14px !important;
+
+    font-weight:700 !important;
+
+    transition:.25s;
+
+}
+
+.header-actions .btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.last-update{
+
+    font-size:13px !important;
+
+    opacity:.70;
+
+}
+
+.header-clock{
+
+    font-size:26px !important;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 07
+ACABAMENTO FINAL
+==================================================*/
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff8800;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ffa733;
+
+}
+
+
+/* Todos os cards */
+
+.card,
+.kpi-card,
+.filters-card,
+.fifo-card,
+.table-card,
+.ats-summary{
+
+    transition:all .28s ease;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+
+}
+
+
+/* Hover */
+
+.card:hover,
+.kpi-card:hover,
+.filters-card:hover,
+.fifo-card:hover,
+.table-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.28);
+
+}
+
+
+/* Badges */
+
+.badge{
+
+    border-radius:999px !important;
+
+    padding:6px 12px !important;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+}
+
+
+/* Progress */
+
+.progress{
+
+    height:8px !important;
+
+    border-radius:20px !important;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    border-radius:20px;
+
+}
+
+
+/* Ícones */
+
+.card i{
+
+    transition:.25s;
+
+}
+
+.card:hover i{
+
+    transform:scale(1.08);
+
+}
+
+
+/* Botões */
+
+.btn{
+
+    transition:all .25s ease !important;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* Fade */
+
+@keyframes fadeDashboard{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.main-content{
+
+    animation:fadeDashboard .45s ease;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 08
+LAYOUT COMPACTO
+==================================================*/
+
+/* Esconde os títulos */
+
+.section-header h2,
+.section-header h3,
+.card-header h2,
+.card-header h3,
+.card-title{
+
+    display:none !important;
+
+}
+
+/* Cabeçalhos bem compactos */
+
+.section-header,
+.card-header{
+
+    min-height:42px !important;
+
+    padding:8px 14px !important;
+
+    margin-bottom:8px !important;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+/* Ícones maiores */
+
+.section-header i,
+.card-header i{
+
+    font-size:24px !important;
+
+    margin:0 !important;
+
+}
+
+/* Aproxima todos os blocos */
+
+.dashboard-grid,
+.content-grid,
+.main-content{
+
+    gap:12px !important;
+
+}
+
+/* Cards mais compactos */
+
+.card{
+
+    margin-bottom:10px !important;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 08
+SEÇÕES COMPACTAS
+==================================================*/
+
+.section-title{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:10px !important;
+
+    padding:0 2px !important;
+
+}
+
+.section-title h3{
+
+    display:none !important;
+
+}
+
+.section-title i{
+
+    font-size:24px !important;
+
+    color:#ff7a00;
+
+    margin:0 !important;
+
+}
+
+/* Aproxima todas as seções */
+
+.dashboard-section{
+
+    margin-bottom:18px !important;
+
+}
+
+/* Aproxima os cards */
+
+.kpi-grid{
+
+    margin-top:6px !important;
+
+}
+
+.status-grid{
+
+    margin-top:6px !important;
+
+}
+
+.filter-card{
+
+    margin-top:6px !important;
+
+}
+
+.table-card{
+
+    margin-top:6px !important;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 08
+REMOVER CABEÇALHOS DAS SEÇÕES
+==================================================*/
+
+.section-title{
+
+    display:none !important;
+
+}
+
+/* Aproxima todas as seções */
+
+.dashboard-section{
+
+    margin-bottom:14px !important;
+
+}
+
+/* Remove o espaço deixado pelo cabeçalho */
+
+.kpi-grid,
+.status-grid,
+.filter-card,
+.table-card,
+.ats-summary{
+
+    margin-top:0 !important;
+
+}
+/*==================================================
+PAINEL PREMIUM - PASSO 09
+TABELA COMPACTA
+==================================================*/
+
+/* Barra superior */
+
+.dataTables_wrapper .top{
+
+    margin-bottom:10px !important;
+
+}
+
+/* Mostrar registros + Buscar */
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter{
+
+    margin-bottom:8px !important;
+
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+
+}
+
+/* Campo de pesquisa */
+
+.dataTables_wrapper .dataTables_filter input{
+
+    height:40px !important;
+
+    width:320px !important;
+
+    border-radius:14px !important;
+
+    margin-left:8px !important;
+
+}
+
+/* Select */
+
+.dataTables_wrapper .dataTables_length select{
+
+    height:40px !important;
+
+    border-radius:12px !important;
+
+    padding:0 12px !important;
+
+}
+
+/* Cabeçalho */
+
+table.dataTable thead th{
+
+    padding:14px 16px !important;
+
+    font-size:14px !important;
+
+    height:46px !important;
+
+    vertical-align:middle !important;
+
+}
+
+/* Linhas */
+
+table.dataTable tbody td{
+
+    padding:12px 16px !important;
+
+    height:44px !important;
+
+    vertical-align:middle;
+
+}
+
+/* Remove espaço acima da tabela */
+
+.table-card{
+
+    padding-top:14px !important;
+
+}
+
+.dataTables_wrapper{
+
+    margin-top:0 !important;
+
+}
+/* ===== DataTables 2.x ===== */
+
+.dt-layout-row{
+
+    margin:0 !important;
+    padding:0 !important;
+
+}
+
+.dt-layout-cell{
+
+    padding:0 !important;
+
+}
+
+.dt-layout-start,
+.dt-layout-end{
+
+    margin:0 !important;
+
+}
+
+.dt-layout-table{
+
+    margin-top:8px !important;
+
+}
+
+.dt-search{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+
+.dt-length{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+/*==================================================
+DATATABLE PREMIUM V2
+==================================================*/
+
+#tabelaOperacao_wrapper{
+
+    padding:0 !important;
+
+}
+
+#tabelaOperacao_wrapper > .dt-layout-row{
+
+    display:flex !important;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin:0 !important;
+
+    padding:6px 0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-layout-table{
+
+    margin-top:4px !important;
+
+    padding:0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-layout-start,
+
+#tabelaOperacao_wrapper .dt-layout-end{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 !important;
+
+    margin:0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-search,
+
+#tabelaOperacao_wrapper .dt-length{
+
+    margin:0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-search label,
+
+#tabelaOperacao_wrapper .dt-length label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin:0;
+
+}
+
+#tabelaOperacao_wrapper .dt-input{
+
+    height:38px !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-select{
+
+    height:38px !important;
+
+}
+
+#tabelaOperacao_wrapper table{
+
+    margin-top:0 !important;
+
+}
+/*==================================================
+DATATABLE COMPACTA
+==================================================*/
+
+#tabelaOperacao{
+
+    table-layout:fixed !important;
+
+    width:100% !important;
+
+}
+
+#tabelaOperacao th,
+#tabelaOperacao td{
+
+    padding:8px 10px !important;
+
+    font-size:13px !important;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+/* Larguras */
+
+#tabelaOperacao th:nth-child(1),
+#tabelaOperacao td:nth-child(1){width:120px;}
+
+#tabelaOperacao th:nth-child(2),
+#tabelaOperacao td:nth-child(2){width:130px;}
+
+#tabelaOperacao th:nth-child(3),
+#tabelaOperacao td:nth-child(3){width:130px;}
+
+#tabelaOperacao th:nth-child(4),
+#tabelaOperacao td:nth-child(4){width:120px;}
+
+#tabelaOperacao th:nth-child(5),
+#tabelaOperacao td:nth-child(5){width:70px;}
+
+#tabelaOperacao th:nth-child(6),
+#tabelaOperacao td:nth-child(6){width:220px;}
+
+#tabelaOperacao th:nth-child(7),
+#tabelaOperacao td:nth-child(7){width:60px;}
+
+#tabelaOperacao th:nth-child(8),
+#tabelaOperacao td:nth-child(8){width:90px;}
+
+#tabelaOperacao th:nth-child(9),
+#tabelaOperacao td:nth-child(9){width:70px;}
+
+#tabelaOperacao th:nth-child(10),
+#tabelaOperacao td:nth-child(10){width:60px;}
+
+#tabelaOperacao th:nth-child(11),
+#tabelaOperacao td:nth-child(11){width:70px;}
+/* DRIVER */
+
+#tabelaOperacao td:nth-child(6),
+#tabelaOperacao th:nth-child(6){
+
+    max-width:180px !important;
+    width:180px !important;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+}
+
+/* CIDADE */
+
+#tabelaOperacao td:nth-child(2),
+#tabelaOperacao th:nth-child(2){
+
+    max-width:120px !important;
+    width:120px !important;
+
+}
+
+/* BAIRRO */
+
+#tabelaOperacao td:nth-child(3),
+#tabelaOperacao th:nth-child(3){
+
+    max-width:130px !important;
+    width:130px !important;
+
+}
+
+/* AGÊNCIA */
+
+#tabelaOperacao td:nth-child(4),
+#tabelaOperacao th:nth-child(4){
+
+    max-width:120px !important;
+    width:120px !important;
+
+}
+/* AT */
+#tabelaOperacao th:nth-child(1),
+#tabelaOperacao td:nth-child(1){
+    width:140px !important;
+}
+
+/* Cidade */
+#tabelaOperacao th:nth-child(2),
+#tabelaOperacao td:nth-child(2){
+    width:110px !important;
+}
+
+/* Bairro */
+#tabelaOperacao th:nth-child(3),
+#tabelaOperacao td:nth-child(3){
+    width:130px !important;
+}
+
+/* Agência */
+#tabelaOperacao th:nth-child(4),
+#tabelaOperacao td:nth-child(4){
+    width:130px !important;
+}
+
+/* Driver */
+#tabelaOperacao th:nth-child(6),
+#tabelaOperacao td:nth-child(6){
+    width:170px !important;
+    max-width:170px !important;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+/*==================================================
+DATATABLE - REMOVER ESPAÇO SUPERIOR
+==================================================*/
+
+#tabelaOperacao_wrapper .dt-layout-table{
+
+    margin-top:0 !important;
+    padding-top:0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-scroll{
+
+    margin-top:0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-scroll-head{
+
+    margin-top:0 !important;
+    padding-top:0 !important;
+    border-top:none !important;
+
+}
+
+#tabelaOperacao_wrapper table.dataTable{
+
+    margin-top:0 !important;
+
+}
+
+#tabelaOperacao_wrapper .dt-layout-row:first-child{
+
+    margin-bottom:6px !important;
+
+}
+#tabelaOperacao,
+#tabelaOperacao_wrapper{
+
+    width:100% !important;
+
+}
+
+#tabelaOperacao{
+
+    table-layout:auto !important;
+
+}
+/* TESTE */
+
+.table-card{
+
+    width:100% !important;
+
+    max-width:none !important;
+
+    overflow:visible !important;
+
+}
+
+#tabelaOperacao_wrapper{
+
+    width:100% !important;
+
+    overflow:visible !important;
+
+}
+
+.dt-layout-table{
+
+    width:100% !important;
+
+}
+
+.dt-scroll{
+
+    overflow-x:visible !important;
+
+}
+/* Distribui as colunas igualmente */
+
+#tabelaOperacao{
+
+    width:100% !important;
+
+    table-layout:auto !important;
+
+}
+
+#tabelaOperacao th,
+#tabelaOperacao td{
+
+    white-space:nowrap;
+
+    padding:10px 12px !important;
+
+}
+
+/* Driver pode crescer mais */
+
+#tabelaOperacao th:nth-child(6),
+#tabelaOperacao td:nth-child(6){
+
+    width:18%;
+
+}
+
+/* Colunas pequenas */
+
+#tabelaOperacao th:nth-child(5),
+#tabelaOperacao td:nth-child(5),
+
+#tabelaOperacao th:nth-child(7),
+#tabelaOperacao td:nth-child(7),
+
+#tabelaOperacao th:nth-child(8),
+#tabelaOperacao td:nth-child(8),
+
+#tabelaOperacao th:nth-child(9),
+#tabelaOperacao td:nth-child(9),
+
+#tabelaOperacao th:nth-child(10),
+#tabelaOperacao td:nth-child(10),
+
+#tabelaOperacao th:nth-child(11),
+#tabelaOperacao td:nth-child(11){
+
+    width:6%;
+
+}
+/* Driver */
+
+#tabelaOperacao td:nth-child(6){
+
+    max-width:220px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+/*==================================================
+PAINEL PREMIUM V3
+TEMA GRAFITE
+==================================================*/
+
+/* Fundo geral */
+
+body{
+
+    background:
+        radial-gradient(circle at top right, rgba(255,136,0,.08), transparent 35%),
+        radial-gradient(circle at left center, rgba(255,136,0,.04), transparent 45%),
+        linear-gradient(180deg,#1b2230 0%,#232c3f 100%) !important;
+
+}
+
+/* Área principal */
+
+.main{
+
+    background:transparent !important;
+
+}
+
+/* Header */
+
+.top-header{
+
+    background:rgba(36,45,63,.92) !important;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+}
+
+/* Cards */
+
+.kpi-card,
+
+.filter-card,
+
+.table-card,
+
+.ats-summary,
+
+.status-card{
+
+    background:#2b3447 !important;
+
+    color:#ffffff !important;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+/* Títulos */
+
+.kpi-title,
+
+.card-title,
+
+label,
+
+.section-title,
+
+.table-card h3{
+
+    color:#cfd7e6 !important;
+
+}
+
+/* Valores */
+
+.kpi-value{
+
+    color:#ffffff !important;
+
+}
+
+/* Inputs */
+
+select,
+
+input{
+
+    background:#39445b !important;
+
+    color:#ffffff !important;
+
+    border:1px solid rgba(255,255,255,.08) !important;
+
+}
+
+select::placeholder,
+
+input::placeholder{
+
+    color:#aeb8cb !important;
+
+}
+
+/* Toolbar DataTable */
+
+.dt-layout-row{
+
+    background:#2b3447 !important;
+
+}
+
+/* Tabela */
+
+table.dataTable tbody tr{
+
+    background:#323d52 !important;
+
+}
+
+table.dataTable tbody tr:nth-child(even){
+
+    background:#2d374a !important;
+
+}
+
+table.dataTable tbody tr:hover{
+
+    background:#3b4963 !important;
+
+}
+
+/* Texto da tabela */
+
+table.dataTable tbody td{
+
+    color:#f5f7fa !important;
+
+}
+
+/* Rodapé */
+
+.dt-info,
+
+.dt-paging{
+
+    color:#cfd7e6 !important;
+
+}
+
+/* Scroll */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#202838;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff8800;
+
+    border-radius:20px;
+
+}
+/* ======================================
+REMOVE TODOS OS EFEITOS DOS CARDS
+====================================== */
+
+.kpi-card::before,
+.kpi-card::after,
+.status-card::before,
+.status-card::after,
+.filter-card::before,
+.filter-card::after,
+.table-card::before,
+.table-card::after,
+.ats-summary::before,
+.ats-summary::after{
+
+    content:none !important;
+    display:none !important;
+    background:none !important;
+    box-shadow:none !important;
+
+}
+/* ======================================
+PALETA NOVA
+====================================== */
+
+body,
+.main{
+
+    background:#0f1117 !important;
+
+}
+
+.sidebar{
+
+    background:#11131a !important;
+
+}
+
+.top-header{
+
+    background:#171922 !important;
+
+}
+
+.kpi-card,
+.status-card,
+.filter-card,
+.table-card,
+.ats-summary{
+
+    background:#1a1d28 !important;
+
+    border:1px solid rgba(243,90,56,.18);
+
+}
+
+/* Cabeçalho da tabela */
+
+table.dataTable thead th{
+
+    background:#12141c !important;
+
+}
+
+/* Linhas */
+
+table.dataTable tbody tr{
+
+    background:#1a1d28 !important;
+
+}
+
+table.dataTable tbody tr:nth-child(even){
+
+    background:#1d2130 !important;
+
+}
+
+/* Menu ativo */
+
+.sidebar .active{
+
+    background:#f35a38 !important;
+
+}
+
+/* Ícones */
+
+.kpi-icon,
+.status-icon{
+
+    background:#f35a38 !important;
+
+}
+
+/* Linha superior */
+
+.kpi-card{
+
+    border-top:2px solid #f35a38;
+
+}
+/* Título principal */
+
+.top-header h1,
+.top-header .page-title,
+.page-title,
+.header-title{
+
+    color:#ffffff !important;
+
+}
+/* ===========================
+   RESUMO ATS
+=========================== */
+
+.ats-summary{
+
+    color:#ffffff !important;
+
+}
+
+.ats-summary *{
+
+    color:#ffffff !important;
+
+}
+
+/* Mantém as cores dos números */
+
+.ats-summary .text-success{
+
+    color:#2ecc71 !important;
+
+}
+
+.ats-summary .text-primary{
+
+    color:#2f8cff !important;
+
+}
+
+.ats-summary .text-danger{
+
+    color:#ff4d4f !important;
+
+}
+
+.ats-summary .text-warning{
+
+    color:#ff8a00 !important;
+
+}
+
+.ats-summary .text-purple{
+
+    color:#8a2be2 !important;
+
+}
+/* ======================================
+REMOVE O FUNDO CINZA DA TABELA
+====================================== */
+
+.table-card,
+#tabelaOperacao_wrapper{
+
+    background:transparent !important;
+
+}
+
+/* Barra superior (Mostrar / Buscar) */
+
+.dt-layout-row{
+
+    background:transparent !important;
+
+}
+
+/* Área da tabela */
+
+.dt-layout-table{
+
+    background:transparent !important;
+
+}
+
+/* Wrapper interno */
+
+.dt-layout-cell{
+
+    background:transparent !important;
+
+}
+
+/* Scroll */
+
+.dt-scroll,
+.dt-scroll-head,
+.dt-scroll-body,
+.dt-scroll-foot{
+
+    background:transparent !important;
+
+}
+/* ==========================================
+   CORES DOS KPI
+========================================== */
+
+/* 1 - Volume Total */
+.kpi-card:nth-of-type(1) h1,
+.kpi-card:nth-of-type(1) h2,
+.kpi-card:nth-of-type(1) h3,
+.kpi-card:nth-of-type(1) .kpi-value{
+    color:#1f6fd8 !important; /* Verde */
+}
+
+/* 2 - Total ATS */
+.kpi-card:nth-of-type(2) h1,
+.kpi-card:nth-of-type(2) h2,
+.kpi-card:nth-of-type(2) h3,
+.kpi-card:nth-of-type(2) .kpi-value{
+    color:#2e9d44 !important; /* Azul */
+}
+
+/* 3 - No Show */
+.kpi-card:nth-of-type(3) h1,
+.kpi-card:nth-of-type(3) h2,
+.kpi-card:nth-of-type(3) h3,
+.kpi-card:nth-of-type(3) .kpi-value{
+    color:#ff8800 !important; /* Vermelho */
+}
+
+/* 4 - Rotas Atribuídas */
+.kpi-card:nth-of-type(4) h1,
+.kpi-card:nth-of-type(4) h2,
+.kpi-card:nth-of-type(4) h3,
+.kpi-card:nth-of-type(4) .kpi-value{
+    color:#7b2cbf !important; /* Laranja */
+}
+
+/* 5 - Rotas Expedidas */
+.kpi-card:nth-of-type(5) h1,
+.kpi-card:nth-of-type(5) h2,
+.kpi-card:nth-of-type(5) h3,
+.kpi-card:nth-of-type(5) .kpi-value{
+    color:#d63a3a !important; /* Roxo */
+}
+
+/* 6 - Pacotes Expedidos */
+.kpi-card:nth-of-type(6) h1,
+.kpi-card:nth-of-type(6) h2,
+.kpi-card:nth-of-type(6) h3,
+.kpi-card:nth-of-type(6) .kpi-value{
+    color:#2e9d44 !important;
+}
+
+/* 7 - ATS no Piso */
+.kpi-card:nth-of-type(7) h1,
+.kpi-card:nth-of-type(7) h2,
+.kpi-card:nth-of-type(7) h3,
+.kpi-card:nth-of-type(7) .kpi-value{
+    color:#1f6fd8 !important;
+}
+
+/* 8 - Pacotes no Piso */
+.kpi-card:nth-of-type(8) h1,
+.kpi-card:nth-of-type(8) h2,
+.kpi-card:nth-of-type(8) h3,
+.kpi-card:nth-of-type(8) .kpi-value{
+    color:#d63a3a !important;
+}
+
+/* 9 - Sem Aderência */
+.kpi-card:nth-of-type(9) h1,
+.kpi-card:nth-of-type(9) h2,
+.kpi-card:nth-of-type(9) h3,
+.kpi-card:nth-of-type(9) .kpi-value{
+    color:#ff8800 !important;
+}
+
+/* 10 - SPR */
+.kpi-card:nth-of-type(10) h1,
+.kpi-card:nth-of-type(10) h2,
+.kpi-card:nth-of-type(10) h3,
+.kpi-card:nth-of-type(10) .kpi-value{
+    color:#7b2cbf !important;
+}
+/* ===== RESUMO ATS - NOMES CINZA ===== */
+
+.resumo-ats,
+.resumo-ats *,
+.ats-summary,
+.ats-summary *{
+    color: #c4c7ae !important;
+}
+
+/* Mantém os valores em branco */
+.resumo-ats strong,
+.resumo-ats b,
+.ats-summary strong,
+.ats-summary b{
+    color: #ffffff !important;
+}
+/* ===== CENTRALIZAR MINI KPIs ===== */
+
+.mini-kpi-card{
+    display:flex !important;
+    align-items:center !important;
+    gap:16px !important;
+    padding:0 22px !important;
+    min-height:78px !important;
+}
+
+.mini-kpi-icon{
+    flex:0 0 46px;
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.mini-kpi-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    line-height:1.05;
+}
+
+.mini-kpi-title{
+    margin:0;
+    font-size:18px;
+}
+
+.mini-kpi-value{
+    margin-top:2px;
+    font-size:30px;
+    font-weight:800;
+}
+table.dataTable thead th,
+#tabelaOperacao thead th{
+    background:#df5d0b !important;
+    color:#ffffff !important;
+}
+/* ===== FUNDOS DOS FILTROS ===== */
+
+select,
+.form-select,
+.form-control,
+.ts-control,
+.ts-wrapper.single .ts-control{
+    background: #bcc4cf !important;
+    color: #1f2937 !important;
+    border: 1px solid #b4bcc8 !important;
+    box-shadow: none !important;
+}
+
+/* Texto do placeholder */
+.ts-control input::placeholder,
+.form-control::placeholder{
+    color: #6b7280 !important;
+}
+
+/* Hover */
+.ts-control:hover,
+.form-control:hover,
+.form-select:hover{
+    background: #d3d8e0 !important;
+}
+
+/* Focus */
+.ts-control.focus,
+.form-control:focus,
+.form-select:focus{
+    background: #dce1e8 !important;
+    border-color: #ff6a00 !important;
+}
+/* ==========================
+   STATUS ONLINE ESTILO YURI
+========================== */
+
+.status-online,
+.badge-online,
+.operacao-status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 20px;
+
+    background:#062b24;
+    border:1px solid #0c5c4b;
+    border-radius:999px;
+
+    color:#1ed79c !important;
+    font-weight:700;
+    font-size:15px;
+}
+
+.status-online::before,
+.badge-online::before,
+.operacao-status::before{
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#16d992;
+    box-shadow:0 0 10px rgba(22,217,146,.7);
+}

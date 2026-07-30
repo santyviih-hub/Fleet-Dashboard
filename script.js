@@ -388,45 +388,34 @@ dados.forEach(item => {
 
 tbody.innerHTML = html;
 
-   tabela = new DataTable("#tabelaOperacao",{
+tabela = new DataTable("#tabelaOperacao", {
 
-    destroy:true,
+    destroy: true,
 
-    responsive:false,
-scrollX:true,
+    responsive: false,
 
-    autoWidth:false,
+    scrollX: false,
 
-    deferRender:true,
+    autoWidth: false,
 
-    pageLength:25,
+    deferRender: true,
 
-    order:[],
+    pageLength: 25,
 
-    language:{
+    order: [],
 
-        lengthMenu:"Mostrar _MENU_ resultados por página",
-
-        search:"Buscar",
-
-        searchPlaceholder:"Buscar AT, cidade, driver...",
-
-        info:"Mostrando _START_ a _END_ de _TOTAL_ registros",
-
-        zeroRecords:"Nenhum registro encontrado",
-
-        paginate:{
-
-            first:"«",
-
-            previous:"‹",
-
-            next:"›",
-
-            last:"»"
-
+    language: {
+        lengthMenu: "Mostrar _MENU_ resultados por página",
+        search: "Buscar",
+        searchPlaceholder: "Buscar AT, cidade, driver...",
+        info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        zeroRecords: "Nenhum registro encontrado",
+        paginate: {
+            first: "«",
+            previous: "‹",
+            next: "›",
+            last: "»"
         }
-
     }
 
 });
