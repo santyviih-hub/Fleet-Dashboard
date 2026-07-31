@@ -7416,7 +7416,7 @@ REMOVE O FUNDO CINZA DA TABELA
 .kpi-card:nth-of-type(1) h2,
 .kpi-card:nth-of-type(1) h3,
 .kpi-card:nth-of-type(1) .kpi-value{
-    color:#1f6fd8 !important; /* Verde */
+    color:#dee4eb !important; /* Verde */
 }
 
 /* 2 - Total ATS */
@@ -7424,7 +7424,7 @@ REMOVE O FUNDO CINZA DA TABELA
 .kpi-card:nth-of-type(2) h2,
 .kpi-card:nth-of-type(2) h3,
 .kpi-card:nth-of-type(2) .kpi-value{
-    color:#2e9d44 !important; /* Azul */
+    color:#dee4eb !important; /* Azul */
 }
 
 /* 3 - No Show */
@@ -7448,7 +7448,7 @@ REMOVE O FUNDO CINZA DA TABELA
 .kpi-card:nth-of-type(5) h2,
 .kpi-card:nth-of-type(5) h3,
 .kpi-card:nth-of-type(5) .kpi-value{
-    color:#d63a3a !important; /* Roxo */
+    color:#16d429 !important; /* Roxo */
 }
 
 /* 6 - Pacotes Expedidos */
@@ -7456,7 +7456,7 @@ REMOVE O FUNDO CINZA DA TABELA
 .kpi-card:nth-of-type(6) h2,
 .kpi-card:nth-of-type(6) h3,
 .kpi-card:nth-of-type(6) .kpi-value{
-    color:#2e9d44 !important;
+    color:#16d429 !important;
 }
 
 /* 7 - ATS no Piso */
@@ -7464,7 +7464,7 @@ REMOVE O FUNDO CINZA DA TABELA
 .kpi-card:nth-of-type(7) h2,
 .kpi-card:nth-of-type(7) h3,
 .kpi-card:nth-of-type(7) .kpi-value{
-    color:#1f6fd8 !important;
+    color:#ee2805 !important;
 }
 
 /* 8 - Pacotes no Piso */
@@ -7472,7 +7472,7 @@ REMOVE O FUNDO CINZA DA TABELA
 .kpi-card:nth-of-type(8) h2,
 .kpi-card:nth-of-type(8) h3,
 .kpi-card:nth-of-type(8) .kpi-value{
-    color:#d63a3a !important;
+    color:#ee2805 !important;
 }
 
 /* 9 - Sem Aderência */
@@ -9743,4 +9743,441 @@ RESPONSIVO
 
     }
 
+}
+.driver-status{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+}
+
+.status-label{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    font-size:12px;
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    white-space:nowrap;
+
+}
+
+.status-value{
+
+    font-size:38px;
+    font-weight:800;
+    line-height:1;
+
+    color:#fff;
+
+}
+
+/* CORES */
+
+.confirmado .status-label{
+    color:#FFD166;
+}
+
+.atraso .status-label{
+    color:#FF5E57;
+}
+
+.hub .status-label{
+    color:#2ECC71;
+}
+
+.pendente .status-label{
+    color:#FF3B30;
+}
+
+.novato .status-label{
+    color:#B57CFF;
+}
+
+.mensagem .status-label{
+    color:#8ED1FC;
+}
+
+.nao .status-label{
+    color:#E53935;
+}
+/* ===========================================
+   STATUS DRIVERS PREMIUM
+===========================================*/
+
+.status-drivers{
+    display:flex;
+    align-items:center;
+    gap:0;
+    background:#171b24;
+    border:1px solid rgba(255,140,0,.25);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.04);
+}
+
+/* Cabeçalho */
+
+.status-drivers .titulo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:180px;
+    padding:20px 24px;
+    background:#1b202b;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.status-drivers .titulo i{
+    width:46px;
+    height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff7a00,#ff9d2e);
+    color:#fff;
+    font-size:22px;
+    box-shadow:0 0 20px rgba(255,140,0,.45);
+}
+
+.status-drivers .titulo span{
+    color:#fff;
+    font-size:19px;
+    font-weight:700;
+}
+
+
+/* Cards */
+
+.driver-status{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    padding:18px 20px;
+    border-right:1px solid rgba(255,255,255,.08);
+    transition:.25s;
+}
+
+.driver-status:last-child{
+    border-right:none;
+}
+
+.driver-status:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.02);
+}
+
+
+/* Ícones */
+
+.driver-status i{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    color:#fff;
+}
+
+
+/* Texto */
+
+.driver-status .texto{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.driver-status h6{
+    margin:0;
+    color:#f4f4f4;
+    font-size:15px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.driver-status span{
+    font-size:26px;
+    font-weight:800;
+    line-height:1.1;
+}
+/* ==========================================================
+   STATUS DRIVERS PREMIUM
+========================================================== */
+
+.status-drivers{
+    display:flex;
+    align-items:center;
+    background:#171b24;
+    border:1px solid rgba(255,140,0,.25);
+    border-radius:18px;
+    overflow:hidden;
+    margin-top:18px;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.status-drivers .titulo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:18px 22px;
+    min-width:180px;
+    background:#1d222d;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.status-drivers .titulo i{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#ff7a00,#ff9d2e);
+    color:#fff;
+    font-size:20px;
+    box-shadow:0 0 20px rgba(255,140,0,.45);
+}
+
+.status-drivers .titulo span{
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+}
+
+.driver-status{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    padding:18px 10px;
+    border-right:1px solid rgba(255,255,255,.08);
+    transition:.25s;
+    position:relative;
+}
+
+.driver-status:last-child{
+    border-right:none;
+}
+
+.driver-status:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.03);
+}
+
+.driver-status i{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:18px;
+    flex-shrink:0;
+}
+
+.driver-status .texto{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.driver-status h6{
+    margin:0;
+    font-size:14px;
+    font-weight:700;
+    color:#f5f5f5;
+    text-transform:uppercase;
+    line-height:1.2;
+}
+
+.driver-status span{
+    font-size:40px;
+    font-weight:800;
+    line-height:1;
+    margin-top:4px;
+}
+
+/* ========= CORES ========= */
+
+.confirmado{
+    background:rgba(46,204,113,.08);
+}
+
+.confirmado i{
+    background:#39d353;
+    box-shadow:0 0 18px rgba(57,211,83,.45);
+}
+
+.confirmado span{
+    color:#63ff7d;
+    text-shadow:0 0 12px rgba(57,211,83,.45);
+}
+
+/* ATRASO */
+
+.atraso{
+    background:rgba(255,184,0,.08);
+}
+
+.atraso i{
+    background:#ffb300;
+    box-shadow:0 0 18px rgba(255,179,0,.45);
+}
+
+.atraso span{
+    color:#ffc533;
+    text-shadow:0 0 12px rgba(255,179,0,.45);
+}
+
+/* HUB */
+
+.hub{
+    background:rgba(52,152,255,.08);
+}
+
+.hub i{
+    background:#2d8cff;
+    box-shadow:0 0 18px rgba(45,140,255,.45);
+}
+
+.hub span{
+    color:#4aa0ff;
+    text-shadow:0 0 12px rgba(45,140,255,.45);
+}
+
+/* PENDENTE */
+
+.pendente{
+    background:rgba(154,89,255,.08);
+}
+
+.pendente i{
+    background:#944bff;
+    box-shadow:0 0 18px rgba(148,75,255,.45);
+}
+
+.pendente span{
+    color:#b682ff;
+    text-shadow:0 0 12px rgba(148,75,255,.45);
+}
+
+/* NOVATO */
+
+.novato{
+    background:rgba(0,210,255,.08);
+}
+
+.novato i{
+    background:#12d4ff;
+    box-shadow:0 0 18px rgba(18,212,255,.45);
+}
+
+.novato span{
+    color:#44e8ff;
+    text-shadow:0 0 12px rgba(18,212,255,.45);
+}
+
+/* MENSAGEM */
+
+.mensagem{
+    background:rgba(255,52,135,.08);
+}
+
+.mensagem i{
+    background:#ff2b86;
+    box-shadow:0 0 18px rgba(255,43,134,.45);
+}
+
+.mensagem span{
+    color:#ff4e9c;
+    text-shadow:0 0 12px rgba(255,43,134,.45);
+}
+/* ===== COMPACTAR STATUS DRIVERS ===== */
+
+.status-drivers{
+    border-radius:16px;
+}
+
+.status-drivers .titulo{
+    padding:12px 18px !important;
+    min-width:170px;
+}
+
+.status-drivers .titulo i{
+    width:38px !important;
+    height:38px !important;
+    font-size:16px !important;
+}
+
+.status-drivers .titulo span{
+    font-size:17px !important;
+}
+
+.driver-status{
+    padding:10px 12px !important;
+    gap:10px !important;
+    min-height:72px;
+}
+
+.driver-status i{
+    width:36px !important;
+    height:36px !important;
+    font-size:16px !important;
+}
+
+.driver-status h6{
+    font-size:12px !important;
+    line-height:1.1;
+    margin-bottom:2px;
+}
+
+.driver-status span{
+    font-size:18px !important;
+    margin-top:0 !important;
+}
+/* ===== STATUS COM ANGULO ===== */
+
+.driver-status{
+    clip-path:polygon(
+        12px 0,
+        calc(100% - 12px) 0,
+        100% 50%,
+        calc(100% - 12px) 100%,
+        12px 100%,
+        0 50%
+    );
+}
+
+.driver-status:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+.driver-status::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(255,255,255,.08);
+    clip-path:inherit;
+    pointer-events:none;
 }

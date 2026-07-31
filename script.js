@@ -92,6 +92,7 @@ async function buscarDados() {
 
     const dados = await resposta.json();
 
+
     dadosOriginais = dados.map(item => ({
 
         // DADOS DA OPERAÇÃO
@@ -103,6 +104,7 @@ async function buscarDados() {
         driver: item.driver ?? "",
         janela: item.janela ?? "",
         status: item.status ?? "",
+        statusDriver: item["statusDriver"] ?? "",
 
         // INDICADORES
         pacotes: Number(item.pacotes || 0),
@@ -804,41 +806,64 @@ document.getElementById("kpiSprPM").textContent = sprPM;
 
 function atualizarResumoATS(dados){
 
-    const am = dados.filter(r => r.janela === "AM").length;
+    const contador = {
+        confirmado:0,
+        atraso:0,
+        hub:0,
+        pendente:0,
+        novato:0,
+        mensagem:0,
+        naoVai:0
+    };
 
-    const pm = dados.filter(r => r.janela === "PM").length;
+    dados.forEach(item=>{
 
-    const noShow = dados.filter(r => r.janela === "NO SHOW").length;
+        const status = String(item.statusDriver || "")
+            .trim()
+            .toUpperCase();
 
-    const atribuidas = dados.filter(r => {
+        switch(status){
 
-        const agencia = (r.agencia || "").toUpperCase();
+            case "CONFIRMADO":
+                contador.confirmado++;
+                break;
 
-        return [
-            "SPXOWNFLEET",
-            "LC TRANSPORTES",
-            "ELOLOGISTICA",
-            "OPTIMIZE",
-            "REVERSÃO",
-            "SUCESSO",
-             "DELUNA"
-        ].includes(agencia);
+            case "VAI ATRASAR MAIS QUE UMA HORA":
+                contador.atraso++;
+                break;
 
-    }).length;
+            case "NO HUB":
+                contador.hub++;
+                break;
 
-    const expedidas = dados.filter(r => {
+            case "PENDENTE DE CONFIRMAÇÃO":
+                contador.pendente++;
+                break;
 
-        const status = (r.status || "").toUpperCase();
+            case "NOVATO":
+                contador.novato++;
+                break;
 
-        return status === "ASSIGNED" || status === "COMPLETE";
+            case "MENSAGEM ENVIADA":
+                contador.mensagem++;
+                break;
 
-    }).length;
+            case "NÃO VAI COMPARECER":
+            case "NAO VAI COMPARECER":
+                contador.naoVai++;
+                break;
 
-    atualizarElemento("resumoAM", am);
-    atualizarElemento("resumoPM", pm);
-    atualizarElemento("resumoNS", noShow);
-    atualizarElemento("resumoATR", atribuidas);
-    atualizarElemento("resumoEXP", expedidas);
+        }
+
+    });
+
+    document.getElementById("driverConfirmado").textContent = contador.confirmado;
+    document.getElementById("driverAtraso").textContent = contador.atraso;
+    document.getElementById("driverHubStatus").textContent = contador.hub;
+    document.getElementById("driverPendente").textContent = contador.pendente;
+    document.getElementById("driverNovato").textContent = contador.novato;
+    document.getElementById("driverMensagem").textContent = contador.mensagem;
+    document.getElementById("driverNaoVai").textContent = contador.naoVai;
 
 }
 

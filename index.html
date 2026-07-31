@@ -325,37 +325,89 @@ DASHBOARD
 
         <div class="ats-summary">
 
-            <div class="summary-title">
-                <i class="bi bi-bar-chart-fill"></i>
-                <span>Resumo ATS</span>
-            </div>
+    <div class="summary-title">
+        <i class="bi bi-people-fill"></i>
+        <span>Status Drivers</span>
+    </div>
 
-            <div class="summary-item am">
-                <strong>AM</strong>
-                <span id="resumoAM">0</span>
-            </div>
+    <div class="summary-item">
+        <div class="driver-status confirmado">
+            <span class="status-label">
+                <i class="bi bi-check-circle-fill"></i>
+                CONFIRMADO
+            </span>
 
-            <div class="summary-item pm">
-                <strong>PM</strong>
-                <span id="resumoPM">0</span>
-            </div>
-
-            <div class="summary-item ns">
-                <strong>No Show</strong>
-                <span id="resumoNS">0</span>
-            </div>
-
-            <div class="summary-item atr">
-                <strong>Atribuídas</strong>
-                <span id="resumoATR">0</span>
-            </div>
-
-            <div class="summary-item exp">
-                <strong>Expedidas</strong>
-                <span id="resumoEXP">0</span>
-            </div>
-
+            <span class="status-value" id="driverConfirmado">0</span>
         </div>
+    </div>
+
+    <div class="summary-item">
+        <div class="driver-status atraso">
+            <span class="status-label">
+                <i class="bi bi-clock-fill"></i>
+                VAI ATRASAR MAIS QUE UMA HORA
+            </span>
+
+            <span class="status-value" id="driverAtraso">0</span>
+        </div>
+    </div>
+
+    <div class="summary-item">
+        <div class="driver-status hub">
+            <span class="status-label">
+                <i class="bi bi-house-fill"></i>
+                NO HUB
+            </span>
+
+            <span class="status-value" id="driverHubStatus">0</span>
+        </div>
+    </div>
+
+    <div class="summary-item">
+        <div class="driver-status pendente">
+            <span class="status-label">
+                <i class="bi bi-exclamation-circle-fill"></i>
+                PENDENTE DE CONFIRMAÇÃO
+            </span>
+
+            <span class="status-value" id="driverPendente">0</span>
+        </div>
+    </div>
+
+    <div class="summary-item">
+        <div class="driver-status novato">
+            <span class="status-label">
+                <i class="bi bi-person-fill"></i>
+                NOVATO
+            </span>
+
+            <span class="status-value" id="driverNovato">0</span>
+        </div>
+    </div>
+
+    <div class="summary-item">
+        <div class="driver-status mensagem">
+            <span class="status-label">
+                <i class="bi bi-chat-left-text-fill"></i>
+                MENSAGEM ENVIADA
+            </span>
+
+            <span class="status-value" id="driverMensagem">0</span>
+        </div>
+    </div>
+
+    <div class="summary-item">
+        <div class="driver-status nao">
+            <span class="status-label">
+                <i class="bi bi-x-circle-fill"></i>
+                NÃO VAI COMPARECER
+            </span>
+
+            <span class="status-value" id="driverNaoVai">0</span>
+        </div>
+    </div>
+
+</div>
 
     </section>
 
