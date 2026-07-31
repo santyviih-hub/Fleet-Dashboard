@@ -1084,13 +1084,22 @@ function criarMultiSelect() {
 
         if (el && !el.tomselect) {
 
-            new TomSelect(el, {
-                plugins: ["remove_button"],
-                maxItems: null,
-                hideSelected: true,
-                closeAfterSelect: false,
-                placeholder: "Selecione..."
-            });
+           new TomSelect(el, {
+    plugins: {
+        remove_button: {},
+        clear_button: {}
+    },
+
+    maxItems: null,
+    hideSelected: true,
+    closeAfterSelect: false,
+
+    placeholder: "Selecione...",
+
+    maxOptions: 500,
+
+    maxItemsShown: 1
+});
 
         }
 

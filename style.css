@@ -973,7 +973,7 @@ PAINEL LATERAL DE ALERTAS
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 
-    overflow: hidden;
+    overflow: visible !important;
 }
 
 .painel-alertas.ativo{
@@ -5127,7 +5127,7 @@ FILTRO - CORREÇÃO DEFINITIVA
 
     border-radius:10px !important;
 
-    background:#eef2f7 !important;
+    background:#327bd3 !important;
 
 }
 /* ===================================
@@ -10180,4 +10180,202 @@ RESPONSIVO
     border:1px solid rgba(255,255,255,.08);
     clip-path:inherit;
     pointer-events:none;
+}
+/* ==========================================
+   CORREÇÃO DEFINITIVA DO TOM SELECT
+========================================== */
+
+/* Os filtros ficam acima de qualquer card */
+.filter-card,
+.filter-grid,
+.filter-item{
+    position:relative !important;
+    overflow:visible !important;
+    z-index:2000;
+}
+
+/* Cada Tom Select vira a referência do menu */
+.ts-wrapper{
+    position:relative !important;
+    overflow:visible !important;
+    z-index:3000 !important;
+}
+
+/* Campo */
+.ts-control{
+    position:relative;
+    z-index:3001;
+}
+
+/* Lista aberta */
+.ts-dropdown{
+    position:absolute !important;
+    top:100% !important;
+    left:0 !important;
+    right:0 !important;
+
+    z-index:999999 !important;
+
+    margin-top:6px;
+
+    border-radius:14px !important;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.20);
+}
+
+/* Scroll interno */
+.ts-dropdown-content{
+    max-height:300px !important;
+    overflow-y:auto !important;
+}
+
+/* A tabela fica atrás */
+.table-card,
+.dataTables_wrapper,
+.table-responsive{
+    position:relative;
+    z-index:1 !important;
+}
+/* ==========================================
+   TOM SELECT - PESQUISA DENTRO DO CAMPO
+========================================== */
+
+.ts-wrapper.multi .ts-control{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px;
+    min-height:48px;
+    padding:6px 10px;
+}
+
+.ts-wrapper.multi .ts-control > input{
+    order:999;
+    flex:1;
+    min-width:120px;
+    margin:0 !important;
+    padding:4px 0 !important;
+    background:transparent;
+    color:#fff;
+}
+
+.ts-wrapper.multi .ts-dropdown{
+    margin-top:4px;
+}
+
+.ts-wrapper.multi.has-items .ts-control > input{
+    display:block !important;
+}
+/* ==========================================
+   TOM SELECT - PESQUISA DENTRO DO CAMPO
+========================================== */
+
+.ts-wrapper.multi .ts-control{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px;
+    min-height:48px;
+    padding:6px 10px;
+}
+
+.ts-wrapper.multi .ts-control > input{
+    order:999;
+    flex:1;
+    min-width:120px;
+    margin:0 !important;
+    padding:4px 0 !important;
+    background:transparent;
+    color:#fff;
+}
+
+.ts-wrapper.multi .ts-dropdown{
+    margin-top:4px;
+}
+
+.ts-wrapper.multi.has-items .ts-control > input{
+    display:block !important;
+}
+/* ==========================================
+   CORREÇÃO DO TOM SELECT MULTI
+========================================== */
+
+.ts-wrapper.multi .ts-control{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:flex-start !important;
+
+    min-height:48px !important;
+    height:auto !important;
+
+    padding:6px 8px !important;
+
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+
+    max-height:120px;
+}
+
+.ts-wrapper.multi .item{
+    margin:3px !important;
+}
+
+.ts-wrapper.multi .ts-control > input{
+    display:inline-block !important;
+    flex:1 0 120px;
+    min-width:120px;
+    margin:3px !important;
+}
+
+.ts-wrapper.multi .ts-dropdown{
+    margin-top:4px !important;
+    z-index:99999 !important;
+}
+/* Mostrar somente o primeiro item */
+
+.ts-wrapper.multi .item:nth-child(n+2){
+    display:none !important;
+}
+
+/* Placeholder sempre visível */
+
+.ts-wrapper.multi .ts-control > input{
+    display:inline-block !important;
+    flex:1;
+    min-width:90px;
+}
+/* ==========================================
+   TOM SELECT - INPUT AO LADO DO CHIP
+========================================== */
+
+.ts-wrapper.multi .ts-control{
+    display:flex !important;
+    align-items:center !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    min-height:46px !important;
+}
+
+.ts-wrapper.multi .item{
+    flex-shrink:0;
+    margin-right:8px !important;
+}
+
+.ts-wrapper.multi .ts-control > input{
+    flex:1;
+    min-width:120px !important;
+    width:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    background:transparent;
+}
+
+/* Esconde a barra horizontal */
+.ts-wrapper.multi .ts-control::-webkit-scrollbar{
+    display:none;
 }
