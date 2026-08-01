@@ -92,7 +92,6 @@ async function buscarDados() {
 
     const dados = await resposta.json();
 
-
     dadosOriginais = dados.map(item => ({
 
         // DADOS DA OPERAÇÃO
@@ -104,7 +103,7 @@ async function buscarDados() {
         driver: item.driver ?? "",
         janela: item.janela ?? "",
         status: item.status ?? "",
-        statusDriver: item["statusDriver"] ?? "",
+        statusDriver: item.statusDriver ?? "",
 
         // INDICADORES
         pacotes: Number(item.pacotes || 0),
@@ -114,10 +113,11 @@ async function buscarDados() {
         dataOriginal: item.idade,
         idade: calcularDias(item.idade),
 
-        // PAINEL OPERACIONAL
+        // PAINEL
         inicioExpedicao: item.inicioExpedicao ?? "--:--",
         driversHub: Number(item.driversHub || 0),
-        bancadas: Number(item.bancadas || 0)
+        bancadas: Number(item.bancadas || 0),
+        biparamUmaRota: Number(item.biparamUmaRota || 0)
 
     }));
 
@@ -1137,6 +1137,9 @@ function atualizarPainelOperacional(dados) {
 
     document.getElementById("bancadas").textContent =
         dados[0].bancadas || 0;
+
+    document.getElementById("biparamUmaRota").textContent =
+        dados[0].biparamUmaRota || 0;
 
 }
 
