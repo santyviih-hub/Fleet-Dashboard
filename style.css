@@ -10486,3 +10486,22 @@ RESPONSIVO
     font-size:12px;
     font-weight:700;
 }
+/* Aproxima o número do texto */
+
+.biparam-info{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:6px !important;   /* distância entre o texto e o número */
+}
+
+.biparam-info strong{
+    margin-left:0 !important;
+}
+/* Número do Biparam */
+
+.biparam-info strong{
+    font-size:13px !important;
+    font-weight:600 !important;
+    color:#2EEA3A !important; /* cinza claro */
+}
