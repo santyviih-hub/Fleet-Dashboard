@@ -503,8 +503,8 @@ CONTROLE FIFO
 
 .status-grid{
     display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:16px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
 }
 
 /* CARD */
@@ -10504,4 +10504,50 @@ RESPONSIVO
     font-size:13px !important;
     font-weight:600 !important;
     color:#2EEA3A !important; /* cinza claro */
+}
+/* ==========================================
+   8 CARDS NA MESMA LINHA
+========================================== */
+
+.status-grid{
+    display:grid !important;
+    grid-template-columns:repeat(8,minmax(0,1fr)) !important;
+    gap:12px !important;
+}
+
+.status-card{
+    min-width:0 !important;
+}
+/*=====================================
+      ÍCONES SEM FUNDO
+======================================*/
+
+.status-card > i{
+
+    width:auto !important;
+    height:auto !important;
+
+    background:none !important;
+
+    border:none !important;
+
+    box-shadow:none !important;
+
+    border-radius:0 !important;
+
+    padding:0 !important;
+
+    margin-right:18px;
+
+    color:#ff8a1d !important;
+
+    font-size:34px !important;
+
+    display:block !important;
+
+    flex-shrink:0;
+
+    text-shadow:
+        0 0 8px rgba(255,138,29,.25);
+
 }
