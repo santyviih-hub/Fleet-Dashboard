@@ -120,7 +120,7 @@ async function buscarDados() {
         biparamUmaRota: Number(item.biparamUmaRota || 0)
 
     }));
-
+   atualizarSidebar();
 }
 
 //------------------------------
@@ -1677,3 +1677,18 @@ btnPM.addEventListener("click", () => {
     btnPM.classList.add("ativo");
 
 });
+function atualizarSidebar(){
+
+    const agora = new Date();
+
+    const texto =
+        agora.toLocaleDateString("pt-BR") +
+        " " +
+        agora.toLocaleTimeString("pt-BR",{
+            hour:"2-digit",
+            minute:"2-digit"
+        });
+
+    document.getElementById("ultimaAtualizacaoSidebar").textContent = texto;
+
+}

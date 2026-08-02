@@ -10551,3 +10551,419 @@ RESPONSIVO
         0 0 8px rgba(255,138,29,.25);
 
 }
+/* =====================================================
+   HEADER - TÍTULO ULTRA COMPACTO
+===================================================== */
+
+.top-header h1{
+    font-size:18px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    letter-spacing:0 !important;
+    margin:0 !important;
+}
+/* =====================================================
+   CARDS PRINCIPAIS - AUMENTAR ALTURA
+   (COLAR NO FINAL DO CSS)
+===================================================== */
+
+.kpi-card,
+.card-kpi,
+.operational-card,
+.metric-card{
+    min-height:120px !important;
+    padding:22px 22px !important;
+}
+
+/* Ícone */
+
+.kpi-card .icon,
+.card-kpi .icon,
+.operational-card .icon,
+.metric-card .icon{
+    width:56px !important;
+    height:56px !important;
+    font-size:24px !important;
+}
+
+/* Valor principal */
+
+.kpi-card .valor,
+.card-kpi .valor,
+.operational-card .valor,
+.metric-card .valor{
+    font-size:34px !important;
+    line-height:1 !important;
+}
+
+/* AM / PM */
+
+.kpi-card .detalhes,
+.card-kpi .detalhes,
+.operational-card .detalhes,
+.metric-card .detalhes{
+    margin-top:10px !important;
+}
+/*==================================================
+DASHBOARD MAIS ALTO
+COLE NO FINAL DO CSS
+==================================================*/
+
+/* Área dos indicadores */
+.kpi-grid{
+    gap:18px !important;
+    margin-bottom:22px !important;
+}
+
+/* Cards principais */
+.kpi-card{
+
+    min-height:135px !important;
+    height:135px !important;
+
+    padding:24px 22px !important;
+
+    display:flex !important;
+    align-items:center !important;
+
+}
+
+/* Ícone */
+.kpi-card i{
+
+    width:58px !important;
+    height:58px !important;
+
+    font-size:26px !important;
+
+}
+
+/* Conteúdo */
+.kpi-content{
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+
+}
+
+/* Título */
+.kpi-title{
+
+    font-size:18px !important;
+
+    margin-bottom:8px !important;
+
+}
+
+/* Número */
+.kpi-card h2{
+
+    font-size:54px !important;
+
+    line-height:1 !important;
+
+    margin-bottom:12px !important;
+
+}
+
+/* AM / PM */
+.card-turnos{
+
+    margin-top:6px !important;
+
+    font-size:15px !important;
+
+    gap:16px !important;
+
+}
+/* ==================================================
+   PRIMEIRA TELA PREMIUM
+================================================== */
+
+.kpi-card{
+    min-height:150px !important;
+    height:150px !important;
+}
+
+.ats-summary{
+    min-height:74px !important;
+    height:74px !important;
+}
+
+.status-card{
+    min-height:92px !important;
+    height:92px !important;
+}
+
+.filter-card{
+    min-height:105px !important;
+    padding:28px !important;
+}
+
+/* empurra a tabela para a próxima rolagem */
+
+.table-card{
+
+    margin-top:220px !important;
+
+}
+/*====================================================
+ KPI OPERACIONAL - VERSÃO PREMIUM
+ COLE NO FINAL DO CSS
+====================================================*/
+
+/* Grid */
+
+.kpi-grid{
+    gap:18px !important;
+    margin-bottom:22px !important;
+}
+
+/* Cards */
+
+.kpi-card{
+
+    min-height:160px !important;
+    height:160px !important;
+
+    padding:26px 24px !important;
+
+    display:flex !important;
+    align-items:center !important;
+
+    border-radius:22px !important;
+
+}
+
+/* Ícone */
+
+.kpi-card > i{
+
+    width:62px !important;
+    height:62px !important;
+
+    min-width:62px !important;
+
+    font-size:28px !important;
+
+    margin-right:18px !important;
+
+}
+
+/* Conteúdo */
+
+.kpi-card > div,
+.kpi-content{
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+
+    height:100% !important;
+
+}
+
+/* Título */
+
+.kpi-card span,
+.kpi-title{
+
+    font-size:15px !important;
+
+    font-weight:600 !important;
+
+    margin-bottom:8px !important;
+
+}
+
+/* Número */
+
+.kpi-card h2{
+
+    font-size:58px !important;
+
+    line-height:1 !important;
+
+    margin:4px 0 12px 0 !important;
+
+    font-weight:700 !important;
+
+}
+
+/* Linha inferior */
+
+.card-turnos{
+
+    margin-top:auto !important;
+
+    padding-top:10px !important;
+
+    font-size:14px !important;
+
+    display:flex !important;
+
+    gap:18px !important;
+
+}
+/*====================================================
+   KPI OPERACIONAL - CARDS MAIS ALTOS
+   COLE NO FINAL DO CSS
+====================================================*/
+
+.kpi-card{
+
+    min-height:180px !important;
+    height:180px !important;
+
+    padding:30px 26px !important;
+
+    display:flex !important;
+    align-items:center !important;
+
+    border-radius:22px !important;
+
+}
+
+/* Ícone */
+
+.kpi-card .kpi-icon{
+
+    width:66px !important;
+    height:66px !important;
+
+    min-width:66px !important;
+
+    font-size:30px !important;
+
+    margin-right:22px !important;
+
+}
+
+/* Conteúdo */
+
+.kpi-card .kpi-content{
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+
+    height:100% !important;
+
+}
+
+/* Título */
+
+.kpi-card .kpi-title{
+
+    font-size:17px !important;
+
+    margin-bottom:10px !important;
+
+}
+
+/* Valor Principal */
+
+.kpi-card .kpi-value{
+
+    font-size:58px !important;
+
+    line-height:1 !important;
+
+    margin:6px 0 14px 0 !important;
+
+    font-weight:700 !important;
+
+}
+
+/* Linha AM / PM */
+
+.kpi-card .kpi-footer{
+
+    margin-top:auto !important;
+
+    font-size:15px !important;
+
+    gap:18px !important;
+
+}
+/* =====================================================
+   APROXIMAR FILTROS DA TABELA
+   (COLAR NO FINAL DO CSS)
+===================================================== */
+
+/* Container dos filtros */
+.filter-card{
+    margin-bottom: 18px !important;
+    padding-bottom: 18px !important;
+}
+
+/* Container da tabela */
+.table-card{
+    margin-top: 0 !important;
+    padding-top: 16px !important;
+}
+
+/* Remove espaço vazio entre os dois */
+.filter-card + .table-card{
+    margin-top: 0 !important;
+}
+/* =====================================================
+   REDUZ ESPAÇO ENTRE FILTROS E TABELA
+===================================================== */
+
+.dashboard-content{
+    gap: 16px !important;
+}
+
+.main-content{
+    gap: 16px !important;
+}
+
+.section{
+    margin-bottom: 16px !important;
+}
+/* ===== Última atualização Sidebar ===== */
+
+.sidebar{
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar ul{
+    flex:1;
+}
+
+.sidebar-update{
+    margin:18px;
+    margin-top:auto;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.02);
+}
+
+.update-title{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    font-size:11px;
+    color:#9ca3af;
+}
+
+.update-time{
+    display:block;
+
+    margin-top:6px;
+
+    color:#ff8a1d;
+
+    font-size:18px;
+
+    font-weight:700;
+}
