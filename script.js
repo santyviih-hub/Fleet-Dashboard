@@ -580,7 +580,8 @@ let totalRotasPM = 0;
         "OPTIMIZE",
         "REVERSÃO",
         "SUCESSO",
-        "DELUNA"
+        "DELUNA",
+        "BOX"
         
     ]);
 
