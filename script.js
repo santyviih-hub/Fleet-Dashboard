@@ -106,8 +106,9 @@ async function buscarDados() {
         statusDriver: item.statusDriver ?? "",
 
         // INDICADORES
-        pacotes: Number(item.pacotes || 0),
-        spr: Number(item.spr || 0),
+        volumeTotal: Number(item.volumeTotal || 0),
+pacotes: Number(item.pacotes || 0),
+spr: Number(item.spr || 0),
 
         // DATA
         dataOriginal: item.idade,
@@ -595,25 +596,19 @@ let totalRotasPM = 0;
         const status = String(r.status).trim().toUpperCase();
         const agencia = String(r.agencia).trim().toUpperCase();
         const pacotes = Number(r.pacotes || 0);
-        // Acumula SPR por turno
-if (janela === "AM" || janela === "NO SHOW") {
-    totalPacotesAM += pacotes;
-    totalRotasAM++;
-} else if (janela === "PM") {
-    totalPacotesPM += pacotes;
-    totalRotasPM++;
-}
+const volume = Number(r.volumeTotal || 0);
 
-        // Volume Total
-volumeTotal += pacotes;
+// Volume Total = COLUNA G (SPR ROUTING)
+volumeTotal += volume;
 
 if (janela === "AM" || janela === "NO SHOW") {
-    volumeAM += pacotes;
+    volumeAM += volume;
 }
 
 if (janela === "PM") {
-    volumePM += pacotes;
+    volumePM += volume;
 }
+
 
         // Janelas
        if (janela === "AM") am++;
