@@ -691,13 +691,15 @@ if (agenciasAtribuidas.has(agencia)) {
     const spr = atsExpedidas > 0
         ? (pacotesExpedidos / atsExpedidas).toFixed(2)
         : "0.00";
-const sprAM = totalRotasAM > 0
-    ? (totalPacotesAM / totalRotasAM).toFixed(2)
+
+const sprAM = am > 0
+    ? (volumeAM / am).toFixed(2)
     : "0.00";
 
-const sprPM = totalRotasPM > 0
-    ? (totalPacotesPM / totalRotasPM).toFixed(2)
+const sprPM = pm > 0
+    ? (volumePM / pm).toFixed(2)
     : "0.00";
+
     // ==========================
     // ATUALIZA OS CARDS
     // ==========================
