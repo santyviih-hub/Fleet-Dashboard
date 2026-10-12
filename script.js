@@ -30,26 +30,29 @@ let dadosFiltrados = [];
 document.addEventListener("DOMContentLoaded", iniciarDashboard);
 
 async function iniciarDashboard() {
-
     configurarEventos();
-
-    await buscarDados();
-
-    preencherFiltros();
-
-    dadosFiltrados = [...dadosOriginais];
-
-    atualizarTabela(dadosFiltrados);
-    atualizarKPIs(dadosFiltrados);
-    atualizarResumoATS(dadosFiltrados);
-    atualizarFIFO(dadosFiltrados);
-    atualizarPainelOperacional(dadosFiltrados);
-    atualizarHorario();
-
     configurarNotificacoes();
 
-    setInterval(atualizarDashboard, 60000);
+    try {
+        await buscarDados();
+        preencherFiltros();
+        dadosFiltrados = [...dadosOriginais];
+        renderizarPainel(dadosFiltrados);
+    } catch (erro) {
+        console.error("Erro ao iniciar dashboard:", erro);
+    } finally {
+        atualizarHorario();
+        // Mantém a atualização automática mesmo se a primeira consulta falhar.
+        setInterval(atualizarDashboard, 60000);
+    }
+} 
 
+function renderizarPainel(dados) {
+    atualizarTabela(dados);
+    atualizarKPIs(dados);
+    atualizarResumoATS(dados);
+    atualizarFIFO(dados);
+    atualizarPainelOperacional(dados);
 }
 
 
@@ -63,11 +66,8 @@ async function atualizarDashboard() {
 
         await buscarDados();
 
-        // NÃO recria os filtros
+        // Reaplica os filtros atuais e atualiza todos os indicadores/tabela.
         aplicarFiltros();
-
-        atualizarPainelOperacional(dadosOriginais);
-
         atualizarHorario();
 
     } catch (erro) {
@@ -91,6 +91,9 @@ async function buscarDados() {
     }
 
     const dados = await resposta.json();
+    if (!Array.isArray(dados)) {
+        throw new Error("A API não retornou uma lista de registros.");
+    }
 
     dadosOriginais = dados.map(item => ({
 
@@ -207,11 +210,16 @@ function atualizarHorario() {
 //------------------------------
 
 function preencherFiltros(){
+    const filtroCorredor = document.getElementById("filtroCorredor");
 
-    // Se já existe TomSelect, não recria
-    if(document.getElementById("filtroCorredor").tomselect){
+    // Se o filtro não existe no HTML, não interrompe o carregamento do painel.
+    if (!filtroCorredor) {
+        console.warn("Filtro filtroCorredor não encontrado; preenchimento de filtros ignorado.");
         return;
     }
+
+    // Se já existe TomSelect, não recria.
+    if (filtroCorredor.tomselect) return;
 
     preencherSelect("filtroCorredor","corredor");
     preencherSelect("filtroCidade","cidade");
@@ -265,46 +273,33 @@ function preencherSelect(id, campo) {
 //------------------------------
 
 function aplicarFiltros() {
+    const obterValores = id => {
+        const el = document.getElementById(id);
+        if (!el) return [];
+        if (el.tomselect) {
+            const valor = el.tomselect.getValue();
+            return Array.isArray(valor) ? valor : (valor ? [valor] : []);
+        }
+        return el.value ? [el.value] : [];
+    };
 
-  const cidade =
-document.getElementById("filtroCidade").tomselect.getValue();
+    const cidade = obterValores("filtroCidade");
+    const corredor = obterValores("filtroCorredor");
+    const agencia = obterValores("filtroAgencia");
+    const status = obterValores("filtroStatus");
+    const janela = obterValores("filtroJanela");
+    const idade = obterValores("filtroIdade");
 
-const corredor =
-document.getElementById("filtroCorredor").tomselect.getValue();
+    dadosFiltrados = dadosOriginais.filter(item =>
+        (corredor.length === 0 || corredor.includes(item.corredor)) &&
+        (cidade.length === 0 || cidade.includes(item.cidade)) &&
+        (agencia.length === 0 || agencia.includes(item.agencia)) &&
+        (status.length === 0 || status.includes(item.status)) &&
+        (janela.length === 0 || janela.includes(item.janela)) &&
+        (idade.length === 0 || idade.includes(item.idade))
+    );
 
-const agencia =
-document.getElementById("filtroAgencia").tomselect.getValue();
-
-const status =
-document.getElementById("filtroStatus").tomselect.getValue();
-
-const janela =
-document.getElementById("filtroJanela").tomselect.getValue();
-
-const idade =
-document.getElementById("filtroIdade").tomselect.getValue();
-
-    dadosFiltrados = dadosOriginais.filter(item => {
-
-        return (
-    (corredor.length===0 || corredor.includes(item.corredor)) &&
-    (cidade.length===0 || cidade.includes(item.cidade)) &&
-    (agencia.length===0 || agencia.includes(item.agencia)) &&
-    (status.length===0 || status.includes(item.status)) &&
-    (janela.length===0 || janela.includes(item.janela)) &&
-    (idade.length===0 || idade.includes(item.idade))
-);
-
-    });
-
-    atualizarTabela(dadosFiltrados);
-
-    atualizarKPIs(dadosFiltrados);
-
-    atualizarResumoATS(dadosFiltrados);
-
-    atualizarFIFO(dadosFiltrados);
-
+    renderizarPainel(dadosFiltrados);
 }
 
 //------------------------------
@@ -324,12 +319,9 @@ function limparFiltros() {
     ].forEach(id => {
 
         const el = document.getElementById(id);
-
-        if (el.tomselect) {
-
-            el.tomselect.clear();
-
-        }
+        if (!el) return;
+        if (el.tomselect) el.tomselect.clear();
+        else el.value = "";
 
     });
 
@@ -350,6 +342,10 @@ function atualizarTabela(dados) {
     }
 
     const tbody = document.querySelector("#tabelaOperacao tbody");
+    if (!tbody) {
+        console.warn("Corpo da tabela #tabelaOperacao tbody não encontrado.");
+        return;
+    }
 
     tbody.innerHTML = "";
 
@@ -853,13 +849,15 @@ function atualizarResumoATS(dados){
 
     });
 
-    document.getElementById("driverConfirmado").textContent = contador.confirmado;
-    document.getElementById("driverAtraso").textContent = contador.atraso;
-    document.getElementById("driverHubStatus").textContent = contador.hub;
-    document.getElementById("driverPendente").textContent = contador.pendente;
-    document.getElementById("driverNovato").textContent = contador.novato;
-    document.getElementById("driverMensagem").textContent = contador.mensagem;
-    document.getElementById("driverNaoVai").textContent = contador.naoVai;
+    
+atualizarElemento("driverConfirmado", contador.confirmado);
+atualizarElemento("driverAtraso", contador.atraso);
+atualizarElemento("driverHubStatus", contador.hub);
+atualizarElemento("driverPendente", contador.pendente);
+atualizarElemento("driverNovato", contador.novato);
+atualizarElemento("driverMensagem", contador.mensagem);
+atualizarElemento("driverNaoVai", contador.naoVai);
+
 
 }
 
@@ -1066,6 +1064,10 @@ function contarDiasMaiorIgual(dados,dias){
 // =====================================
 
 function criarMultiSelect() {
+    if (typeof TomSelect === "undefined") {
+        console.warn("TomSelect não está carregado; usando filtros HTML nativos.");
+        return;
+    }
 
     [
         "filtroCorredor",
@@ -1122,51 +1124,44 @@ function calcularDias(data){
 
 }
 function atualizarPainelOperacional(dados) {
+    if (!dados || dados.length === 0) {
+        atualizarElemento("inicioExpedicao", "--:--");
+        atualizarElemento("driversHub", 0);
+        atualizarElemento("bancadas", 0);
+        atualizarElemento("biparamUmaRota", 0);
+        return;
+    }
 
-    if (dados.length === 0) return;
-
-    document.getElementById("inicioExpedicao").textContent =
-        dados[0].inicioExpedicao || "--:--";
-
-    document.getElementById("driversHub").textContent =
-        dados[0].driversHub || 0;
-
-    document.getElementById("bancadas").textContent =
-        dados[0].bancadas || 0;
-
-    document.getElementById("biparamUmaRota").textContent =
-        dados[0].biparamUmaRota || 0;
-
+    atualizarElemento("inicioExpedicao", dados[0].inicioExpedicao || "--:--");
+    atualizarElemento("driversHub", dados[0].driversHub || 0);
+    atualizarElemento("bancadas", dados[0].bancadas || 0);
+    // O card 1 ROTA foi removido do HTML; atualizarElemento ignora ID inexistente.
+    atualizarElemento("biparamUmaRota", dados[0].biparamUmaRota || 0);
 }
 
-function configurarNotificacoes(){
-
+function configurarNotificacoes() {
     const btn = document.getElementById("btnNotificacao");
     const painel = document.getElementById("painelAlertas");
     const overlay = document.getElementById("overlayAlerta");
     const fechar = document.getElementById("fecharAlertas");
 
-    function abrir(){
+    // Se algum componente não existir no HTML, ignora sem quebrar o painel.
+    if (!btn || !painel || !overlay || !fechar) return;
 
+    const abrir = () => {
         painel.classList.add("ativo");
         overlay.classList.add("ativo");
-
-    }
-
-    function fecharPainel(){
-
+    };
+    const fecharPainel = () => {
         painel.classList.remove("ativo");
         overlay.classList.remove("ativo");
-
-    }
+    };
 
     btn.onclick = abrir;
-
     fechar.onclick = fecharPainel;
-
     overlay.onclick = fecharPainel;
-
 }
+
 function atualizarAlertas(info) {
 
     const total = info.semAderencia + info.atsNoShow + info.atsPiso;
@@ -1176,7 +1171,8 @@ function atualizarAlertas(info) {
         minute: "2-digit"
     });
 
-    document.getElementById("listaAlertas").innerHTML = `
+    const lista = document.getElementById("listaAlertas");
+    if (lista) lista.innerHTML = `
 
         <div class="alerta-item">
 
@@ -1234,107 +1230,63 @@ function atualizarAlertas(info) {
 
         `;
 
-        document.getElementById("totalAlertas").textContent = total;
+    const totalEl = document.getElementById("totalAlertas");
+    if (totalEl) totalEl.textContent = total;
 
-document.getElementById("horaAtualizacaoAlertas").textContent = agora;
+    const horaEl = document.getElementById("horaAtualizacaoAlertas");
+    if (horaEl) horaEl.textContent = agora;
 
-    // Apenas mostra ou esconde a bolinha do sino
     const badge = document.getElementById("badgeAlerta");
-
-    badge.style.display = total > 0 ? "block" : "none";
+    if (badge) badge.style.display = total > 0 ? "block" : "none";
 }
-const btnDashboard = document.getElementById("btnDashboard");
-
-btnDashboard.addEventListener("click", function (e) {
-
-    e.preventDefault();
-
-    document.getElementById("vatPage").style.display = "none";
-
-    document.getElementById("dashboardPage").style.display = "block";
-
-});
 // ===============================
 // NAVEGAÇÃO ENTRE PÁGINAS
+// Os botões são opcionais: o dashboard funciona sem a lateral.
 // ===============================
 
 function mostrarPagina(idPagina) {
-
-    // Esconde todas as páginas
     document.querySelectorAll(".page").forEach(pagina => {
-        pagina.style.display = "none";
+        pagina.style.display = pagina.id === idPagina ? "block" : "none";
     });
 
-    // Mostra a página escolhida
-    document.getElementById(idPagina).style.display = "block";
-
-    // Remove o destaque de todos os menus
     document.querySelectorAll(".sidebar li").forEach(li => {
         li.classList.remove("active");
     });
 
-    // Destaca Dashboard
-    if (idPagina === "dashboardPage") {
-        document.getElementById("btnDashboard").parentElement.classList.add("active");
+    const mapaBotoes = {
+        dashboardPage: "btnDashboard",
+        vatPage: "btnVAT",
+        fstPage: "btnFST",
+        farolPage: "btnFarol"
+    };
+
+    const botao = document.getElementById(mapaBotoes[idPagina] || "");
+    if (botao && botao.parentElement) {
+        botao.parentElement.classList.add("active");
     }
-
-    // Destaca VAT
-    if (idPagina === "vatPage") {
-        document.getElementById("btnVAT").parentElement.classList.add("active");
-    }
-
-// Destaca First Tripz
-if (idPagina === "fstPage") {
-    document.getElementById("btnFST").parentElement.classList.add("active");
 }
 
-    // Destaca Farol
-if (idPagina === "farolPage") {
-    document.getElementById("btnFarol").parentElement.classList.add("active");
+function registrarCliqueSeguro(id, callback) {
+    const elemento = document.getElementById(id);
+    if (!elemento) return;
+    elemento.addEventListener("click", async function (e) {
+        e.preventDefault();
+        await callback();
+    });
 }
 
-}
-
-// Dashboard
-document.getElementById("btnDashboard").addEventListener("click", function (e) {
-
-    e.preventDefault();
-
-    mostrarPagina("dashboardPage");
-
-});
-
-// VAT
-document.getElementById("btnVAT").addEventListener("click", async function (e) {
-
-    e.preventDefault();
-
+registrarCliqueSeguro("btnDashboard", () => mostrarPagina("dashboardPage"));
+registrarCliqueSeguro("btnVAT", async () => {
     mostrarPagina("vatPage");
-
     await carregarVAT();
-
 });
-
-// FAROL
-document.getElementById("btnFarol").addEventListener("click", async function (e) {
-
-    e.preventDefault();
-
+registrarCliqueSeguro("btnFarol", async () => {
     mostrarPagina("farolPage");
-
     await carregarFarol();
-
 });
-
-// FIRST TRIPZ
-document.getElementById("btnFST").addEventListener("click", async function (e) {
-
-    e.preventDefault();
-
+registrarCliqueSeguro("btnFST", async () => {
     mostrarPagina("fstPage");
-
     await carregarFST();
-
 });
 
 async function carregarVAT() {
@@ -1435,8 +1387,8 @@ async function carregarFarol() {
         }
 
         dadosFarol = await resposta.json();
-        console.log(Object.keys(dadosFarol[0]));
-console.log(dadosFarol[1]["AT NO PISO"]);
+        if (!Array.isArray(dadosFarol)) dadosFarol = [];
+        if (dadosFarol.length) console.log("Dados Farol carregados:", Object.keys(dadosFarol[0]));
        // ==========================
 // FILTRA O DIA ANTERIOR
 // ==========================
@@ -1630,61 +1582,49 @@ function formatarHoraFarol(valor) {
 }
 // ===============================
 // FILTRO DOS CARDS DO FAROL
+// Os botões podem não existir se a página Farol não estiver montada.
 // ===============================
 
 const btnTodos = document.getElementById("btnTodos");
 const btnAM = document.getElementById("btnAM");
 const btnPM = document.getElementById("btnPM");
 
-btnTodos.addEventListener("click", () => {
-
+if (btnTodos) btnTodos.addEventListener("click", () => {
     atualizarCardsFarol(dadosFarol);
-
     btnTodos.classList.add("ativo");
-    btnAM.classList.remove("ativo");
-    btnPM.classList.remove("ativo");
-
+    if (btnAM) btnAM.classList.remove("ativo");
+    if (btnPM) btnPM.classList.remove("ativo");
 });
 
-btnAM.addEventListener("click", () => {
-
+if (btnAM) btnAM.addEventListener("click", () => {
     const dadosAM = dadosFarol.filter(item =>
         String(item.EXP || "").toUpperCase() === "AM"
     );
-
     atualizarCardsFarol(dadosAM);
-
-    btnTodos.classList.remove("ativo");
     btnAM.classList.add("ativo");
-    btnPM.classList.remove("ativo");
-
+    if (btnTodos) btnTodos.classList.remove("ativo");
+    if (btnPM) btnPM.classList.remove("ativo");
 });
 
-btnPM.addEventListener("click", () => {
-
+if (btnPM) btnPM.addEventListener("click", () => {
     const dadosPM = dadosFarol.filter(item =>
         String(item.EXP || "").toUpperCase() === "PM"
     );
-
     atualizarCardsFarol(dadosPM);
-
-    btnTodos.classList.remove("ativo");
-    btnAM.classList.remove("ativo");
     btnPM.classList.add("ativo");
-
+    if (btnTodos) btnTodos.classList.remove("ativo");
+    if (btnAM) btnAM.classList.remove("ativo");
 });
-function atualizarSidebar(){
+
+// Atualização da lateral removida: não bloqueia o dashboard.
+function atualizarSidebar() {
+    const elemento = document.getElementById("ultimaAtualizacaoSidebar");
+    if (!elemento) return;
 
     const agora = new Date();
-
-    const texto =
-        agora.toLocaleDateString("pt-BR") +
-        " " +
-        agora.toLocaleTimeString("pt-BR",{
-            hour:"2-digit",
-            minute:"2-digit"
+    elemento.textContent = agora.toLocaleDateString("pt-BR") + " " +
+        agora.toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit"
         });
-
-    document.getElementById("ultimaAtualizacaoSidebar").textContent = texto;
-
 }

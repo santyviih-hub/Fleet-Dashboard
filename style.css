@@ -10967,3 +10967,124 @@ COLE NO FINAL DO CSS
 
     font-weight:700;
 }
+
+/* ==========================================
+   CORREÇÃO DEFINITIVA - 7 CARDS FIFO
+========================================== */
+
+.status-grid {
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    align-items: stretch !important;
+}
+
+.status-grid > .status-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 82px !important;
+    min-height: 82px !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+}
+
+/* Evita que os textos estourem os cards */
+.status-grid .status-card .info,
+.status-grid .status-card .status-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.status-grid .status-card span {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+/* Telas menores */
+@media (max-width: 1100px) {
+    .status-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 650px) {
+    .status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* ===== PAINEL EM TELA CHEIA ===== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+/* Remove o espaço reservado para a lateral */
+.sidebar {
+    display: none !important;
+}
+
+/* Expande o conteúdo principal */
+.main {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+}
+
+/* Expande os contêineres internos */
+.content-layout,
+.content-left,
+.dashboard-section {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Indicadores ocupam toda a largura */
+.cards {
+    width: 100% !important;
+}
+
+/* Faixa dos sete indicadores secundários */
+.status-grid {
+    width: 100% !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+}
+
+/* Filtros e tabela */
+.filtros,
+.filters-container,
+.tabela,
+.table-container {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 900px) {
+    .status-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
